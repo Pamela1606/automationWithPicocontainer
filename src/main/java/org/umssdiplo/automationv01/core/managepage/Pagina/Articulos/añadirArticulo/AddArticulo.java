@@ -1,5 +1,6 @@
 package org.umssdiplo.automationv01.core.managepage.Pagina.Articulos.añadirArticulo;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
@@ -23,7 +24,7 @@ public class AddArticulo extends BasePage {
     @FindBy(xpath = "//*[@id=\"mat-option-0\"]")
     private WebElement elementTienda;
 
-    public void setElements() {
+    public void insertarValores() {
         String nombre = " Nuevo Tractor";
         String marca = " Nueva Marca";
         String capacidad = "0";
@@ -35,6 +36,7 @@ public class AddArticulo extends BasePage {
         CommonEvents.setInputField(elementPrecio, precio);
         CommonEvents.setInputField(elementDescripcion,descripcion);
         CommonEvents.jsClickElement(elementCategoria);
-        CommonEvents.jsClickElement(elementTienda);
+/*        By by = By.xpath("//JHFAKSHF"+ NOMBRE+"")
+        CommonEvents.clickElement(by);  */
     }
 }

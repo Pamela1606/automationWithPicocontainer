@@ -30,7 +30,7 @@ public class StepsDefinitionTiendaVirtual {
 
     @And("^'Aniadir Articulo'$")
     public void setAddArticulo(){
-        addArticulo.setElements();
+        addArticulo.insertarValores();
     }
 
 }
