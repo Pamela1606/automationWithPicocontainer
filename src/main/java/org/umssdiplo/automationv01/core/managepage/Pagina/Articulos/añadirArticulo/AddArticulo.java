@@ -36,7 +36,7 @@ public class AddArticulo extends BasePage {
         CommonEvents.setInputField(elementPrecio, precio);
         CommonEvents.setInputField(elementDescripcion,descripcion);
         CommonEvents.jsClickElement(elementCategoria);
-/*        By by = By.xpath("//JHFAKSHF"+ NOMBRE+"")
-        CommonEvents.clickElement(by);  */
+        By by = By.xpath("//*[@id=\"mat-option-2\"]/div");
+        CommonEvents.clickElement(by);
     }
 }
