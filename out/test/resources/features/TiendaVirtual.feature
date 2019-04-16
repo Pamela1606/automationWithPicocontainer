@@ -1,10 +1,14 @@
 
 Feature: Hacer una gestion de articulos
 
-Background: : Cargar pagina
-    Given 'Cargar pagina'
+  Background: : Cargar Pagina localhost:4200/
+    Given 'Cargar Pagina de "Inicio" '
 
-  Scenario: Gestion Articulos
-    Given 'Click articulos'
-    And 'Click Aniadir Articulo'
-    And 'Aniadir Articulo'
+
+  Scenario: click en la opcion de Articulos
+    Given redireccionar a la pagina '../articulos'
+
+  Scenario: Gestion de Articulos "Crear un nuevo articulos"
+    Given redireccionar a la pagina '../articulos'
+    And mostrar Formulario de articulos
+    And esperar Pop Up visible

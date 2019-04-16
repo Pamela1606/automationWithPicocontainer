@@ -117,4 +117,11 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriver().findElement(by).click();
     }
 
+    private static boolean listaEmpy(List<WebElement> list){
+        return null != list && list.size() > 0;
+    }
+
+    public static void waitWebElementVisible(WebElement containerDialog) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(containerDialog));
+    }
 }
