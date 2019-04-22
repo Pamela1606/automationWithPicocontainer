@@ -1,6 +1,7 @@
 package org.umssdiplo.automationv01.core.customwebdriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.umssdiplo.automationv01.core.utils.BrowserType;
 import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
@@ -54,4 +55,5 @@ public class ManageDriver {
     public void setExplicitTimeWait(int explicitTimeWait) {
         webDriverWait = new WebDriverWait(webDriver, explicitTimeWait);
     }
+
 }
