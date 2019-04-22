@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
 import javax.swing.*;
@@ -121,6 +122,11 @@ public class CommonEvents {
     public static void hoverOnElement(WebElement webElement){
         Actions actions = new Actions(ManageDriver.getInstance().getWebDriver());
         actions.moveToElement(webElement).perform();
+    }
+
+    public static void selectElement(WebElement webElement, String arg0){
+        Select drpList = new Select(webElement);
+        drpList.selectByVisibleText(arg0);
     }
 
 }

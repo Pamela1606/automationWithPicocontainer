@@ -1,4 +1,4 @@
-package org.umssdiplo.automationv01.core.managepage.POM_UsPUMA.PageShoes;
+package org.umssdiplo.automationv01.core.managepage.POM_Adidas.Hombre;
 
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 
