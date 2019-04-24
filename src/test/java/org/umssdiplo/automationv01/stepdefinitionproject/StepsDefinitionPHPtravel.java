@@ -106,12 +106,12 @@ public class StepsDefinitionPHPtravel {
         addRoutePage.selectAirlineDeparture(arg0);
     }
 
-    @And("^fill \"([^\"]*)\" Flights No Departure on Add Route Page$")
+    @And("^fill \"([^\"]*)\" Flights No Departure on Add Route page$")
     public void fillFlightsNoDepartureOnAddRoutePage(String arg0) throws Throwable {
         addRoutePage.fillFlightsNoDeparture(arg0);
 }
 
-    @And("^fill \"([^\"]*)\" Date Departure on Add Route Page$")
+    @And("^fill \"([^\"]*)\" Date Departure on Add Route page$")
     public void fillDateDepartureOnAddRoutePage(String arg0) throws Throwable {
         addRoutePage.fillDateDeparture(arg0);
     }
@@ -136,12 +136,12 @@ public class StepsDefinitionPHPtravel {
         addRoutePage.selectAirlineArrival(arg0);
     }
 
-    @And("^fill \"([^\"]*)\" Flights No Arrival on Add Route Page$")
+    @And("^fill \"([^\"]*)\" Flights No Arrival on Add Route page$")
     public void fillFlightsNoArrivalOnAddRoutePage(String arg0) throws Throwable {
         addRoutePage.fillFlightsNoArrival(arg0);
     }
 
-    @And("^fill \"([^\"]*)\" Date Arrival on Add Route Page$")
+    @And("^fill \"([^\"]*)\" Date Arrival on Add Route page$")
     public void fillDateArrivalOnAddRoutePage(String arg0) throws Throwable {
         addRoutePage.fillDateArrival(arg0);
     }
@@ -151,9 +151,14 @@ public class StepsDefinitionPHPtravel {
         addRoutePage.fillTimeArrival(arg0);
     }
 
-    @And("^fill \"([^\"]*)\" CheckOut Arrival on Add Route Page$")
+    @And("^fill \"([^\"]*)\" CheckOut Arrival on Add Route page$")
     public void fillCheckOutArrivalOnAddRoutePage(String arg0) throws Throwable {
         addRoutePage.fillCheckOutArrival(arg0);
+    }
+
+    @And("^Click On Submit on Add Route page$")
+    public void clickOnSubmitOnAddRoutePage() {
+        routesPage = addRoutePage.clickOnSubmit();
     }
 
 

@@ -25,16 +25,19 @@ Feature: Login
     And fill "60" Price Infant field on Add Route page
     And select "Adana Arpt" City Airport Departure on Add Route page
     And select "Rossiya Airlines" Airline Departure on Add Route page
-    And fill "843" Flights No Departure on Add Route Page
-    And fill "30/04/2019" Date Departure on Add Route Page
+    And fill "843" Flights No Departure on Add Route page
+    And fill "30/04/2019" Date Departure on Add Route page
     And fill "11:00:00" Time Departure on Add Route page
     And fill "11:30:00" CheckOut Departure on Add Route Page
     And select "Biggin Hill Airport" City Airport Arrival on Add Route page
     And select "Rossiya Airlines" Airline Arrival on Add Route page
-    And fill "843" Flights No Arrival on Add Route Page
-    And fill "30/04/2019" Date Arrival on Add Route Page
+    And fill "843" Flights No Arrival on Add Route page
+    And fill "30/04/2019" Date Arrival on Add Route page
     And fill "19:00:00" Time Arrival on Add Route page
-    And fill "19:30:0" CheckOut Arrival on Add Route Page
+    And fill "19:30:00" CheckOut Arrival on Add Route page
+    And Click On Submit on Add Route page
+
+
 
   #Option Tours
 

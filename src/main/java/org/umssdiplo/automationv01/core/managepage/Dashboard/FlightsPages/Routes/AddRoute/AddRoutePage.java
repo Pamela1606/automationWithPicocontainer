@@ -3,6 +3,7 @@ package org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Route
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class AddRoutePage extends BasePage {
@@ -79,12 +80,14 @@ public class AddRoutePage extends BasePage {
     @FindBy(css = ".date_class1")
     private WebElement fieldDateArrival;
 
-    @FindBy(css = "#template > th:nth-child(6) > input")
+    @FindBy(xpath = "(//tr[@id='template']/th[6]/input)[2]")
     private WebElement fieldTimeArrival;
 
-    @FindBy(xpath = "//*[@id=\"template\"]/th[7]/input")
+    @FindBy(xpath = "(//tr[@id='template']/th[7]/input)[2]")
     private WebElement fieldCheckOutArrival;
 
+    @FindBy(id = "add")
+    private WebElement submitButton;
 
     public AddRoutePage selectStatus(String status) {
         CommonEvents.chooseDropDownByTextVisible(selectStatus,status);
@@ -210,7 +213,11 @@ public class AddRoutePage extends BasePage {
 
     public AddRoutePage fillCheckOutArrival(String checkOutArrival) {
         CommonEvents.setInputField(fieldCheckOutArrival,checkOutArrival);
-        CommonEvents.pressEnterKey(fieldCheckOutArrival);
         return this;
+    }
+
+    public RoutesPage clickOnSubmit() {
+        CommonEvents.clickButton(submitButton);
+        return new RoutesPage();
     }
 }
