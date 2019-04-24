@@ -125,6 +125,11 @@ public class CommonEvents {
         selectField.selectByVisibleText(value);
     }
 
+    public static void chooseDropDownByValue(WebElement webElement, String value) {
+        Select selectField = new Select(webElement);
+        selectField.selectByValue(value);
+    }
+
     public static void waitWebElementClickable(WebElement webElement) {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
     }
