@@ -5,8 +5,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 
 public class CommonEvents {
@@ -123,5 +126,30 @@ public class CommonEvents {
       e.fillInStackTrace();
     }
   }
+
+    public static void chooseDropDownByTextVisible(WebElement webElement, String value) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        Select selectField = new Select(webElement);
+        selectField.selectByVisibleText(value);
+    }
+
+    public static void waitWebElementClickable(WebElement webElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public static void forceWait(int timeMilliSeconds) {
+        try {
+            //logger.info(FORCE_WAIT, timeMilliSeconds);
+            Thread.sleep(timeMilliSeconds);
+        } catch (InterruptedException e) {
+            StringWriter errors = new StringWriter();
+            e.printStackTrace(new PrintWriter(errors));
+            //logger.debug(Event.class.getSimpleName().concat("-noUseThisWait [method]- Exception Error:").concat(errors.toString()));
+        }
+    }
+
+    public static void waitWebElementIsVisible(WebElement webElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+    }
 
 }
