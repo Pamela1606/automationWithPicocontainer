@@ -79,6 +79,11 @@ public class StepsDefinitionPHPtravel {
         blogManager.checkAssert(datos);
     }
 
+    @And("^check \"([^\"]*)\" in secction Post into blogs$")
+    public void checkInSecctionPostIntoBlogs(String arg0) throws Throwable {
+        postPage.checkBlogmanagerTitle(arg0);
+    }
+
 
     // Option Hotels
 

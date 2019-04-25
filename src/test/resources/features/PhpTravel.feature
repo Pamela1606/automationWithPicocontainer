@@ -14,6 +14,13 @@ Feature: Login
       | POSTS | BLOG CATEGORIES| BLOG SETTINGS|
     And close Session on Dashboard page
 
+  @blog
+  Scenario: Check BLOG MANAGEMENT in Blogs page
+    And click on blog menu
+    And go to the 'Post' in blog page
+    And check "BLOG MANAGEMENT" in secction Post into blogs
+    And close Session on Dashboard page
+
 
 
   #Option Hotels

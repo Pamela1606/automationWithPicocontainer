@@ -22,6 +22,9 @@ public class PostPage extends BasePage {
     @FindBy(xpath = "//span[@class='btn-group']/a[@class='btn btn-default btn-xcrud btn-danger']/i[@class='fa fa-times']")
     private WebElement delete;
 
+    @FindBy(xpath = "//div/div[contains(text(), 'Blog Management')]")
+    private WebElement blog_management;
+
     public PostPage clickSearch() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
         CommonEvents.clickButton(buttonSearch);
@@ -56,6 +59,14 @@ public class PostPage extends BasePage {
     public PostPage clickNew() {
         CommonEvents.waitWebElementIsVisible(buttonNew);
         CommonEvents.clickButton(buttonNew);
+        return this;
+    }
+
+    public PostPage checkBlogmanagerTitle(String arg0) {
+        System.out.println(arg0);
+        System.out.println(blog_management.getText());
+        CommonEvents.waitWebElementIsVisible(blog_management);
+        assert blog_management.equals(blog_management.getText());
         return this;
     }
 }
