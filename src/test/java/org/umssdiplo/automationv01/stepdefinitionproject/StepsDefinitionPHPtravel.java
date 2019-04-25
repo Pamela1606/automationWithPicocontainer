@@ -6,6 +6,7 @@ import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
@@ -20,6 +21,7 @@ public class StepsDefinitionPHPtravel {
     private EditRoutePage editRoutePage;
     private AirportsPage airportsPage;
     private AddAirportPage addAirportPage;
+    private EditAirportPage editAirportPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -320,6 +322,71 @@ public class StepsDefinitionPHPtravel {
     @And("^click on GO button on Airport page$")
     public void clickOnGOButtonOnAirportPage() {
         airportsPage = airportsPage.clickOnGOButton();
+    }
+
+    @And("^close Session on Dashboard page$")
+    public void cerrarSesionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
+    }
+
+    @And("^click on icon edit on first element on Airport page$")
+    public void clickOnIconEditOnFirstElementOnAirportPage() {
+        editAirportPage = airportsPage.clickOnIconEditOnFirstElement();
+    }
+
+    @And("^edit with \"([^\"]*)\" Code field on Edit Airport page$")
+    public void editWithCodeFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCode(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Name field on Edit Airport page$")
+    public void editWithNameFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editName(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Citycode field on Edit Airport page$")
+    public void editWithCitycodeFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCitycode(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Cityname field on Edit Airport page$")
+    public void editWithCitynameFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCityname(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Countryname field on Edit Airport page$")
+    public void editWithCountrynameFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCountryname(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Countrycode field on Edit Airport page$")
+    public void editWithCountrycodeFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCountrycode(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Timezone field on Edit Airport page$")
+    public void editWithTimezoneFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editTimezone(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Latitud field on Edit Airport page$")
+    public void editWithLatitudFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editLatitud(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Longitud field on Edit Airport page$")
+    public void editWithLongitudFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editLongitud(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" City field on Edit Airport page$")
+    public void editWithCityFieldOnEditAirportPage(String arg0) throws Throwable {
+        editAirportPage = editAirportPage.editCity(arg0);
+    }
+
+    @And("^edit with on save & return on Edit Airport page$")
+    public void editWithOnSaveReturnOnEditAirportPage() {
+        airportsPage = editAirportPage.clickOnSaveReturn();
     }
 
 

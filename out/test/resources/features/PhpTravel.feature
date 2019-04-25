@@ -38,6 +38,7 @@ Feature: Login
     And fill "19:00:00" Time Arrival on Add Route page
     And fill "19:30:00" CheckOut Arrival on Add Route page
     And click On Submit on Add Route page
+    And close Session on Dashboard page
 
   @EAE
   Scenario: Flights Page display and edit an element
@@ -56,6 +57,7 @@ Feature: Login
     And edit "06/05/2019" Date Departure on Edit Route page
     And edit "06/05/2019" Date Arrival on Edit Route page
     And click On Submit on Edit Route page
+    And close Session on Dashboard page
 
 
   @CNA
@@ -64,16 +66,17 @@ Feature: Login
     And go to the Airport page
     And click on add button on Airport page
     And fill "JWA" Code field on Add Airport page
-    And fill "Jorge Wilstermann International Airport" Name field on Add Airport page
+    And fill "Jorge International Airport" Name field on Add Airport page
     And fill "CBBA" Citycode field on Add Airport page
-    And fill "Cochabamba" Cityname field on Add Airport page
+    And fill "Cocjjaba" Cityname field on Add Airport page
     And fill "BOLIVIA" Countryname field on Add Airport page
-    And fill "BO" Countrycode field on Add Airport page
+    And fill "BOL" Countrycode field on Add Airport page
     And fill "-4" Timezone field on Add Airport page
     And fill "-17.3894997" Latitud field on Add Airport page
     And fill "-66.1567993" Longitud field on Add Airport page
     And fill "False" City field on Add Airport page
     And click on save & return on Add Airport page
+    And close Session on Dashboard page
 
   @ENA
   Scenario: Flights Page display and edit an Airport
@@ -83,6 +86,21 @@ Feature: Login
     And fill element to search "CBBA" Search field on Airport page
     And select by field "Citycode" on Airport page
     And click on GO button on Airport page
+    And click on icon edit on first element on Airport page
+    And edit with "JWA" Code field on Edit Airport page
+    And edit with "Jorge Wilstermann International Airport" Name field on Edit Airport page
+    And edit with "CBBA" Citycode field on Edit Airport page
+    And edit with "Cochabamba" Cityname field on Edit Airport page
+    And edit with "BOLIVIA" Countryname field on Edit Airport page
+    And edit with "BO" Countrycode field on Edit Airport page
+    And edit with "-4" Timezone field on Edit Airport page
+    And edit with "-17.3894997" Latitud field on Edit Airport page
+    And edit with "-66.1567993" Longitud field on Edit Airport page
+    And edit with "True" City field on Edit Airport page
+    And edit with on save & return on Edit Airport page
+    And close Session on Dashboard page
+
+
   #Option Tours
 
   #Option Cars

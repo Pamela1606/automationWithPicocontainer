@@ -24,7 +24,7 @@ public class RoutesPage extends BasePage {
     @FindBy(css = ".btn-primary")
     private WebElement buttonGO;
 
-    @FindBy(css=".xcrud-row:nth-child(1) .btn-warning")
+    @FindBy(css = ".xcrud-row:nth-child(1) .btn-warning")
     private WebElement iconEditElement;
 
     public AddRoutePage clickAddButton() {

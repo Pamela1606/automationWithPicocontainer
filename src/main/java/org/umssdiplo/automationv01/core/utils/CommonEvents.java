@@ -144,4 +144,8 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
     }
 
+    public static void clearInputElement(WebElement element){
+        element.clear();
+    }
+
 }
