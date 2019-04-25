@@ -142,7 +142,7 @@ public class AddRoutePage extends BasePage {
     public AddRoutePage selectCityAirportDeparture(String cityAirportDeparture) {
         CommonEvents.clickButton(departureCityAirport);
         CommonEvents.setInputField(fieldCityAirportDeparture,cityAirportDeparture);
-        CommonEvents.forceWait(3000);
+        CommonEvents.forceWait(4000);
         CommonEvents.pressEnterKey(fieldCityAirportDeparture);
         return this;
     }
@@ -150,7 +150,7 @@ public class AddRoutePage extends BasePage {
     public AddRoutePage selectAirlineDeparture(String airlineDeparture) {
         CommonEvents.clickButton(departureAirline);
         CommonEvents.setInputField(fieldAirlineDeparture,airlineDeparture);
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4003);
         CommonEvents.pressEnterKey(fieldAirlineDeparture);
         return this;
     }
@@ -160,8 +160,8 @@ public class AddRoutePage extends BasePage {
         return this;
     }
 
-    public AddRoutePage fillDateDeparture(String date) {
-        CommonEvents.setInputField(fieldDateDeparture,date);
+    public AddRoutePage fillDateDeparture(String dateDeparture) {
+        CommonEvents.setInputField(fieldDateDeparture,dateDeparture);
         CommonEvents.clickButton(fieldDateDeparture);
         return this;
     }
@@ -181,7 +181,7 @@ public class AddRoutePage extends BasePage {
     public AddRoutePage selectCityAirportArrival(String cityAirportArrival) {
         CommonEvents.clickButton(arrivalCityAirport);
         CommonEvents.setInputField(fieldCityAirportArrival,cityAirportArrival);
-        CommonEvents.forceWait(3001);
+        CommonEvents.forceWait(4001);
         CommonEvents.pressEnterKey(fieldCityAirportArrival);
         return this;
     }
@@ -189,7 +189,7 @@ public class AddRoutePage extends BasePage {
     public AddRoutePage selectAirlineArrival(String airlineArrival) {
         CommonEvents.clickButton(arrivalAirline);
         CommonEvents.setInputField(fieldAirlineArrival,airlineArrival);
-        CommonEvents.forceWait(2001);
+        CommonEvents.forceWait(4002);
         CommonEvents.pressEnterKey(fieldAirlineArrival);
         return this;
     }
