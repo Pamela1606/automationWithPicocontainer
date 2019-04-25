@@ -3,6 +3,7 @@ package org.umssdiplo.automationv01.core.managepage.Dashboard;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
@@ -13,6 +14,9 @@ public class Dashboard extends BasePage {
     @FindBy(css="#Flights > li:nth-child(1) > a")
     private WebElement flightMenuRoutes;
 
+    @FindBy(css="#Flights > li:nth-child(2) > a")
+    private WebElement flightMenuAirports;
+
     public Dashboard clickFlighMenu() {
         CommonEvents.clickButton(flightMenu);
         return this;
@@ -21,5 +25,10 @@ public class Dashboard extends BasePage {
     public RoutesPage clickFlighMenuRoutes() {
         CommonEvents.clickButton(flightMenuRoutes);
         return new RoutesPage();
+    }
+
+    public AirportsPage clickFlighMenuAirports() {
+        CommonEvents.clickButton(flightMenuAirports);
+        return new AirportsPage();
     }
 }

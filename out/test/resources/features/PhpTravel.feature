@@ -9,6 +9,8 @@ Feature: Login
   #Option Hotels
 
   #Option Flights
+
+  @CNR
   Scenario: Flights Page display and create a new Route One Way
     And click on flights menu
     And go to the routes page
@@ -37,6 +39,7 @@ Feature: Login
     And fill "19:30:00" CheckOut Arrival on Add Route page
     And click On Submit on Add Route page
 
+  @EAE
   Scenario: Flights Page display and edit an element
     And click on flights menu
     And go to the routes page
@@ -54,6 +57,32 @@ Feature: Login
     And edit "06/05/2019" Date Arrival on Edit Route page
     And click On Submit on Edit Route page
 
+
+  @CNA
+  Scenario: Flights Page display and create a new Airport
+    And click on flights menu
+    And go to the Airport page
+    And click on add button on Airport page
+    And fill "JWA" Code field on Add Airport page
+    And fill "Jorge Wilstermann International Airport" Name field on Add Airport page
+    And fill "CBBA" Citycode field on Add Airport page
+    And fill "Cochabamba" Cityname field on Add Airport page
+    And fill "BOLIVIA" Countryname field on Add Airport page
+    And fill "BO" Countrycode field on Add Airport page
+    And fill "-4" Timezone field on Add Airport page
+    And fill "-17.3894997" Latitud field on Add Airport page
+    And fill "-66.1567993" Longitud field on Add Airport page
+    And fill "False" City field on Add Airport page
+    And click on save & return on Add Airport page
+
+  @ENA
+  Scenario: Flights Page display and edit an Airport
+    And click on flights menu
+    And go to the Airport page
+    And click on Search button on Airport page
+    And fill element to search "CBBA" Search field on Airport page
+    And select by field "Citycode" on Airport page
+    And click on GO button on Airport page
   #Option Tours
 
   #Option Cars

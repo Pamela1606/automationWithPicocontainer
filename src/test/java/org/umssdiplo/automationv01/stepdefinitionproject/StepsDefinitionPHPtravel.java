@@ -4,6 +4,8 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
@@ -16,6 +18,8 @@ public class StepsDefinitionPHPtravel {
     private RoutesPage routesPage;
     private AddRoutePage addRoutePage;
     private EditRoutePage editRoutePage;
+    private AirportsPage airportsPage;
+    private AddAirportPage addAirportPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -231,6 +235,91 @@ public class StepsDefinitionPHPtravel {
     @And("^click On Submit on Edit Route page$")
     public void clickOnSubmitOnEditRoutePage() {
         routesPage = editRoutePage.clickOnSubmit();
+    }
+
+    @And("^go to the Airport page$")
+    public void goToTheAirportPage() {
+        airportsPage = dashboardPage.clickFlighMenuAirports();
+    }
+
+    @And("^click on add button on Airport page$")
+    public void clickOnAddButtonOnArportPage() {
+        addAirportPage = airportsPage.clickOnAddButton();
+    }
+
+    @And("^fill \"([^\"]*)\" Code field on Add Airport page$")
+    public void fillCodeFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCode(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Name field on Add Airport page$")
+    public void fillNameField(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillName(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Citycode field on Add Airport page$")
+    public void fillCitycodeFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCitycode(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Cityname field on Add Airport page$")
+    public void fillCitynameFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCityname(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Countryname field on Add Airport page$")
+    public void fillCountrynameFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCountryname(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Countrycode field on Add Airport page$")
+    public void fillCountrycodeFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCountrycode(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Timezone field on Add Airport page$")
+    public void fillTimezoneFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillTimezone(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Latitud field on Add Airport page$")
+    public void fillLatitudFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillLatitud(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Longitud field on Add Airport page$")
+    public void fillLongitudFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillLongitud(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" City field on Add Airport page$")
+    public void fillCityFieldOnAirportPage(String arg0) throws Throwable {
+        addAirportPage = addAirportPage.fillCity(arg0);
+    }
+
+    @And("^click on save & return on Add Airport page$")
+    public void clickOnSaveReturnOnAddAirportPage() {
+        airportsPage = addAirportPage.clickOnSaveReturn();
+    }
+
+    @And("^click on Search button on Airport page$")
+    public void clickOnSearchButtonOnAirportPage() {
+        airportsPage = airportsPage.clickOnSearchButton();
+    }
+
+    @And("^fill element to search \"([^\"]*)\" Search field on Airport page$")
+    public void fillElementToSearchSearchFieldOnAirportPage(String arg0) throws Throwable {
+        airportsPage = airportsPage.fillElementToSearch(arg0);
+    }
+
+    @And("^select by field \"([^\"]*)\" on Airport page$")
+    public void selectByFieldOnAirportPage(String arg0) throws Throwable {
+        airportsPage = airportsPage.selectByField(arg0);
+    }
+
+    @And("^click on GO button on Airport page$")
+    public void clickOnGOButtonOnAirportPage() {
+        airportsPage = airportsPage.clickOnGOButton();
     }
 
 
