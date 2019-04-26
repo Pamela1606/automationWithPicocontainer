@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.DeleteAirport.DeleteAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
@@ -27,8 +28,10 @@ public class AirportsPage extends BasePage {
     @FindBy(css = ".btn-primary")
     private WebElement goButton;
 
-    @FindBy(css = ".xcrud-row:nth-child(1) .btn-warning")
-    private WebElement editIcon;
+    @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
+    private List<WebElement> listaTablaName;
+
+    private WebElement elementToChose;
 
     public AddAirportPage clickOnAddButton() {
         CommonEvents.clickButton(addButton);
@@ -55,9 +58,52 @@ public class AirportsPage extends BasePage {
         return this;
     }
 
-    public EditAirportPage clickOnIconEditOnFirstElement() {
-        CommonEvents.forceWait(4000);
-        CommonEvents.jsClickElement(editIcon);
+
+    private void searchLastElementToSelectOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]//td[1]/input") );
+    }
+
+
+    private void searchLastElementToInspectOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[1]/i") );
+    }
+
+    private void searchLastElementToEditOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[2]/i") );
+    }
+
+    private void searchLastElementToDeleteOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[3]/i") );
+    }
+
+
+    public AirportsPage chooseLastElementToSelect() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToSelectOnTable();
+        CommonEvents.clickButton(elementToChose);
+        return this;
+    }
+
+
+    public AirportsPage chooseLastElementToInspect() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToInspectOnTable();
+        CommonEvents.clickButton(elementToChose);
+        return this;
+    }
+
+    public EditAirportPage chooseLastElementToEdit() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToEditOnTable();
+        CommonEvents.clickButton(elementToChose);
         return new EditAirportPage();
     }
+
+    public DeleteAirportPage chooseLastElementToDelete() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToDeleteOnTable();
+        CommonEvents.clickButton(elementToChose);
+        return new DeleteAirportPage();
+    }
+
 }

@@ -86,7 +86,8 @@ Feature: Login
     And fill element to search "CBBA" Search field on Airport page
     And select by field "Citycode" on Airport page
     And click on GO button on Airport page
-    And click on icon edit on first element on Airport page
+    And choose the element to select on Airport page
+    And click on icon edit element selected on Airport page
     And edit with "JWA" Code field on Edit Airport page
     And edit with "Jorge Wilstermann International Airport" Name field on Edit Airport page
     And edit with "CBBA" Citycode field on Edit Airport page

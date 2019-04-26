@@ -23,6 +23,7 @@ public class Dashboard extends BasePage {
     private WebElement logoutButton;
 
     public Dashboard clickFlighMenu() {
+        CommonEvents.waitWebElementClickable(flightMenu);
         CommonEvents.clickButton(flightMenu);
         return this;
     }
@@ -33,6 +34,7 @@ public class Dashboard extends BasePage {
     }
 
     public AirportsPage clickFlighMenuAirports() {
+        CommonEvents.waitWebElementClickable(flightMenuAirports);
         CommonEvents.clickButton(flightMenuAirports);
         return new AirportsPage();
     }

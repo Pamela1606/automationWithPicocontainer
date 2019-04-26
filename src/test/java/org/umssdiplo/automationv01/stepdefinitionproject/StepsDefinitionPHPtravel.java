@@ -1,6 +1,5 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
@@ -329,9 +328,9 @@ public class StepsDefinitionPHPtravel {
         login = dashboardPage.closeSesion();
     }
 
-    @And("^click on icon edit on first element on Airport page$")
+    @And("^click on icon edit element selected on Airport page$")
     public void clickOnIconEditOnFirstElementOnAirportPage() {
-        editAirportPage = airportsPage.clickOnIconEditOnFirstElement();
+        editAirportPage = airportsPage.chooseLastElementToEdit();
     }
 
     @And("^edit with \"([^\"]*)\" Code field on Edit Airport page$")
@@ -389,6 +388,10 @@ public class StepsDefinitionPHPtravel {
         airportsPage = editAirportPage.clickOnSaveReturn();
     }
 
+    @And("^choose the element to select on Airport page$")
+    public void chooseTheElementToSelectOnAirportPage() {
+        airportsPage = airportsPage.chooseLastElementToSelect();
+    }
 
     // Option Tours
 
