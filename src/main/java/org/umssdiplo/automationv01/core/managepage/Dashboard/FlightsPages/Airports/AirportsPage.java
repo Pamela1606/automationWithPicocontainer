@@ -7,6 +7,7 @@ import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.DeleteAirport.DeleteAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.InspectAirport.InspectAirportPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
@@ -78,32 +79,41 @@ public class AirportsPage extends BasePage {
 
 
     public AirportsPage chooseLastElementToSelect() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToSelectOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
         return this;
     }
 
 
-    public AirportsPage chooseLastElementToInspect() {
+    public InspectAirportPage clickIconElementToInspect() {
         CommonEvents.forceWait(2000);
         searchLastElementToInspectOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
-        return this;
+        return new InspectAirportPage();
     }
 
-    public EditAirportPage chooseLastElementToEdit() {
+    public EditAirportPage clickIconElementToEdit() {
         CommonEvents.forceWait(2000);
         searchLastElementToEditOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
         return new EditAirportPage();
     }
 
-    public DeleteAirportPage chooseLastElementToDelete() {
+    public AirportsPage clickIconElementToDelete() {
         CommonEvents.forceWait(2000);
         searchLastElementToDeleteOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
-        return new DeleteAirportPage();
+        return this;
     }
 
+    public AirportsPage pressEnterKey() {
+        CommonEvents.forceWait(3000);
+        webDriver.switchTo().alert().accept();
+        return this;
+    }
 }

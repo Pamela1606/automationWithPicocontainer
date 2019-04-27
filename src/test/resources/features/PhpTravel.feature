@@ -40,7 +40,7 @@ Feature: Login
     And click On Submit on Add Route page
     And close Session on Dashboard page
 
-  @EAE
+  @ENR
   Scenario: Flights Page display and edit an element
     And click on flights menu
     And go to the routes page
@@ -48,7 +48,8 @@ Feature: Login
     And fill element to search "Adana Arpt" Search field On Route page
     And select by field "From" on Route page
     And click on GO button on Route page
-    And click on icon edit on first element on Route page
+    And choose the element to select on Route page
+    And click on icon edit element selected on Route page
     And edit with "9" Total Hours field on Edit Route page
     And edit with "20" Vat Tax field on Edit Route page
     And edit with "20" Deposite field on Edit Route page
@@ -59,6 +60,17 @@ Feature: Login
     And click On Submit on Edit Route page
     And close Session on Dashboard page
 
+  @DNR
+  Scenario: Flights Page display and delete an element
+    And click on flights menu
+    And go to the routes page
+    And click on SearchButton on Route page
+    And fill element to search "Adana Arpt" Search field On Route page
+    And select by field "From" on Route page
+    And click on GO button on Route page
+    And choose the element to select on Route page
+    And click on icon delete element selected on Route page
+    And press on the Enter key to delete the chosen element on Route page
 
   @CNA
   Scenario: Flights Page display and create a new Airport
@@ -66,17 +78,40 @@ Feature: Login
     And go to the Airport page
     And click on add button on Airport page
     And fill "JWA" Code field on Add Airport page
-    And fill "Jorge International Airport" Name field on Add Airport page
+    And fill "Jorge Wilstermann International Airport" Name field on Add Airport page
     And fill "CBBA" Citycode field on Add Airport page
-    And fill "Cocjjaba" Cityname field on Add Airport page
+    And fill "Cochabamba" Cityname field on Add Airport page
     And fill "BOLIVIA" Countryname field on Add Airport page
-    And fill "BOL" Countrycode field on Add Airport page
+    And fill "BO" Countrycode field on Add Airport page
     And fill "-4" Timezone field on Add Airport page
     And fill "-17.3894997" Latitud field on Add Airport page
     And fill "-66.1567993" Longitud field on Add Airport page
-    And fill "False" City field on Add Airport page
+    And fill "True" City field on Add Airport page
     And click on save & return on Add Airport page
     And close Session on Dashboard page
+
+
+  @INA
+  Scenario: Inspect the last Airport created
+    And click on flights menu
+    And go to the Airport page
+    And click on Search button on Airport page
+    And fill element to search "CBBA" Search field on Airport page
+    And select by field "Citycode" on Airport page
+    And click on GO button on Airport page
+    And choose the element to select on Airport page
+    And click on icon inspect element selected on Airport page
+    And check Code Field with value "JWA" on Inspect Airport page
+    And check Name Field with value "Jorge Wilstermann International Airport" on Inspect Airport page
+    And check Citycode Field with value "CBBA" on Inspect Airport page
+    And check Cityname Field with value "Cochabamba" on Inspect Airport page
+    And check Countryname Field with value "BOLIVIA" on Inspect Airport page
+    And check Countrycode Field with value "BO" on Inspect Airport page
+    And check Timezone Field with value "-4" on Inspect Airport page
+    And check Latitud Field with value "-17.38949" on Inspect Airport page
+    And check Longitud Field with value "-66.156799" on Inspect Airport page
+    And check City Field with value "True" on Inspect Airport page
+    And click on Return button on Inspect Airport page
 
   @ENA
   Scenario: Flights Page display and edit an Airport
@@ -97,10 +132,22 @@ Feature: Login
     And edit with "-4" Timezone field on Edit Airport page
     And edit with "-17.3894997" Latitud field on Edit Airport page
     And edit with "-66.1567993" Longitud field on Edit Airport page
-    And edit with "True" City field on Edit Airport page
+    And edit with "False" City field on Edit Airport page
     And edit with on save & return on Edit Airport page
     And close Session on Dashboard page
 
+  @DNA
+  Scenario: Delete Airport created
+    And click on flights menu
+    And go to the Airport page
+    And click on Search button on Airport page
+    And fill element to search "CBBA" Search field on Airport page
+    And select by field "Citycode" on Airport page
+    And click on GO button on Airport page
+    And choose the element to select on Airport page
+    And click on icon delete element selected on Airport page
+    And press on the Enter key to delete the chosen element on Airport page
+    And close Session on Dashboard page
 
   #Option Tours
 

@@ -1,11 +1,15 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.DeleteAirport.DeleteAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.InspectAirport.InspectAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
@@ -21,6 +25,8 @@ public class StepsDefinitionPHPtravel {
     private AirportsPage airportsPage;
     private AddAirportPage addAirportPage;
     private EditAirportPage editAirportPage;
+    private InspectAirportPage inspectAirportPage;
+    private DeleteAirportPage deleteAirportPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -188,11 +194,6 @@ public class StepsDefinitionPHPtravel {
         routesPage = routesPage.clickOnGOButton();
     }
 
-    @And("^click on icon edit on first element on Route page$")
-    public void clickOnIconEditOnFirstElementOnRoutePage() {
-        editRoutePage = routesPage.clickOnIconEditOnFirstElement();
-    }
-
     @And("^select \"([^\"]*)\" Status on Edit Route page$")
     public void selectStatusOnEditRoutePage(String arg0) throws Throwable {
         editRoutePage = editRoutePage.selectStatus(arg0);
@@ -330,7 +331,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^click on icon edit element selected on Airport page$")
     public void clickOnIconEditOnFirstElementOnAirportPage() {
-        editAirportPage = airportsPage.chooseLastElementToEdit();
+        editAirportPage = airportsPage.clickIconElementToEdit();
     }
 
     @And("^edit with \"([^\"]*)\" Code field on Edit Airport page$")
@@ -392,6 +393,107 @@ public class StepsDefinitionPHPtravel {
     public void chooseTheElementToSelectOnAirportPage() {
         airportsPage = airportsPage.chooseLastElementToSelect();
     }
+
+    @And("^choose the element to select on Route page$")
+    public void chooseTheElementToSelectOnRoutePage() {
+        routesPage = routesPage.chooseLastElementToSelect();
+    }
+
+    @And("^click on icon edit element selected on Route page$")
+    public void clickOnIconEditElementSelectedOnRoutePage() {
+        editRoutePage = routesPage.clickIconElementToEdit();
+    }
+
+    @And("^click on icon inspect element selected on Airport page$")
+    public void clickOnIconInspectElementSelectedOnAirportPage() {
+        inspectAirportPage = airportsPage.clickIconElementToInspect();
+    }
+
+    @And("^check Code Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCodeFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCodeToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Name Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkNameFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getNameToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Citycode Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCitycodeFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCitycodeToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Cityname Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCitynameFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCitynameToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Countryname Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCountrynameFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCountrynameToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Countrycode Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCountrycodeFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCountrycodeToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Timezone Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkTimezoneFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getTimezoneToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Latitud Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkLatitudFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getLatitudToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check Longitud Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkLongitudFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getLongitudToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^check City Field with value \"([^\"]*)\" on Inspect Airport page$")
+    public void checkCityFieldWithValueOnInspectAirportPage(String esperado) throws Throwable {
+        String actual = inspectAirportPage.getCityToCompare();
+        Assert.assertEquals(esperado,actual);
+    }
+
+    @And("^click on Return button on Inspect Airport page$")
+    public void clickOnReturnButtonOnInspectAirportPage() {
+        dashboardPage = inspectAirportPage.clickOnReturnButton();
+    }
+
+    @And("^click on icon delete element selected on Airport page$")
+    public void clickOnIconDeleteElementSelectedOnAirportPage() {
+        airportsPage = airportsPage.clickIconElementToDelete();
+    }
+
+    @And("^press on the Enter key to delete the chosen element on Airport page$")
+    public void pressOnTheEnterKeyToDeleteTheChosenElementOnAirportPage() {
+        airportsPage = airportsPage.pressEnterKey();
+    }
+
+    @And("^click on icon delete element selected on Route page$")
+    public void clickOnIconDeleteElementSelectedOnRoutePage() {
+        routesPage = routesPage.clickIconElementToDelete();
+    }
+
+    @And("^press on the Enter key to delete the chosen element on Route page$")
+    public void pressOnTheEnterKeyToDeleteTheChosenElementOnRoutePage() {
+        routesPage = routesPage.pressEnterKey();
+    }
+
 
     // Option Tours
 

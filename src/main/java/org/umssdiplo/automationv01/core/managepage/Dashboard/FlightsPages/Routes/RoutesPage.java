@@ -1,11 +1,17 @@
 package org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.DeleteAirport.DeleteAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import java.util.List;
 
 public class RoutesPage extends BasePage {
 
@@ -24,8 +30,10 @@ public class RoutesPage extends BasePage {
     @FindBy(css = ".btn-primary")
     private WebElement buttonGO;
 
-    @FindBy(css = ".xcrud-row:nth-child(1) .btn-warning")
-    private WebElement iconEditElement;
+    @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
+    private List<WebElement> listaTablaName;
+
+    private WebElement elementToChose;
 
     public AddRoutePage clickAddButton() {
         CommonEvents.clickButton(addRouteButton);
@@ -53,9 +61,44 @@ public class RoutesPage extends BasePage {
     }
 
 
-    public EditRoutePage clickOnIconEditOnFirstElement() {
-        CommonEvents.forceWait(4000);
-        CommonEvents.jsClickElement(iconEditElement);
+    private void searchLastElementToSelectOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]//td[1]/input") );
+    }
+
+    private void searchLastElementToEditOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[1]/i") );
+    }
+
+    private void searchLastElementToDeleteOnTable() {
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[2]/i") );
+    }
+
+
+    public RoutesPage chooseLastElementToSelect() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToSelectOnTable();
+        CommonEvents.clickButton(elementToChose);
+        return this;
+    }
+
+    public EditRoutePage clickIconElementToEdit() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToEditOnTable();
+        CommonEvents.clickButton(elementToChose);
         return new EditRoutePage();
+    }
+
+    public RoutesPage clickIconElementToDelete() {
+        CommonEvents.forceWait(2000);
+        searchLastElementToDeleteOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
+        CommonEvents.clickButton(elementToChose);
+        return this;
+    }
+
+    public RoutesPage pressEnterKey() {
+        CommonEvents.forceWait(3000);
+        webDriver.switchTo().alert().accept();
+        return this;
     }
 }
