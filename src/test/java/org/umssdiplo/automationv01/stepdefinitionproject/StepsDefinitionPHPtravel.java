@@ -3,16 +3,21 @@ package org.umssdiplo.automationv01.stepdefinitionproject;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AddAirlines.AddAirlinesPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AirlinesPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.EditAirlines.EditAirlinesPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.InspectAirlines.InspectAirlinesPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AddAirport.AddAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.DeleteAirport.DeleteAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.InspectAirport.InspectAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Settings.SettingsPage;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
@@ -26,7 +31,11 @@ public class StepsDefinitionPHPtravel {
     private AddAirportPage addAirportPage;
     private EditAirportPage editAirportPage;
     private InspectAirportPage inspectAirportPage;
-    private DeleteAirportPage deleteAirportPage;
+    private SettingsPage settingsPage;
+    private AirlinesPage airlinesPage;
+    private AddAirlinesPage addAirlinesPage;
+    private EditAirlinesPage editAirlinesPage;
+    private InspectAirlinesPage inspectAirlinesPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -46,12 +55,12 @@ public class StepsDefinitionPHPtravel {
 
     @And("^click on flights menu$")
     public void clickOnFlightsMenu() {
-        dashboardPage = dashboardPage.clickFlighMenu();
+        dashboardPage = dashboardPage.clickFlightMenu();
     }
 
     @And("^go to the routes page$")
     public void goToTheRoutesPage() {
-        routesPage = dashboardPage.clickFlighMenuRoutes();
+        routesPage = dashboardPage.clickFlightMenuRoutes();
     }
 
     @And("^click on add button on Routes page$")
@@ -241,7 +250,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^go to the Airport page$")
     public void goToTheAirportPage() {
-        airportsPage = dashboardPage.clickFlighMenuAirports();
+        airportsPage = dashboardPage.clickFlightMenuAirports();
     }
 
     @And("^click on add button on Airport page$")
@@ -492,6 +501,61 @@ public class StepsDefinitionPHPtravel {
     @And("^press on the Enter key to delete the chosen element on Route page$")
     public void pressOnTheEnterKeyToDeleteTheChosenElementOnRoutePage() {
         routesPage = routesPage.pressEnterKey();
+    }
+
+    @And("^go to the Setting page$")
+    public void goToTheSettingPage() {
+        settingsPage = dashboardPage.clickFlightMenuSettings();
+    }
+
+    @And("^select \"([^\"]*)\" Test Mode on Setting page$")
+    public void selectTestModeOnSettingPage(String arg0) throws Throwable {
+        settingsPage = settingsPage.selectTestMode(arg0);
+    }
+
+    @And("^click on Submit Button on Setting page$")
+    public void clickOnSubmitButtonOnSettingPage() {
+        settingsPage = settingsPage.clickOnSubmitButton();
+    }
+
+    @And("^go to the Airline page$")
+    public void goToTheAirlinePage() {
+        airlinesPage = dashboardPage.clickFlightMenuAirlines();
+    }
+
+    @And("^click on add button on Airline page$")
+    public void clickOnAddButtonOnAirlinePage() {
+        addAirlinesPage = airlinesPage.clickAddButton();
+    }
+
+    @And("^fill \"([^\"]*)\" Name field on Add Airline page$")
+    public void fillNameFieldOnAddAirlinePage(String arg0) throws Throwable {
+        addAirlinesPage = addAirlinesPage.fillFieldName(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Iata Desi field on Add Airline page$")
+    public void fillIataDesiFieldOnAddAirlinePage(String arg0) throws Throwable {
+        addAirlinesPage = addAirlinesPage.fillFieldIataDesi(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" (\\d+)-Digit-Code field on Add Airline page$")
+    public void fillDigitCodeFieldOnAddAirlinePage(String arg0, int arg1) throws Throwable {
+        addAirlinesPage = addAirlinesPage.fillField3DigitCode(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Country field on Add Airline page$")
+    public void fillCountryFieldOnAddAirlinePage(String arg0) throws Throwable {
+        addAirlinesPage = addAirlinesPage.selectCountry(arg0);
+    }
+
+    @And("^click button Save and Return on Add Airline page$")
+    public void clickButtonSaveAndReturnOnAddAirlinePage() {
+        airlinesPage = addAirlinesPage.saveReturnButton();
+    }
+
+    @Then("^wait upload image \"([^\"]*)\" on Add Airline page$")
+    public void waitUploadImageOnAddAirlinePage(String arg0) throws Throwable {
+        addAirlinesPage = addAirlinesPage.waitToUploadImage();
     }
 
 

@@ -149,6 +149,31 @@ Feature: Login
     And press on the Enter key to delete the chosen element on Airport page
     And close Session on Dashboard page
 
+  @CTM
+  Scenario: Change Test mode
+    And click on flights menu
+    And go to the Setting page
+    And select "On" Test Mode on Setting page
+    And click on Submit Button on Setting page
+    And close Session on Dashboard page
+
+  @CA
+  Scenario: create a new Airline
+    And click on flights menu
+    And go to the Airline page
+    And click on add button on Airline page
+    And fill "Ecojet Airline" Name field on Add Airline page
+    And fill "910" Iata Desi field on Add Airline page
+    And fill "ECO" 3-Digit-Code field on Add Airline page
+    And fill "BOLIVIA" Country field on Add Airline page
+    Then wait upload image "ecojet.png" on Add Airline page
+      And click button Save and Return on Add Airline page
+      And close Session on Dashboard page
+
+  @EAL
+  Scenario: edit the new Airline
+
+
   #Option Tours
 
   #Option Cars
