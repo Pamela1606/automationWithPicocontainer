@@ -5,20 +5,31 @@ Feature: Login
     Given 'PHP travel' page is loaded
     And set my credentials on 'Login' page
 
-  @blog
-  Scenario: List Options in Blogs
-    And click on blog menu
-    And check List in blog nemu
-    Then assert list in blog secction:
-      | one | two | three |
-      | POSTS | BLOG CATEGORIES| BLOG SETTINGS|
-    And close Session on Dashboard page
+  #@blog
+  #Scenario: List Options in Blogs
+  #  And click on blog menu
+  #  And check List in blog nemu
+  #  Then assert list in blog secction:
+  #    | one | two | three |
+  #    | POSTS | BLOG CATEGORIES| BLOG SETTINGS|
+  #  And close Session on Dashboard page
+
+  #@blog
+  #Scenario: Check BLOG MANAGEMENT in Blogs page
+  #  And click on blog menu
+  #  And go to the 'Post' in blog page
+  #  And check "BLOG MANAGEMENT" in secction Post into blogs
+  #  And close Session on Dashboard page
 
   @blog
-  Scenario: Check BLOG MANAGEMENT in Blogs page
+  Scenario: New Post
     And click on blog menu
     And go to the 'Post' in blog page
-    And check "BLOG MANAGEMENT" in secction Post into blogs
+    And click in new in blog page
+    Then fill in data for new post:
+      | title | keywords | description | category |
+      | Elvikito beaches and lobste | Scenario | Scenario Template | Travel and Foods |
+    And press on the Enter key to create in post page
     And close Session on Dashboard page
 
 

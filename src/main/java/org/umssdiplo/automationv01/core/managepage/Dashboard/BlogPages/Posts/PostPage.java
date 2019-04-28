@@ -1,9 +1,13 @@
 package org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Posts;
 
+import cucumber.api.DataTable;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import java.util.List;
+import java.util.Map;
 
 public class PostPage extends BasePage {
 
@@ -24,6 +28,18 @@ public class PostPage extends BasePage {
 
     @FindBy(xpath = "//div/div[contains(text(), 'Blog Management')]")
     private WebElement blog_management;
+
+    @FindBy(name = "category")
+    private WebElement selectCategoryType;
+
+    @FindBy(xpath = "//div[@class='col-md-4']/div[@class='form-group ']/input[@class='form-control posttitle']")
+    private WebElement inputTitle;
+
+    @FindBy(xpath = "//div[@id='cke_1_contents']/iframe[@class='cke_wysiwyg_frame cke_reset']")
+    private WebElement descriptionIframe;
+
+    @FindBy(xpath = "//div[@class='panel-footer']/button[@class='btn btn-primary']")
+    private WebElement newitem;
 
     public PostPage clickSearch() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
@@ -67,6 +83,25 @@ public class PostPage extends BasePage {
         System.out.println(blog_management.getText());
         CommonEvents.waitWebElementIsVisible(blog_management);
         assert blog_management.equals(blog_management.getText());
+        return this;
+    }
+
+    public PostPage setfillDatainPost(DataTable datos) {
+        List<Map<String,String>> elements = datos.asMaps(String.class, String.class);
+        CommonEvents.waitWebElementIsVisible(inputTitle);
+        CommonEvents.setInputField(inputTitle, elements.get(0).get("title"));
+        CommonEvents.forceWait(6000);
+        CommonEvents.waitWebElementIsVisible(descriptionIframe);
+        descriptionIframe.sendKeys(elements.get(0).get("description"));
+        CommonEvents.waitWebElementIsVisible(selectCategoryType);
+        CommonEvents.chooseDropDownByTextVisible(selectCategoryType, elements.get(0).get("category"));
+        return this;
+    }
+
+    public PostPage pressEnterNew() {
+        CommonEvents.forceWait(5000);
+        CommonEvents.waitWebElementIsVisible(newitem);
+        CommonEvents.clickButton(newitem);
         return this;
     }
 }

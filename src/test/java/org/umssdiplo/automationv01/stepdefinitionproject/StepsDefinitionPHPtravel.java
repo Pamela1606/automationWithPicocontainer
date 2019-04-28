@@ -84,6 +84,16 @@ public class StepsDefinitionPHPtravel {
         postPage.checkBlogmanagerTitle(arg0);
     }
 
+    @Then("^fill in data for new post:$")
+    public void fillInDataForNewPost(DataTable datos) throws Throwable {
+        postPage.setfillDatainPost(datos);
+    }
+
+    @And("^press on the Enter key to create in post page$")
+    public void pressOnTheEnterKeyToCreateInPostPage() {
+        postPage.pressEnterNew();
+    }
+
 
     // Option Hotels
 

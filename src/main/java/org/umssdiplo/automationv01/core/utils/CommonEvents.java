@@ -144,4 +144,12 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
     }
 
+    public static void schichIframe(WebElement element){
+        ManageDriver.getInstance().getWebDriver().switchTo().frame(element);
+    }
+
+    public static void defaultContent(){
+        ManageDriver.getInstance().getWebDriver().switchTo().defaultContent();
+    }
+
 }
