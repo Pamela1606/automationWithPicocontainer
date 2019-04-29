@@ -119,37 +119,34 @@ public class CommonEvents {
     webElement.sendKeys(Keys.ENTER);
   }
 
-  public static void forceWait(int milliseconds) {
-    try {
-      Thread.sleep(milliseconds);
-    } catch (Exception e) {
-      e.fillInStackTrace();
-    }
+  public static void chooseDropDownByTextVisible(WebElement webElement, String value) {
+      ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+      Select selectField = new Select(webElement);
+      selectField.selectByVisibleText(value);
   }
 
-    public static void chooseDropDownByTextVisible(WebElement webElement, String value) {
-        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
-        Select selectField = new Select(webElement);
-        selectField.selectByVisibleText(value);
-    }
+  public static void waitWebElementClickable(WebElement webElement) {
+      ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+  }
 
-    public static void waitWebElementClickable(WebElement webElement) {
-        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
-    }
+  public static void forceWait(int timeMilliSeconds) {
+      try {
+          //logger.info(FORCE_WAIT, timeMilliSeconds);
+          Thread.sleep(timeMilliSeconds);
+      } catch (InterruptedException e) {
+          StringWriter errors = new StringWriter();
+          e.printStackTrace(new PrintWriter(errors));
+          //logger.debug(Event.class.getSimpleName().concat("-noUseThisWait [method]- Exception Error:").concat(errors.toString()));
+      }
+  }
 
-    public static void forceWait(int timeMilliSeconds) {
-        try {
-            //logger.info(FORCE_WAIT, timeMilliSeconds);
-            Thread.sleep(timeMilliSeconds);
-        } catch (InterruptedException e) {
-            StringWriter errors = new StringWriter();
-            e.printStackTrace(new PrintWriter(errors));
-            //logger.debug(Event.class.getSimpleName().concat("-noUseThisWait [method]- Exception Error:").concat(errors.toString()));
-        }
-    }
+  public static void waitWebElementIsVisible(WebElement webElement) {
+      ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+  }
 
-    public static void waitWebElementIsVisible(WebElement webElement) {
-        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
-    }
+  public static void setIframeContent(WebElement webElement, String content) {
+    ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
+            .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
+  }
 
 }
