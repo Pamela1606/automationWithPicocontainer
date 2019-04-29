@@ -21,16 +21,29 @@ Feature: Login
   #  And check "BLOG MANAGEMENT" in secction Post into blogs
   #  And close Session on Dashboard page
 
+  #@blog
+  #Scenario: New Post
+  #  And click on blog menu
+  #  And go to the 'Post' in blog page
+  #  And click in new in blog page
+  #  Then fill in data for new post:
+  #    | title | keywords | description | category |
+  #    | Elvikito beaches and lobste | Scenario | Scenario Template | Travel and Foods |
+  #  And press on the Enter key to create in post page
+  #  And close Session on Dashboard page
+
   @blog
-  Scenario: New Post
+  Scenario: Edit Post
     And click on blog menu
     And go to the 'Post' in blog page
-    And click in new in blog page
-    Then fill in data for new post:
-      | title | keywords | description | category |
-      | Elvikito beaches and lobste | Scenario | Scenario Template | Travel and Foods |
-    And press on the Enter key to create in post page
+    And click on 'Search' in post page
+    And search "The Art Of Fashion" on post page
+    And click 'go button' on Post page
+    And click en edit in post page
+    And change value into post "Adventure"
+    And press on the Enter key to Update in post page
     And close Session on Dashboard page
+
 
 
 

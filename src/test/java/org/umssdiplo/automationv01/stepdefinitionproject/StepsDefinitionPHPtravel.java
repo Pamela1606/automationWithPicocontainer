@@ -94,6 +94,21 @@ public class StepsDefinitionPHPtravel {
         postPage.pressEnterNew();
     }
 
+    @And("^click en edit in post page$")
+    public void clickEnEditInPostPage() {
+        postPage.editElement();
+    }
+
+    @And("^change value into post \"([^\"]*)\"$")
+    public void changeValueIntoPost(String arg0) throws Throwable {
+        postPage.setElementIntoPost(arg0);
+    }
+
+    @And("^press on the Enter key to Update in post page$")
+    public void pressOnTheEnterKeyToUpdateInPostPage() {
+        postPage.clickUpdatePost();
+    }
+
 
     // Option Hotels
 

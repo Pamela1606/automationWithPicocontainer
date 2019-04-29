@@ -41,6 +41,12 @@ public class PostPage extends BasePage {
     @FindBy(xpath = "//div[@class='panel-footer']/button[@class='btn btn-primary']")
     private WebElement newitem;
 
+    @FindBy(xpath = "//i[@class='fa fa-edit']")
+    private WebElement editItembox;
+
+    @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
+    private List<WebElement> listaTablaName;
+
     public PostPage clickSearch() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
         CommonEvents.clickButton(buttonSearch);
@@ -99,6 +105,27 @@ public class PostPage extends BasePage {
     }
 
     public PostPage pressEnterNew() {
+        CommonEvents.forceWait(5000);
+        CommonEvents.waitWebElementIsVisible(newitem);
+        CommonEvents.clickButton(newitem);
+        return this;
+    }
+
+    public PostPage editElement() {
+        CommonEvents.forceWait(5000);
+        CommonEvents.waitWebElementIsVisible(editItembox);
+        CommonEvents.clickButton(editItembox);
+        return this;
+    }
+
+    public PostPage setElementIntoPost(String arg0) {
+        CommonEvents.waitWebElementIsVisible(selectCategoryType);
+        System.out.println(arg0);
+        CommonEvents.chooseDropDownByTextVisible(selectCategoryType, arg0);
+        return this;
+    }
+
+    public PostPage clickUpdatePost() {
         CommonEvents.forceWait(5000);
         CommonEvents.waitWebElementIsVisible(newitem);
         CommonEvents.clickButton(newitem);
