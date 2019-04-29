@@ -144,4 +144,9 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
     }
 
+    public static void setIframeContent(WebElement webElement, String content) {
+        ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
+                .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
+    }
+
 }
