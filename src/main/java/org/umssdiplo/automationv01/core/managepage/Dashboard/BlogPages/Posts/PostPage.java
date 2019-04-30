@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class PostPage extends BasePage {
 
+    ModelPost modelPost = new ModelPost("");
+
     @FindBy(xpath = "//div/a[contains(text(),'Search')]")
     private WebElement buttonSearch;
 
@@ -46,6 +48,9 @@ public class PostPage extends BasePage {
 
     @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
     private List<WebElement> listaTablaName;
+
+    @FindBy(xpath = "//tbody/tr[@class='xcrud-row xcrud-row-0'][1]/td[4]")
+    private WebElement firstElement;
 
     public PostPage clickSearch() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
@@ -129,6 +134,27 @@ public class PostPage extends BasePage {
         CommonEvents.forceWait(5000);
         CommonEvents.waitWebElementIsVisible(newitem);
         CommonEvents.clickButton(newitem);
+        return this;
+    }
+
+    public PostPage selectFirtelement() {
+        System.out.println(CommonEvents.getTextContent(firstElement));
+        modelPost.setName(CommonEvents.getTextContent(firstElement));
+        return this;
+    }
+
+    public PostPage searchSalveElement() {
+        CommonEvents.waitWebElementIsVisible(elementSearch);
+        System.out.println(modelPost.getName());
+        CommonEvents.forceWait(5000);
+        CommonEvents.setInputField(elementSearch, modelPost.getName());
+        return this;
+    }
+
+    public PostPage assertFirtElement() {
+        System.out.println(modelPost.getName());
+        System.out.println(CommonEvents.getTextContent(firstElement));
+        //assertNotEquals(modelPost.getName(), CommonEvents.getTextContent(firstElement));
         return this;
     }
 }

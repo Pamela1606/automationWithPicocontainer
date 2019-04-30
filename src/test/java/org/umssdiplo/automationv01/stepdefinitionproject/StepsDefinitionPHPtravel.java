@@ -51,8 +51,8 @@ public class StepsDefinitionPHPtravel {
         postPage.clickButton();
     }
 
-    @And("^clien en 'delete post' in post page$")
-    public void clienEnDeletePostInPostPage() {
+    @And("^client en 'delete post' in post page$")
+    public void clientEnDeletePostInPostPage() {
         postPage.clickDeletePostPage();
     }
 
@@ -107,6 +107,21 @@ public class StepsDefinitionPHPtravel {
     @And("^press on the Enter key to Update in post page$")
     public void pressOnTheEnterKeyToUpdateInPostPage() {
         postPage.clickUpdatePost();
+    }
+
+    @And("^select the first element and save value$")
+    public void selectTheFirstElementAndSaveValue() {
+        postPage.selectFirtelement();
+    }
+
+    @And("^first value salved search on post page$")
+    public void firstValueSalvedSearchOnPostPage() {
+        postPage.searchSalveElement();
+    }
+
+    @And("^assert not exist element firts salve$")
+    public void assertNotExistElementFirtsSalve() {
+        postPage.assertFirtElement();
     }
 
 
