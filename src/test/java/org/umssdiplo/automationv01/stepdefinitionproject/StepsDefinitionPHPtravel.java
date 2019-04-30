@@ -558,6 +558,106 @@ public class StepsDefinitionPHPtravel {
         addAirlinesPage = addAirlinesPage.waitToUploadImage();
     }
 
+    @And("^click on Search button on Airline page$")
+    public void clickOnSearchButtonOnAirlinePage() {
+        airlinesPage = airlinesPage.clickOnSearchButton();
+
+    }
+
+    @And("^fill element to search \"([^\"]*)\" Search field on Airline page$")
+    public void fillElementToSearchSearchFieldOnAirlinePage(String arg0) throws Throwable {
+        airlinesPage = airlinesPage.fillSearchField(arg0);
+    }
+
+    @And("^select by field \"([^\"]*)\" on Airline page$")
+    public void selectByFieldOnAirlinePage(String arg0) throws Throwable {
+        airlinesPage = airlinesPage.selectField(arg0);
+    }
+
+    @And("^click on GO button on Airline page$")
+    public void clickOnGOButtonOnAirlinePage() {
+        airlinesPage = airlinesPage.clickOnGoButton();
+    }
+
+    @And("^choose the element to select on Airline page$")
+    public void chooseTheElementToSelectOnAirlinePage() {
+        airlinesPage = airlinesPage.chooseLastElementToSelect();
+    }
+
+    @And("^click on icon edit element selected on Airline page$")
+    public void clickOnIconEditElementSelectedOnAirlinePage() {
+        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    }
+
+    @And("^edit with \"([^\"]*)\" Name field on Edit Airline page$")
+    public void editWithNameFieldOnEditAirlinePage(String arg0) throws Throwable {
+        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    }
+
+    @And("^edit with \"([^\"]*)\" Iata Desi field on Edit Airline page$")
+    public void editWithIataDesiFieldOnEditAirlinePage(String arg0) throws Throwable {
+        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    }
+
+    @And("^edit with \"([^\"]*)\" (\\d+)-Digit-Code field on Edit Airline page$")
+    public void editWithDigitCodeFieldOnEditAirlinePage(String arg0, int arg1) throws Throwable {
+        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    }
+
+    @And("^edit with \"([^\"]*)\" Country field on Edit Airline page$")
+    public void editWithCountryFieldOnEditAirlinePage(String arg0) throws Throwable {
+        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    }
+
+    @And("^click button Save and Return on Edit Airline page$")
+    public void clickButtonSaveAndReturnOnEditAirlinePage() {
+        airlinesPage = editAirlinesPage.saveReturnButton();
+    }
+
+    @And("^click on icon delete element selected on Airline page$")
+    public void clickOnIconDeleteElementSelectedOnAirlinePage() {
+        airlinesPage = airlinesPage.clickIconElementToDelete();
+    }
+
+    @And("^press on the Enter key to delete the chosen element on Airline page$")
+    public void pressOnTheEnterKeyToDeleteTheChosenElementOnAirlinePage() {
+        airlinesPage = airlinesPage.pressEnterKey();
+    }
+
+    @And("^click on icon inspect element selected on Airline page$")
+    public void clickOnIconInspectElementSelectedOnAirlinePage() {
+        inspectAirlinesPage = airlinesPage.clickIconElementToInspect();
+    }
+
+    @And("^check with \"([^\"]*)\" Name field on Inspect Airline page$")
+    public void checkWithNameFieldOnInspectAirlinePage(String expected) throws Throwable {
+        String actual = inspectAirlinesPage.getFieldName();
+        Assert.assertEquals(actual,expected);
+    }
+
+    @And("^check with \"([^\"]*)\" Iata Desi field on Inspect Airline page$")
+    public void checkWithIataDesiFieldOnInspectAirlinePage(String expected) throws Throwable {
+        String actual = inspectAirlinesPage.getFieldIataDesi();
+        Assert.assertEquals(actual,expected);
+    }
+
+    @And("^check with \"([^\"]*)\" 3-Digit-Code field on Inspect Airline page$")
+    public void checkWithDigitCodeFieldOnInspectAirlinePage(String expected) throws Throwable {
+        String actual = inspectAirlinesPage.getField3DigitCode();
+        Assert.assertEquals(actual,expected);
+    }
+
+    @And("^check with \"([^\"]*)\" Country field on Inspect Airline page$")
+    public void checkWithCountryFieldOnInspectAirlinePage(String expected) throws Throwable {
+        String actual = inspectAirlinesPage.getSelectCountry();
+        Assert.assertEquals(actual,expected);
+    }
+
+    @And("^click button Return on Inspect Airline page$")
+    public void clickButtonReturnOnInspectAirlinePage() {
+        airlinesPage = inspectAirlinesPage.clickButtonReturn();
+    }
+
 
     // Option Tours
 

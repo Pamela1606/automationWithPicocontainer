@@ -170,9 +170,53 @@ Feature: Login
       And click button Save and Return on Add Airline page
       And close Session on Dashboard page
 
+  @IAL
+  Scenario: Inspect the new Airline
+    And click on flights menu
+    And go to the Airline page
+    And click on Search button on Airline page
+    And fill element to search "Ecojet Airline" Search field on Airline page
+    And select by field "Name" on Airline page
+    And click on GO button on Airline page
+    And choose the element to select on Airline page
+    And click on icon inspect element selected on Airline page
+    And check with "Ecojet Airline" Name field on Inspect Airline page
+    And check with "910" Iata Desi field on Inspect Airline page
+    And check with "ECO" 3-Digit-Code field on Inspect Airline page
+    And check with "BOLIVIA" Country field on Inspect Airline page
+    And click button Return on Inspect Airline page
+    And close Session on Dashboard page
+
   @EAL
   Scenario: edit the new Airline
-    
+    And click on flights menu
+    And go to the Airline page
+    And click on Search button on Airline page
+    And fill element to search "Ecojet Airline" Search field on Airline page
+    And select by field "Name" on Airline page
+    And click on GO button on Airline page
+    And choose the element to select on Airline page
+    And click on icon edit element selected on Airline page
+    And edit with "Ecojet Airline" Name field on Edit Airline page
+    And edit with "910" Iata Desi field on Edit Airline page
+    And edit with "ECO" 3-Digit-Code field on Edit Airline page
+    And edit with "BOLIVIA" Country field on Edit Airline page
+    And click button Save and Return on Edit Airline page
+    And close Session on Dashboard page
+
+  @DAL
+  Scenario: Delete the new Airline
+    And click on flights menu
+    And go to the Airline page
+    And click on Search button on Airline page
+    And fill element to search "Ecojet Airline" Search field on Airline page
+    And select by field "Name" on Airline page
+    And click on GO button on Airline page
+    And choose the element to select on Airline page
+    And click on icon delete element selected on Airline page
+    And press on the Enter key to delete the chosen element on Airline page
+    And close Session on Dashboard page
+
 
   #Option Tours
 

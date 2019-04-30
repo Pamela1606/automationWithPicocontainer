@@ -76,7 +76,6 @@ public class AirportsPage extends BasePage {
         elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[3]/i") );
     }
 
-
     public AirportsPage chooseLastElementToSelect() {
         CommonEvents.forceWait(4000);
         searchLastElementToSelectOnTable();
