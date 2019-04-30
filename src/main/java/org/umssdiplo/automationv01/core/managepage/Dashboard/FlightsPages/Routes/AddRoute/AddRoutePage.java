@@ -90,57 +90,69 @@ public class AddRoutePage extends BasePage {
     private WebElement submitButton;
 
     public AddRoutePage selectStatus(String status) {
+        CommonEvents.waitWebElementIsVisible(selectStatus);
         CommonEvents.chooseDropDownByTextVisible(selectStatus,status);
         return this;
     }
 
     public AddRoutePage fillTotalHours(String totalHours) {
+        CommonEvents.waitWebElementIsVisible(fieldTotalHours);
         CommonEvents.setInputField(fieldTotalHours,totalHours);
         return this;
     }
 
     public AddRoutePage fillVatTax(String vatTax) {
+        CommonEvents.waitWebElementIsVisible(fieldVatTax);
         CommonEvents.setInputField(fieldVatTax,vatTax);
         return this;
     }
 
     public AddRoutePage fillDeposite(String deposite) {
+        CommonEvents.waitWebElementIsVisible(fieldVatTax);
         CommonEvents.setInputField(fieldDeposite,deposite);
         return this;
     }
 
     public AddRoutePage selectFlightsType(String flightType) {
+        CommonEvents.waitWebElementIsVisible(selectflightType);
         CommonEvents.chooseDropDownByTextVisible(selectflightType,flightType);
         return this;
     }
 
     public AddRoutePage selectRefundable(String refundable) {
+        CommonEvents.waitWebElementIsVisible(selectRefundable);
         CommonEvents.chooseDropDownByTextVisible(selectRefundable,refundable);
         return this;
     }
 
     public AddRoutePage selectDirection(String direction) {
+        CommonEvents.waitWebElementIsVisible(selectDirection);
         CommonEvents.chooseDropDownByTextVisible(selectDirection,direction);
         return this;
     }
 
     public AddRoutePage fillPriceAdults(String priceAdults) {
+        CommonEvents.waitWebElementIsVisible(fieldPriceAdults);
         CommonEvents.setInputField(fieldPriceAdults,priceAdults);
         return this;
     }
 
     public AddRoutePage fillPriceChild(String priceChild) {
+        CommonEvents.waitWebElementIsVisible(fieldPriceChild);
         CommonEvents.setInputField(fieldPriceChild,priceChild);
         return this;
     }
 
     public AddRoutePage fillPriceInfant(String priceInfant) {
+        CommonEvents.waitWebElementIsVisible(fieldPriceInfant);
         CommonEvents.setInputField(fieldPriceInfant,priceInfant);
         return this;
     }
 
     public AddRoutePage selectCityAirportDeparture(String cityAirportDeparture) {
+        CommonEvents.waitWebElementIsVisible(departureCityAirport);
         CommonEvents.clickButton(departureCityAirport);
+        CommonEvents.waitWebElementIsVisible(fieldCityAirportDeparture);
         CommonEvents.setInputField(fieldCityAirportDeparture,cityAirportDeparture);
         CommonEvents.forceWait(4000);
         CommonEvents.pressEnterKey(fieldCityAirportDeparture);
@@ -148,7 +160,9 @@ public class AddRoutePage extends BasePage {
     }
 
     public AddRoutePage selectAirlineDeparture(String airlineDeparture) {
+        CommonEvents.waitWebElementIsVisible(departureAirline);
         CommonEvents.clickButton(departureAirline);
+        CommonEvents.waitWebElementIsVisible(fieldAirlineDeparture);
         CommonEvents.setInputField(fieldAirlineDeparture,airlineDeparture);
         CommonEvents.forceWait(4003);
         CommonEvents.pressEnterKey(fieldAirlineDeparture);
@@ -156,30 +170,36 @@ public class AddRoutePage extends BasePage {
     }
 
     public AddRoutePage fillFlightsNoDeparture(String flightsNo) {
+        CommonEvents.waitWebElementIsVisible(fieldFlightsNoDeparture);
         CommonEvents.setInputField(fieldFlightsNoDeparture,flightsNo);
         return this;
     }
 
     public AddRoutePage fillDateDeparture(String dateDeparture) {
+        CommonEvents.waitWebElementIsVisible(fieldDateDeparture);
         CommonEvents.setInputField(fieldDateDeparture,dateDeparture);
         CommonEvents.clickButton(fieldDateDeparture);
         return this;
     }
 
     public AddRoutePage fillTimeDeparture(String time) {
+        CommonEvents.waitWebElementIsVisible(fieldTimeDeparture);
         CommonEvents.setInputField(fieldTimeDeparture,time);
         CommonEvents.pressEnterKey(fieldTimeDeparture);
         return this;
     }
 
     public AddRoutePage fillCheckOutDeparture(String checkout) {
+        CommonEvents.waitWebElementIsVisible(fieldCheckOutDeparture);
         CommonEvents.setInputField(fieldCheckOutDeparture,checkout);
         CommonEvents.pressEnterKey(fieldCheckOutDeparture);
         return this;
     }
 
     public AddRoutePage selectCityAirportArrival(String cityAirportArrival) {
+        CommonEvents.waitWebElementIsVisible(arrivalCityAirport);
         CommonEvents.clickButton(arrivalCityAirport);
+        CommonEvents.waitWebElementIsVisible(fieldCityAirportArrival);
         CommonEvents.setInputField(fieldCityAirportArrival,cityAirportArrival);
         CommonEvents.forceWait(4001);
         CommonEvents.pressEnterKey(fieldCityAirportArrival);
@@ -187,7 +207,9 @@ public class AddRoutePage extends BasePage {
     }
 
     public AddRoutePage selectAirlineArrival(String airlineArrival) {
+        CommonEvents.waitWebElementIsVisible(arrivalAirline);
         CommonEvents.clickButton(arrivalAirline);
+        CommonEvents.waitWebElementIsVisible(fieldAirlineArrival);
         CommonEvents.setInputField(fieldAirlineArrival,airlineArrival);
         CommonEvents.forceWait(4002);
         CommonEvents.pressEnterKey(fieldAirlineArrival);
@@ -195,28 +217,33 @@ public class AddRoutePage extends BasePage {
     }
 
     public AddRoutePage fillFlightsNoArrival(String flightsArrival) {
+        CommonEvents.waitWebElementIsVisible(fieldFlightsNoArrival);
         CommonEvents.setInputField(fieldFlightsNoArrival,flightsArrival);
         return this;
     }
 
     public AddRoutePage fillDateArrival(String dateArrival) {
+        CommonEvents.waitWebElementIsVisible(fieldDateArrival);
         CommonEvents.setInputField(fieldDateArrival,dateArrival);
         CommonEvents.clickButton(fieldDateArrival);
         return this;
     }
 
     public AddRoutePage fillTimeArrival(String timeArrival) {
+        CommonEvents.waitWebElementIsVisible(fieldTimeArrival);
         CommonEvents.setInputField(fieldTimeArrival,timeArrival);
         CommonEvents.pressEnterKey(fieldTimeArrival);
         return this;
     }
 
     public AddRoutePage fillCheckOutArrival(String checkOutArrival) {
+        CommonEvents.waitWebElementIsVisible(fieldCheckOutArrival);
         CommonEvents.setInputField(fieldCheckOutArrival,checkOutArrival);
         return this;
     }
 
     public RoutesPage clickOnSubmit() {
+        CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
         return new RoutesPage();
     }

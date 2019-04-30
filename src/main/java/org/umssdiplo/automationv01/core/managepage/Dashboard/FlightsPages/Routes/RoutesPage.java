@@ -33,26 +33,31 @@ public class RoutesPage extends BasePage {
     private WebElement elementToChose;
 
     public AddRoutePage clickAddButton() {
+        CommonEvents.waitWebElementIsVisible(addRouteButton);
         CommonEvents.clickButton(addRouteButton);
         return new AddRoutePage();
     }
 
     public RoutesPage clickOnSearchButton() {
+        CommonEvents.waitWebElementIsVisible(buttonSearch);
         CommonEvents.clickButton(buttonSearch);
         return this;
     }
 
     public RoutesPage fillElementeToSearch(String searchElement) {
+        CommonEvents.waitWebElementIsVisible(fieldToSearch);
         CommonEvents.setInputField(fieldToSearch,searchElement);
         return this;
     }
 
     public RoutesPage selectByField(String fieldToSearch) {
+        CommonEvents.waitWebElementIsVisible(selectFieldToSearch);
         CommonEvents.chooseDropDownByTextVisible(selectFieldToSearch,fieldToSearch);
         return this;
     }
 
     public RoutesPage clickOnGOButton() {
+        CommonEvents.waitWebElementIsVisible(buttonGO);
         CommonEvents.clickButton(buttonGO);
         return this;
     }
@@ -74,6 +79,7 @@ public class RoutesPage extends BasePage {
     public RoutesPage chooseLastElementToSelect() {
         CommonEvents.forceWait(2000);
         searchLastElementToSelectOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
         return this;
     }
@@ -81,6 +87,7 @@ public class RoutesPage extends BasePage {
     public EditRoutePage clickIconElementToEdit() {
         CommonEvents.forceWait(2000);
         searchLastElementToEditOnTable();
+        CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
         return new EditRoutePage();
     }

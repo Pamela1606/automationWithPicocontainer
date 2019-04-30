@@ -90,51 +90,57 @@ public class EditRoutePage extends BasePage {
     private WebElement submitButton;
 
     public EditRoutePage selectStatus(String status) {
+        CommonEvents.waitWebElementIsVisible(selectStatus);
         CommonEvents.chooseDropDownByTextVisible(selectStatus,status);
         return this;
     }
 
     public EditRoutePage editTotalHoursField(String totalHours) {
-        fieldTotalHours.clear();
+        CommonEvents.waitWebElementIsVisible(fieldTotalHours);
         CommonEvents.setInputField(fieldTotalHours,totalHours);
         return this;
     }
 
     public EditRoutePage editVatTaxField(String vatTax) {
-        fieldVatTax.clear();
+        CommonEvents.waitWebElementIsVisible(fieldVatTax);
         CommonEvents.setInputField(fieldVatTax,vatTax);
         return this;
     }
 
     public EditRoutePage editDepositeField(String deposite) {
-        fieldDeposite.clear();
+        CommonEvents.waitWebElementIsVisible(fieldDeposite);
         CommonEvents.setInputField(fieldDeposite,deposite);
         return this;
     }
 
     public EditRoutePage editselectFlightType(String flightType) {
+        CommonEvents.waitWebElementIsVisible(selectflightType);
         CommonEvents.chooseDropDownByTextVisible(selectflightType,flightType);
         return this;
     }
 
     public EditRoutePage editselectRefundable(String refundable) {
+        CommonEvents.waitWebElementIsVisible(selectRefundable);
         CommonEvents.chooseDropDownByTextVisible(selectRefundable,refundable);
         return this;
     }
 
     public EditRoutePage editDateDeparture(String dateDeparture) {
+        CommonEvents.waitWebElementIsVisible(fieldDateDeparture);
         CommonEvents.setInputField(fieldDateDeparture,dateDeparture);
         CommonEvents.clickButton(fieldDateDeparture);
         return this;
     }
 
     public EditRoutePage editDateArrival(String dateArrival) {
+        CommonEvents.waitWebElementIsVisible(fieldDateArrival);
         CommonEvents.setInputField(fieldDateArrival,dateArrival);
         CommonEvents.clickButton(fieldDateArrival);
         return this;
     }
 
     public RoutesPage clickOnSubmit() {
+        CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
         return new RoutesPage();
     }

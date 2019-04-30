@@ -14,11 +14,13 @@ public class SettingsPage extends BasePage {
     private WebElement submitButton;
 
     public SettingsPage selectTestMode(String testingMode) {
+        CommonEvents.waitWebElementIsVisible(selectTestingMode);
         CommonEvents.chooseDropDownByTextVisible(selectTestingMode,testingMode);
         return this;
     }
 
     public SettingsPage clickOnSubmitButton() {
+        CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
         return this;
     }

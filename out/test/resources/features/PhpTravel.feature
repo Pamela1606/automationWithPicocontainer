@@ -71,6 +71,7 @@ Feature: Login
     And choose the element to select on Route page
     And click on icon delete element selected on Route page
     And press on the Enter key to delete the chosen element on Route page
+    And close Session on Dashboard page
 
   @CNA
   Scenario: Flights Page display and create a new Airport
@@ -200,7 +201,7 @@ Feature: Login
     And edit with "Ecojet Airline" Name field on Edit Airline page
     And edit with "910" Iata Desi field on Edit Airline page
     And edit with "ECO" 3-Digit-Code field on Edit Airline page
-    And edit with "BOLIVIA" Country field on Edit Airline page
+    And edit select "BOLIVIA" Country field on Edit Airline page
     And click button Save and Return on Edit Airline page
     And close Session on Dashboard page
 

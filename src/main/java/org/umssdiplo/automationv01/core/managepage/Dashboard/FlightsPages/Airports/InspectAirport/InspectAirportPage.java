@@ -61,6 +61,7 @@ public class InspectAirportPage extends BasePage {
 
     public Dashboard clickOnReturnButton() {
         CommonEvents.clickButton(returnButton);
+        CommonEvents.clickButton(returnButton);
         return new Dashboard();
     }
 }

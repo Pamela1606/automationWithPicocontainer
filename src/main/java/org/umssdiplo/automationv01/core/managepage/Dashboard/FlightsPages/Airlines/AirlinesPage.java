@@ -95,7 +95,7 @@ public class AirlinesPage extends BasePage {
 
 
     public InspectAirlinesPage clickIconElementToInspect() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToInspectOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
@@ -103,7 +103,7 @@ public class AirlinesPage extends BasePage {
     }
 
     public EditAirlinesPage clickIconElementToEdit() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToEditOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
@@ -111,7 +111,7 @@ public class AirlinesPage extends BasePage {
     }
 
     public AirlinesPage clickIconElementToDelete() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToDeleteOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);

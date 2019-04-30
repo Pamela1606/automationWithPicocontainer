@@ -591,22 +591,22 @@ public class StepsDefinitionPHPtravel {
 
     @And("^edit with \"([^\"]*)\" Name field on Edit Airline page$")
     public void editWithNameFieldOnEditAirlinePage(String arg0) throws Throwable {
-        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+        editAirlinesPage = editAirlinesPage.fillFieldName(arg0);
     }
 
     @And("^edit with \"([^\"]*)\" Iata Desi field on Edit Airline page$")
     public void editWithIataDesiFieldOnEditAirlinePage(String arg0) throws Throwable {
-        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+        editAirlinesPage = editAirlinesPage.fillFieldIataDesi(arg0);
     }
 
-    @And("^edit with \"([^\"]*)\" (\\d+)-Digit-Code field on Edit Airline page$")
-    public void editWithDigitCodeFieldOnEditAirlinePage(String arg0, int arg1) throws Throwable {
-        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+    @And("^edit with \"([^\"]*)\" 3-Digit-Code field on Edit Airline page$")
+    public void editWithDigitCodeFieldOnEditAirlinePage(String arg0) throws Throwable {
+        editAirlinesPage = editAirlinesPage.fillField3DigitCode(arg0);
     }
 
-    @And("^edit with \"([^\"]*)\" Country field on Edit Airline page$")
+    @And("^edit select \"([^\"]*)\" Country field on Edit Airline page$")
     public void editWithCountryFieldOnEditAirlinePage(String arg0) throws Throwable {
-        editAirlinesPage = airlinesPage.clickIconElementToEdit();
+        editAirlinesPage = editAirlinesPage.selectCountry(arg0);
     }
 
     @And("^click button Save and Return on Edit Airline page$")

@@ -102,6 +102,7 @@ public class AddAirportPage extends BasePage {
     }
 
     public AirportsPage clickOnSaveReturn() {
+        CommonEvents.waitWebElementIsVisible(saveReturnButton);
         CommonEvents.clickButton(saveReturnButton);
         return new AirportsPage();
     }

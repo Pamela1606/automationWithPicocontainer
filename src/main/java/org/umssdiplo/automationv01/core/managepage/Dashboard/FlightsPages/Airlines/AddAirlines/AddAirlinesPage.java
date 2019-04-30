@@ -56,7 +56,7 @@ public class AddAirlinesPage extends BasePage {
     public AddAirlinesPage waitToUploadImage() {
         CommonEvents.forceWait(10000);//Tiempo de espera hasta cargar una imagen
         CommonEvents.waitWebElementIsVisible(uploadImage);//Cando se sube una imagen se vuelve visible este elemento
-        CommonEvents.forceWait(3000);
+        CommonEvents.forceWait(4000);
         return this;
     }
 }
