@@ -46,6 +46,7 @@ public class EditAirlinesPage extends BasePage {
     }
 
     public AirlinesPage saveReturnButton(){
+        CommonEvents.forceWait(2000);
         CommonEvents.waitWebElementIsVisible(saveReturnButton);
         CommonEvents.clickButton(saveReturnButton);
         return new AirlinesPage();

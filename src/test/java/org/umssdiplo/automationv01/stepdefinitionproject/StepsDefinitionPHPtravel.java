@@ -1,9 +1,7 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AddAirlines.AddAirlinesPage;
@@ -14,6 +12,7 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airpor
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.EditAirport.EditAirportPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.InspectAirport.InspectAirportPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.FlightsManager;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.AddRoute.AddRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.EditRoute.EditRoutePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Routes.RoutesPage;
@@ -36,6 +35,7 @@ public class StepsDefinitionPHPtravel {
     private AddAirlinesPage addAirlinesPage;
     private EditAirlinesPage editAirlinesPage;
     private InspectAirlinesPage inspectAirlinesPage;
+    private FlightsManager flightsManager;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -55,12 +55,12 @@ public class StepsDefinitionPHPtravel {
 
     @And("^click on flights menu$")
     public void clickOnFlightsMenu() {
-        dashboardPage = dashboardPage.clickFlightMenu();
+        flightsManager = dashboardPage.clickFlightMenu();
     }
 
     @And("^go to the routes page$")
     public void goToTheRoutesPage() {
-        routesPage = dashboardPage.clickFlightMenuRoutes();
+        routesPage = flightsManager.clickFlightMenuRoutes();
     }
 
     @And("^click on add button on Routes page$")
@@ -250,7 +250,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^go to the Airport page$")
     public void goToTheAirportPage() {
-        airportsPage = dashboardPage.clickFlightMenuAirports();
+        airportsPage = flightsManager.clickFlightMenuAirports();
     }
 
     @And("^click on add button on Airport page$")
@@ -505,7 +505,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^go to the Setting page$")
     public void goToTheSettingPage() {
-        settingsPage = dashboardPage.clickFlightMenuSettings();
+        settingsPage = flightsManager.clickFlightMenuSettings();
     }
 
     @And("^select \"([^\"]*)\" Test Mode on Setting page$")
@@ -520,7 +520,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^go to the Airline page$")
     public void goToTheAirlinePage() {
-        airlinesPage = dashboardPage.clickFlightMenuAirlines();
+        airlinesPage = flightsManager.clickFlightMenuAirlines();
     }
 
     @And("^click on add button on Airline page$")
@@ -553,7 +553,7 @@ public class StepsDefinitionPHPtravel {
         airlinesPage = addAirlinesPage.saveReturnButton();
     }
 
-    @Then("^wait upload image \"([^\"]*)\" on Add Airline page$")
+    @And("^wait upload image \"([^\"]*)\" on Add Airline page$")
     public void waitUploadImageOnAddAirlinePage(String arg0) throws Throwable {
         addAirlinesPage = addAirlinesPage.waitToUploadImage();
     }

@@ -89,6 +89,7 @@ public class AddRoutePage extends BasePage {
     @FindBy(id = "add")
     private WebElement submitButton;
 
+
     public AddRoutePage selectStatus(String status) {
         CommonEvents.waitWebElementIsVisible(selectStatus);
         CommonEvents.chooseDropDownByTextVisible(selectStatus,status);

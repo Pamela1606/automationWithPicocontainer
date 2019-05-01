@@ -77,7 +77,7 @@ public class RoutesPage extends BasePage {
 
 
     public RoutesPage chooseLastElementToSelect() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToSelectOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
@@ -85,7 +85,7 @@ public class RoutesPage extends BasePage {
     }
 
     public EditRoutePage clickIconElementToEdit() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToEditOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
@@ -93,7 +93,7 @@ public class RoutesPage extends BasePage {
     }
 
     public RoutesPage clickIconElementToDelete() {
-        CommonEvents.forceWait(2000);
+        CommonEvents.forceWait(4000);
         searchLastElementToDeleteOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
@@ -101,7 +101,7 @@ public class RoutesPage extends BasePage {
     }
 
     public RoutesPage pressEnterKey() {
-        CommonEvents.forceWait(3000);
+        CommonEvents.forceWait(4000);
         webDriver.switchTo().alert().accept();
         return this;
     }

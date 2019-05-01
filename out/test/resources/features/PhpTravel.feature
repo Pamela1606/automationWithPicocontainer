@@ -167,9 +167,9 @@ Feature: Login
     And fill "910" Iata Desi field on Add Airline page
     And fill "ECO" 3-Digit-Code field on Add Airline page
     And fill "BOLIVIA" Country field on Add Airline page
-    Then wait upload image "ecojet.png" on Add Airline page
-      And click button Save and Return on Add Airline page
-      And close Session on Dashboard page
+    And wait upload image "ecojet.png" on Add Airline page
+    And click button Save and Return on Add Airline page
+    And close Session on Dashboard page
 
   @IAL
   Scenario: Inspect the new Airline
