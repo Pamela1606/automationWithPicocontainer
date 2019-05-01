@@ -149,4 +149,8 @@ public class CommonEvents {
             .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
   }
 
+  public static void acceptDialog() {
+    ManageDriver.getInstance().getWebDriver().switchTo().alert().accept();
+  }
+
 }

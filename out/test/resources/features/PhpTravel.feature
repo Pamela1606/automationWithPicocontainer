@@ -36,4 +36,23 @@ Feature: Login
       | Car name     |
       | New Car test |
 
+  # MV-005
+  Scenario: Verify that the car edition works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    And click on the 'edit option' of the first record in the 'cars page'
+    And click on the 'Meta info tab' in the 'edit car page'
+    And fill 'Meta info form' of 'edit car page' with the following data
+      | Meta Title | Meta Keywords | Meta Description       |
+      | Meta test  | Test          | Meta test description. |
+    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars page'
+
+  # MV-003
+  Scenario: Verify that the car delete works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    And click on the 'delete option' of the first record in the 'cars page'
+    And click on the 'accept button' of the 'confirm dialog' on the 'cars page'
+    Then verify that 'car name' of the deleted record does not display in the 'cars page'
+
   #Option Blog

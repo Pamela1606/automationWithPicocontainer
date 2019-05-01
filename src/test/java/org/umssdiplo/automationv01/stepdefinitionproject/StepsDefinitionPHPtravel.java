@@ -1,11 +1,13 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.AddCars.AddCarPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.CarsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.EditCars.EditCarPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -19,6 +21,8 @@ public class StepsDefinitionPHPtravel {
 
     private CarsPage carsPage;
     private AddCarPage addCarPage;
+    private EditCarPage editCarPage;
+    private String carNameDeleted;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -78,6 +82,46 @@ public class StepsDefinitionPHPtravel {
         Assert.assertEquals(actualCarName, expectedCarName);
     }
 
+    @And("^click on the 'edit option' of the first record in the 'cars page'$")
+    public void clickOnTheEditOptionOfTheFirstRecordInTheCarsPage() {
+        editCarPage = carsPage.clickEditButtonOfFirstRecord();
+    }
+
+    @And("^click on the 'Meta info tab' in the 'edit car page'$")
+    public void clickOnTheMetaInfoTabInTheEditCarPage() {
+        editCarPage = editCarPage.clickOnTheMetaInfoTab();
+    }
+
+    @And("^fill 'Meta info form' of 'edit car page' with the following data$")
+    public void fillMetaInfoFormOfEditCarPageWithTheFollowingData(List<Map<String, String>> data) {
+        carsPage = editCarPage.fillMetaInfoForm(data);
+    }
+
+    @Then("^verify that \"([^\"]*)\" notification message is displayed in the 'cars page'$")
+    public void verifyThatMessageIsDisplayedInTheCarsPage(String expectedMessage) {
+        String actualMessage = carsPage.getNotificationMessage();
+
+        Assert.assertEquals(actualMessage, expectedMessage);
+    }
+
+    @And("^click on the 'delete option' of the first record in the 'cars page'$")
+    public void clickOnTheDeleteOptionOfTheFirstRecordInTheCarsPage() {
+        carNameDeleted = carsPage.getNameOfFirstRecord();
+
+        carsPage = carsPage.clickDeleteOptionOfFirstRecord();
+    }
+
+    @And("^click on the 'accept button' of the 'confirm dialog' on the 'cars page'$")
+    public void clickOnTheAcceptButtonOfTheConfirmDialogOnTheCarsPage() {
+        carsPage = carsPage.clickAcceptButtonDelete();
+    }
+
+    @Then("^verify that 'car name' of the deleted record does not display in the 'cars page'$")
+    public void verifyThatCarNameOfTheDeletedRecordDoesNotDisplayInTheCarsPage() {
+        String actualCarName = carsPage.getNameOfFirstRecord();
+
+        Assert.assertNotSame(actualCarName, carNameDeleted);
+    }
 
     // Option Blog
 }
