@@ -22,6 +22,7 @@ public class StepsDefinitionPHPtravel {
     private HotelPage hotelPage;
     private AddHotelPage addHotelPage;
     private EditHotelPage editHotelPage;
+    private String nameHotelDeleted;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -93,6 +94,22 @@ public class StepsDefinitionPHPtravel {
         Assert.assertEquals(messageActual, messageExpected);
     }
 
+    @And("^click to 'delete option' on the registry first on Hotels List into dashboard page$")
+    public void clickToDeleteOptionOnTheRegistryFirstOnHotelsListIntoDashboardPage() {
+        nameHotelDeleted = hotelPage.getNameHotel();
+        hotelPage = hotelPage.clickDeleteOptionButton();
+    }
+
+    @And("^click to 'ok button' of the 'pop-up window' on the Hotel page$")
+    public void clickToOkButtonOfThePopUpWindowOnTheHotelPage() {
+        hotelPage = hotelPage.clickOkButtonToDelete();
+    }
+
+    @Then("^Verify that 'Hotel Name' was deleted of the Hotels List into dashboard page$")
+    public void verifyThatHotelNameWasDeletedOfTheHotelsListIntoDashboardPage() {
+        String nameHotelActual = hotelPage.getNameHotel();
+        Assert.assertNotSame(nameHotelActual, nameHotelDeleted);
+    }
 
 
     // Option Flights

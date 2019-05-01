@@ -38,16 +38,16 @@ Feature: Login
       | Meta Title      | Meta keywords | Meta Description |
       | Title Test Meta | keywords Test | Description Test |
     Then Verify that the "CHANGES SAVED!" message is displayed on 'List Hotels' page
-      And data of 'meta info tab' is different to null
-#
-#  #Hotels - TV-005
-#  Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
-#
-#
+
+  #Hotels - TV-005
+  Scenario: Delete a selected hotel on the list of Hotels on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    And click to 'delete option' on the registry first on Hotels List into dashboard page
+    And click to 'ok button' of the 'pop-up window' on the Hotel page
+    Then Verify that 'Hotel Name' was deleted of the Hotels List into dashboard page
+
+
 #  #Rooms - TV-009
 #  Verificar que el listado de Rooms se despliegue al seleccionar la opcion "Rooms" del menu Lateral
 #  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles

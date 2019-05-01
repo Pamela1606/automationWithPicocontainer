@@ -24,6 +24,9 @@ public class HotelPage extends BasePage {
     @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(12) span a:nth-child(2)")
     private WebElement editHotelButton;
 
+    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(12) span a:nth-child(3)")
+    private WebElement deleteHotelButton;
+
     public String getTitleHotelPage() {
         String titleHotelPageActual = CommonEvents.getTextContent(titleHotelPage);
         return titleHotelPageActual.toUpperCase();
@@ -47,5 +50,15 @@ public class HotelPage extends BasePage {
     public String getMessageNotification() {
         String messageActual = CommonEvents.getTextContent(messagesNotification);
         return messageActual;
+    }
+
+    public HotelPage clickDeleteOptionButton() {
+        CommonEvents.clickButton(deleteHotelButton);
+        return this;
+    }
+
+    public HotelPage clickOkButtonToDelete() {
+        CommonEvents.acceptDialog();
+        return this;
     }
 }
