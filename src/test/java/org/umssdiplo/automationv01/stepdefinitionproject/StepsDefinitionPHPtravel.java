@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.AddCars.AddCarPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.CarsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.EditCars.EditCarPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.CarsSettings.CarsSettingsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -24,7 +25,10 @@ public class StepsDefinitionPHPtravel {
     private EditCarPage editCarPage;
     private String carNameDeleted;
 
-    @Given("^'PHP travel' page is loaded$")
+    private CarsSettingsPage carsSettingsPage;
+
+
+  @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
         login = LoadPage.loginPage();
     }
@@ -123,5 +127,34 @@ public class StepsDefinitionPHPtravel {
         Assert.assertNotSame(actualCarName, carNameDeleted);
     }
 
-    // Option Blog
+    @And("^click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'$")
+    public void clickOnTheCARSSETTINGSSuboptionOfTheMenuIntoCARSOption() {
+        carsSettingsPage = dashboardPage.selectSuboptionCarsSettingsOfCarsOption();
+    }
+
+    @And("^click on the 'Types tab' in the 'cars settings page'$")
+    public void clickOnTheTypesTabInTheCarsSettingsPage() {
+        carsSettingsPage = carsSettingsPage.clickOnTheTypesTab();
+    }
+
+    @And("^click on the 'ADD button' on top of 'Types list' in the 'cars settings page'$")
+    public void clickOnTheADDButtonOnTopOfTypesListInTheCarsSettingsPage() {
+        carsSettingsPage = carsSettingsPage.clickAddButtonOfTypesTab();
+    }
+
+    @And("^fill 'add car type modal form' of 'car settings page' with the following data$")
+    public void fillAddCarTypeModalFormOfCarSettingsPageWithTheFollowingData(List<Map<String, String>> data) {
+      carsSettingsPage = carsSettingsPage.fillAddCarTypeModalForm(data);
+    }
+
+    @Then("^verify that \"([^\"]*)\" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'$")
+    public void verifyThatIsDisplayedInTheFirstRecordOfTheCarTypeTableOfTypesTabOptionInCarsSettingsPage(String expectedCarTypeName) {
+      clickOnTheTypesTabInTheCarsSettingsPage();
+
+      String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
+
+      Assert.assertNotSame(actualCarTypeName, expectedCarTypeName);
+    }
+
+  // Option Blog
 }
