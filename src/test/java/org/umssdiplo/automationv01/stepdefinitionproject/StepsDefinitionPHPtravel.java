@@ -124,6 +124,11 @@ public class StepsDefinitionPHPtravel {
         postPage.assertFirtElement();
     }
 
+    @And("^check \"([^\"]*)\" exist in post page$")
+    public void checkExistInPostPage(String arg0) throws Throwable {
+        postPage.checkTranlate(arg0);
+    }
+
 
     // Option Hotels
 

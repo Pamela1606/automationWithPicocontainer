@@ -52,6 +52,9 @@ public class PostPage extends BasePage {
     @FindBy(xpath = "//tbody/tr[@class='xcrud-row xcrud-row-0'][1]/td[4]")
     private WebElement firstElement;
 
+    @FindBy(xpath = "//ul[@class='nav nav-tabs nav-justified']/li[2]/a")
+    private WebElement textTranlate;
+
     public PostPage clickSearch() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
         CommonEvents.clickButton(buttonSearch);
@@ -155,6 +158,13 @@ public class PostPage extends BasePage {
         System.out.println(modelPost.getName());
         System.out.println(CommonEvents.getTextContent(firstElement));
         //assertNotEquals(modelPost.getName(), CommonEvents.getTextContent(firstElement));
+        return this;
+    }
+
+    public PostPage checkTranlate(String text) {
+        CommonEvents.waitWebElementIsVisible(textTranlate);
+        System.out.println(CommonEvents.getTextContent(textTranlate));
+        assert text.equals(CommonEvents.getTextContent(textTranlate));
         return this;
     }
 }
