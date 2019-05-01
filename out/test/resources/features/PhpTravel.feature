@@ -58,18 +58,25 @@ Feature: Login
   #  And close Session on Dashboard page
 
 
-  @blog
-  Scenario: Check update Post that containt Translate
-    And click on blog menu
-    And go to the 'Post' in blog page
-    And select the first element and save value
-    And click on 'Search' in post page
-    And first value salved search on post page
-    And click 'go button' on Post page
-    And click en edit in post page
-    And check "Translate" exist in post page
-    #And close Session on Dashboard page
+  #@blog
+  #Scenario: Check update Post that containt Translate
+   # And click on blog menu
+   # And go to the 'Post' in blog page
+   # And select the first element and save value
+   # And click on 'Search' in post page
+   # And first value salved search on post page
+   # And click 'go button' on Post page
+   # And click en edit in post page
+   # And check "Translate" exist in post page
+   # And close Session on Dashboard page
 
+  @blog
+  Scenario: Check BLOG CATEGORIES in Blogs page
+    And click on blog menu
+    And go to the 'Category' in blog page
+    And check "BLOG CATEGORIES" in secction category into blogs
+    And assert element with result in title
+  #  And close Session on Dashboard page
 
   #Option Hotels
 

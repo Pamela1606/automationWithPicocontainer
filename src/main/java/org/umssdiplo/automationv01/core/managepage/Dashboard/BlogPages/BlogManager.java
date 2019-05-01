@@ -4,6 +4,7 @@ import cucumber.api.DataTable;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Category.CategoryPostPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Posts.PostPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
@@ -56,5 +57,11 @@ public class BlogManager extends BasePage {
         assert expected.getPost().equals(elements.get(0).get("one"));
         assert expected.getCategory().equals(elements.get(0).get("two"));
         assert expected.getSettings().equals(elements.get(0).get("three"));
+    }
+
+    public CategoryPostPage clickCategoryMenu() {
+        CommonEvents.waitWebElementClickable(_category);
+        CommonEvents.clickButton(_category);
+        return new CategoryPostPage();
     }
 }

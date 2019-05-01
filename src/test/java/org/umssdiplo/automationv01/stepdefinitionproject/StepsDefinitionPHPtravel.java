@@ -6,6 +6,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.BlogManager;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Posts.PostPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Category.CategoryPostPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -16,6 +17,7 @@ public class StepsDefinitionPHPtravel {
     private BlogManager blogManager;
 
     private PostPage postPage;
+    private CategoryPostPage categoryBlogPage;
 
 
     @Given("^'PHP travel' page is loaded$")
@@ -127,6 +129,21 @@ public class StepsDefinitionPHPtravel {
     @And("^check \"([^\"]*)\" exist in post page$")
     public void checkExistInPostPage(String arg0) throws Throwable {
         postPage.checkTranlate(arg0);
+    }
+
+    @And("^go to the 'Category' in blog page$")
+    public void goToTheCategoryInBlogPage() {
+        categoryBlogPage = blogManager.clickCategoryMenu();
+    }
+
+    @And("^check \"([^\"]*)\" in secction category into blogs$")
+    public void checkInSecctionCategoryIntoBlogs(String arg0) throws Throwable {
+        categoryBlogPage.checkTitleExiste(arg0);
+    }
+
+    @And("^assert element with result in title$")
+    public void assertElementWithResultInTitle() {
+        categoryBlogPage.assertTitle();
     }
 
 
