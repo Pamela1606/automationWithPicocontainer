@@ -15,7 +15,7 @@ Feature: Login
     Then Verify that the "HOTELS MANAGEMENT" is displayed on 'dashboard' page
 
   #Hotels - TV-003
-  Scenario Outline: Form of Hotels registry is displayed to select add button on dashboard page
+  Scenario Outline: Form of Hotels registry is displayed to select the add button on dashboard page
     And click to 'option Hotels' on lateral menu into dashboard page
     And click to 'sub option Hotels' on lateral menu into dashboard page
     And click to 'add button' on Hotels page
@@ -27,13 +27,18 @@ Feature: Login
     Examples:
       | Name Hotel |
       | Test 3     |
-#
-#  #Hotels - TV-004
-#  Verificar que la edicion de datos del tab "Meta Info" en el formulario editar de hoteles sea correcto
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
+
+  #Hotels - TV-004
+  Scenario: Edition of datas in the tab "Meta Info" on the form edit of Hotels on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    And click to 'edit option' on Hotels List to a Hotel selected
+    And click to tab 'Meta Info' on Hotel Edit selected
+    And update data form of 'meta info tab' in edit Hotel page
+      | Meta Title      | Meta keywords | Meta Description |
+      | Title Test Meta | keywords Test | Description Test |
+    Then Verify that the "CHANGES SAVED!" message is displayed on 'List Hotels' page
+
 #
 #  #Hotels - TV-005
 #  Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles

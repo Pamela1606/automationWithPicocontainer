@@ -3,6 +3,8 @@ package org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class HotelPage extends BasePage {
@@ -15,6 +17,12 @@ public class HotelPage extends BasePage {
 
     @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(5) a")
     private WebElement nameHotel;
+
+    @FindBy(css = "div.ui-pnotify-container h4")
+    private WebElement messagesNotification;
+
+    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(12) span a:nth-child(2)")
+    private WebElement editHotelButton;
 
     public String getTitleHotelPage() {
         String titleHotelPageActual = CommonEvents.getTextContent(titleHotelPage);
@@ -29,5 +37,15 @@ public class HotelPage extends BasePage {
     public String getNameHotel() {
         String nameHotelActual = CommonEvents.getTextContent(nameHotel);
         return nameHotelActual;
+    }
+
+    public EditHotelPage clickEditButton() {
+        CommonEvents.clickButton(editHotelButton);
+        return new EditHotelPage();
+    }
+
+    public String getMessageNotification() {
+        String messageActual = CommonEvents.getTextContent(messagesNotification);
+        return messageActual;
     }
 }

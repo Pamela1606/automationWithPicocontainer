@@ -7,7 +7,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -20,6 +21,7 @@ public class StepsDefinitionPHPtravel {
     private Dashboard dashboardPage;
     private HotelPage hotelPage;
     private AddHotelPage addHotelPage;
+    private EditHotelPage editHotelPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -67,6 +69,30 @@ public class StepsDefinitionPHPtravel {
         String nameHotelListActual = hotelPage.getNameHotel();
         Assert.assertEquals(nameHotelListActual, nameHotelList);
     }
+
+    // Hotels - Edit Hotels
+    @And("^click to 'edit option' on Hotels List to a Hotel selected$")
+    public void clickToEditOptionOnHotelsListToAHotelSelected() {
+        editHotelPage = hotelPage.clickEditButton();
+    }
+
+    @And("^click to tab 'Meta Info' on Hotel Edit selected$")
+    public void clickToTabMetaInfoOnHotelEditSelected() {
+        editHotelPage = editHotelPage.clickEditMetaInfo();
+    }
+
+    @And("^update data form of 'meta info tab' in edit Hotel page$")
+    public void updateDataFormOfMetaInfoTabInEditHotelPage(DataTable dataTable) {
+        List<Map<String, String>> editDataHotels = dataTable.asMaps(String.class, String.class);
+        hotelPage = editHotelPage.updateDataFormOfMetaInfoTab(editDataHotels);
+    }
+
+    @Then("^Verify that the \"([^\"]*)\" message is displayed on 'List Hotels' page$")
+    public void verifyThatTheMessageIsDisplayedOnListHotelsPage(String messageExpected) throws Throwable {
+        String messageActual = hotelPage.getMessageNotification();
+        Assert.assertEquals(messageActual, messageExpected);
+    }
+
 
 
     // Option Flights
