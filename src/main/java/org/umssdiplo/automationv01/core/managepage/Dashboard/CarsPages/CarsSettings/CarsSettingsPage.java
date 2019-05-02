@@ -45,6 +45,37 @@ public class CarsSettingsPage extends BasePage {
   @FindBy(css = "div#CARTYPES tbody > tr:first-child > td:nth-child(3)")
   private WebElement tdOfFirstRecordCarTypes;
 
+  @FindBy(css = "div#CARTYPES tbody > tr:first-child > td:last-child a[title='Edit']")
+  private WebElement linkEditOfFirstRecordTypesTab;
+
+  @FindBy(css = "div.ui-pnotify h4")
+  private WebElement notificationMessage;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='name']")
+  private WebElement typeNameInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[ru][name]']")
+  private WebElement nameInRussianInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[fa][name]']")
+  private WebElement nameInFarsiInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[fr][name]']")
+  private WebElement nameInFrenchInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[tr][name]']")
+  private WebElement nameInTurkishInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[ar][name]']")
+  private WebElement nameInArabicInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//input[@name='translated[es][name]']")
+  private WebElement nameInSpanishInputEdit;
+
+  @FindBy(xpath = "//div[contains(@id, 'sett')][1]//button[@type='submit']")
+  private WebElement updateCarTypeModalButton;
+
+
   public CarsSettingsPage clickOnTheTypesTab() {
     CommonEvents.clickButton(typesTab);
 
@@ -77,6 +108,34 @@ public class CarsSettingsPage extends BasePage {
 
   public String getNameOfFirstRecordOfTabTypes() {
     return CommonEvents.getTextContent(tdOfFirstRecordCarTypes);
+  }
+
+  public CarsSettingsPage clickEditButtonOfFirstRecordTypesTab() {
+    CommonEvents.clickButton(linkEditOfFirstRecordTypesTab);
+
+    return this;
+  }
+
+  public CarsSettingsPage fillUpdateCarTypeModalForm(List<Map<String, String>> data) {
+    Map<String, String> dataForm = data.get(0);
+
+    CommonEvents.waitWebElementIsVisible(typeNameInputEdit);
+
+    CommonEvents.setInputField(typeNameInputEdit, dataForm.get("Type name"));
+    CommonEvents.setInputField(nameInRussianInputEdit, dataForm.get("Name in Russian"));
+    CommonEvents.setInputField(nameInFarsiInputEdit, dataForm.get("Name in Farsi"));
+    CommonEvents.setInputField(nameInFrenchInputEdit, dataForm.get("Name in French"));
+    CommonEvents.setInputField(nameInTurkishInputEdit, dataForm.get("Name in Turkish"));
+    CommonEvents.setInputField(nameInArabicInputEdit, dataForm.get("Name in Arabic"));
+    CommonEvents.setInputField(nameInSpanishInputEdit, dataForm.get("Name in Spanish"));
+
+    CommonEvents.clickButton(updateCarTypeModalButton);
+
+    return this;
+  }
+
+  public String getNotificationMessage() {
+    return CommonEvents.getTextContent(notificationMessage);
   }
 
 }

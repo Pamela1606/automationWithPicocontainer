@@ -22,6 +22,7 @@ Feature: Login
     And click on the 'CARS suboption' of the menu into 'CARS option'
     Then verify that "CARS MANAGEMENT" title is displayed into 'cars page'
 
+
   # MV-004
   Scenario Outline: Verify that the car registry works correctly
     And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
@@ -36,6 +37,7 @@ Feature: Login
       | Car name     |
       | New Car test |
 
+
   # MV-005
   Scenario: Verify that the car edition works correctly
     And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
@@ -47,6 +49,7 @@ Feature: Login
       | Meta test  | Test          | Meta test description. |
     Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars page'
 
+
   # MV-003
   Scenario: Verify that the car delete works correctly
     And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
@@ -54,6 +57,7 @@ Feature: Login
     And click on the 'delete option' of the first record in the 'cars page'
     And click on the 'accept button' of the 'confirm dialog' on the 'cars page'
     Then verify that 'car name' of the deleted record does not display in the 'cars page'
+
 
   # MV-007
   Scenario Outline: Verify that the car types registry works correctly
@@ -70,5 +74,21 @@ Feature: Login
       | Type name |
       | Mini van  |
 
+
+  # MV-008
+  Scenario Outline: Verify that the car types edition works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
+    And click on the 'Types tab' in the 'cars settings page'
+    And click on the 'edit option' of the first record in the 'Types tab' of 'cars settings page'
+    And fill 'update car type modal form' of 'car settings page' with the following data
+      | Type name   | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
+      | <Type name> | спортивный      | ورزش ها       | des sports     | Spor Dalları    | رياضات         | Deportivo       |
+    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars settings page'
+      And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+
+    Examples:
+      | Type name |
+      | Sports    |
 
   #Option Blog

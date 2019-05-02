@@ -1,6 +1,5 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -144,16 +143,33 @@ public class StepsDefinitionPHPtravel {
 
     @And("^fill 'add car type modal form' of 'car settings page' with the following data$")
     public void fillAddCarTypeModalFormOfCarSettingsPageWithTheFollowingData(List<Map<String, String>> data) {
-      carsSettingsPage = carsSettingsPage.fillAddCarTypeModalForm(data);
+        carsSettingsPage = carsSettingsPage.fillAddCarTypeModalForm(data);
     }
 
     @Then("^verify that \"([^\"]*)\" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'$")
     public void verifyThatIsDisplayedInTheFirstRecordOfTheCarTypeTableOfTypesTabOptionInCarsSettingsPage(String expectedCarTypeName) {
-      clickOnTheTypesTabInTheCarsSettingsPage();
+        clickOnTheTypesTabInTheCarsSettingsPage();
 
-      String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
+        String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
 
-      Assert.assertNotSame(actualCarTypeName, expectedCarTypeName);
+        Assert.assertNotSame(actualCarTypeName, expectedCarTypeName);
+    }
+
+    @And("^click on the 'edit option' of the first record in the 'Types tab' of 'cars settings page'$")
+    public void clickOnTheEditOptionOfTheFirstRecordInTheTypesTabOfCarsSettingsPage() {
+        carsSettingsPage = carsSettingsPage.clickEditButtonOfFirstRecordTypesTab();
+    }
+
+    @And("^fill 'update car type modal form' of 'car settings page' with the following data$")
+    public void fillUpdateCarTypeModalFormOfCarSettingsPageWithTheFollowingData(List<Map<String, String>> data) {
+        carsSettingsPage = carsSettingsPage.fillUpdateCarTypeModalForm(data);
+    }
+
+    @Then("^verify that \"([^\"]*)\" notification message is displayed in the 'cars settings page'$")
+    public void verifyThatNotificationMessageIsDisplayedInTheCarsSettingsPage(String expectedMessage) throws Throwable {
+        String actualMessage = carsSettingsPage.getNotificationMessage();
+
+        Assert.assertEquals(actualMessage, expectedMessage);
     }
 
   // Option Blog
