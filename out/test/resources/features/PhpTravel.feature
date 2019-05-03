@@ -61,13 +61,17 @@ Feature: Login
       | Room Type                        |
       | Studio Apartment With Creek View |
 
-#  #Rooms - TV-011
-#  Verificar que la edicion de datos del tab "Translate" en el formulario de editar Rooms sea correcto
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
-#
+  #Rooms - TV-011
+  Scenario: Edition of datas in the tab "translate" on the form edit of Rooms on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'edit option' on Rooms List of a Room selected
+    And click to tab 'translate' on Room Edit selected
+    And update data form of 'translate tab' in edit Room page
+      | Russian              | Farsi                | French                           | Turkish        | Arabic            | Spanish                              |
+      | Описание комнаты это | توضیحات اتاق این است | Description de la chambre est-ce | Oda Açıklaması | وصف الغرفة هو هذا | Descripción de la habitación es este |
+    Then Verify that the "CHANGES SAVED!" message is displayed on 'List Rooms' page
+
 #  #Rooms - TV-012
 #  Verificar que un room seleccionado sea eliminado de la lista de Rooms
 #  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles

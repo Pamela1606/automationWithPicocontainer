@@ -10,6 +10,7 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddRooms.AddRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditRooms.EditRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -27,6 +28,7 @@ public class StepsDefinitionPHPtravel {
     private String nameHotelDeleted;
 
     private AddRoomPage addRoomPage;
+    private EditRoomPage editRoomPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -140,11 +142,31 @@ public class StepsDefinitionPHPtravel {
         Assert.assertEquals(roomTypeActual, roomTypeExpected);
     }
 
-//    @Then("^Verify that the \"([^\"]*)\" is displayed on 'List Hotels' page$")
-//    public void verifyThatTheIsDisplayedOnListHotelsPage(String nameHotelList) throws Throwable {
-//        String nameHotelListActual = hotelPage.getNameHotel();
-//        Assert.assertEquals(nameHotelListActual, nameHotelList);
-//    }
+    // Hotels - Edit Hotels
+    @And("^click to 'edit option' on Rooms List of a Room selected$")
+    public void clickToEditOptionOnRoomsListOfARoomSelected() {
+        editRoomPage = hotelPage.clickEditButtonRoom();
+    }
+
+    @And("^click to tab 'translate' on Room Edit selected$")
+    public void clickToTabTranslateOnRoomEditSelected() {
+        editRoomPage = editRoomPage.clickEditTranslate();
+    }
+
+    @And("^update data form of 'translate tab' in edit Room page$")
+    public void updateDataFormOfTranslateTabInEditRoomPage(DataTable dataTable) {
+        List<Map<String, String>> editDataRooms = dataTable.asMaps(String.class, String.class);
+        hotelPage = editRoomPage.updateDataFormOfTranslateTab(editDataRooms);
+    }
+
+    @Then("^Verify that the \"([^\"]*)\" message is displayed on 'List Rooms' page$")
+    public void verifyThatTheMessageIsDisplayedOnListRoomsPage(String messageTransExpected) throws Throwable {
+        String messageTransActual = hotelPage.getMessageNotification();
+        Assert.assertEquals(messageTransActual, messageTransExpected);
+    }
+
+    // Hotels - Delete Hotels
+
 
 
     // Option Flights
