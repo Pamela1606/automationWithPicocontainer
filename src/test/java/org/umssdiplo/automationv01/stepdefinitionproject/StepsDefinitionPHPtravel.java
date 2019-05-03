@@ -8,6 +8,7 @@ import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddRooms.AddRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
@@ -19,10 +20,13 @@ import java.util.Map;
 public class StepsDefinitionPHPtravel {
     private Login login;
     private Dashboard dashboardPage;
+
     private HotelPage hotelPage;
     private AddHotelPage addHotelPage;
     private EditHotelPage editHotelPage;
     private String nameHotelDeleted;
+
+    private AddRoomPage addRoomPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -94,6 +98,7 @@ public class StepsDefinitionPHPtravel {
         Assert.assertEquals(messageActual, messageExpected);
     }
 
+    // Hotels - Delete Hotels
     @And("^click to 'delete option' on the registry first on Hotels List into dashboard page$")
     public void clickToDeleteOptionOnTheRegistryFirstOnHotelsListIntoDashboardPage() {
         nameHotelDeleted = hotelPage.getNameHotel();
@@ -110,6 +115,36 @@ public class StepsDefinitionPHPtravel {
         String nameHotelActual = hotelPage.getNameHotel();
         Assert.assertNotSame(nameHotelActual, nameHotelDeleted);
     }
+
+    // Rooms - List of Rooms
+    @And("^click to 'sub option Rooms' on lateral menu into dashboard page$")
+    public void clickToSubOptionRoomsOnLateralMenuIntoDashboardPage() {
+        hotelPage = dashboardPage.clickSubOptionRoomLateralMenu();
+    }
+
+    // Hotels - Add Hotels
+    @And("^click to 'add button' on Rooms page$")
+    public void clickToAddButtonOnRoomsPage() {
+        addRoomPage = hotelPage.clickAddButtonRoom();
+    }
+
+    @And("^fill 'datas on general tab form' on add Room page$")
+    public void fillDatasOnGeneralTabFormOnAddRoomPage(DataTable dataTable) {
+        List<Map<String, String>> valuesRooms = dataTable.asMaps(String.class, String.class);
+        hotelPage = addRoomPage.getFillGeneralTabFormRoom(valuesRooms);
+    }
+
+    @Then("^Verify that the \"([^\"]*)\" is displayed in the first row on 'List Rooms' in the page$")
+    public void verifyThatTheIsDisplayedInTheFirstRowOnListRoomsInThePage(String roomTypeExpected) throws Throwable {
+        String roomTypeActual = hotelPage.getRoomType();
+        Assert.assertEquals(roomTypeActual, roomTypeExpected);
+    }
+
+//    @Then("^Verify that the \"([^\"]*)\" is displayed on 'List Hotels' page$")
+//    public void verifyThatTheIsDisplayedOnListHotelsPage(String nameHotelList) throws Throwable {
+//        String nameHotelListActual = hotelPage.getNameHotel();
+//        Assert.assertEquals(nameHotelListActual, nameHotelList);
+//    }
 
 
     // Option Flights

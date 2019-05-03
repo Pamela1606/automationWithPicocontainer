@@ -47,22 +47,20 @@ Feature: Login
     And click to 'ok button' of the 'pop-up window' on the Hotel page
     Then Verify that 'Hotel Name' was deleted of the Hotels List into dashboard page
 
+  #Rooms - TV-010
+  Scenario Outline: Form of Rooms registry is displayed to select the add button on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'add button' on Rooms page
+    And fill 'datas on general tab form' on add Room page
+      | Room Type   | Room Description | Price | Quantity | Minimum Stay | Max Adults | Max Children | No of Extra Beds | Extra Bed Charges |
+      | <Room Type> | Description Test | 2000  | 3        | 7            | 4          | 2            | 1                | 20                |
+    Then Verify that the "<Room Type>" is displayed in the first row on 'List Rooms' in the page
 
-#  #Rooms - TV-009
-#  Verificar que el listado de Rooms se despliegue al seleccionar la opcion "Rooms" del menu Lateral
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
-#
-#  #Rooms - TV-010
-#  Verificar que el formulario de registro de Rooms permita la insercion de datos para su posterior
-#  almacenamiento y se muestre en la pagina de la lista de Rooms
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
-#
+    Examples:
+      | Room Type                        |
+      | Studio Apartment With Creek View |
+
 #  #Rooms - TV-011
 #  Verificar que la edicion de datos del tab "Translate" en el formulario de editar Rooms sea correcto
 #  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
@@ -77,7 +75,12 @@ Feature: Login
 #    And set my credentials on 'Login' page
 #    And delete hotel on 'Hotel List' page
 
-
+#  #Rooms - TV-012
+# Verificar que el formulario de registro de extras permita la insercion de datos para su posterior almacenamiento y se muestre en la pagina de la lista de extras
+# Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
+#    Given 'PHP travel' page is loaded
+#    And set my credentials on 'Login' page
+#    And delete hotel on 'Hotel List' page
 
   #Option Flights
 

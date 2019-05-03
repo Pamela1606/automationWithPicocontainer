@@ -15,6 +15,9 @@ public class Dashboard extends BasePage {
     @FindBy(css = "#Hotels > li:nth-child(1) > a")
     private WebElement hotelSubMenu;
 
+    @FindBy(css = "#Hotels > li:nth-child(2) > a")
+    private WebElement roomSubMenu;
+
     public Dashboard clickOptionHotelLateralMenu() {
         CommonEvents.waitWebElementClickable(hotelMenu);
         CommonEvents.clickButton(hotelMenu);
@@ -24,6 +27,12 @@ public class Dashboard extends BasePage {
     public HotelPage clickSubOptionHotelLateralMenu() {
         CommonEvents.waitWebElementClickable(hotelSubMenu);
         CommonEvents.clickButton(hotelSubMenu);
+        return new HotelPage();
+    }
+
+    public HotelPage clickSubOptionRoomLateralMenu() {
+        CommonEvents.waitWebElementClickable(roomSubMenu);
+        CommonEvents.clickButton(roomSubMenu);
         return new HotelPage();
     }
 }
