@@ -12,10 +12,25 @@ import java.util.List;
 
 public class ToursPage extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[1]/a")
+    @FindBy(css = ".add_button > .btn")
     private WebElement addToursButton;
 
-        private WebElement elementToChose;
+    @FindBy(css = ".xcrud-search-toggle")
+    private WebElement buttonSearch;
+
+    @FindBy(name = "phrase")
+    private WebElement fieldToSearch;
+
+    @FindBy(name = "column")
+    private WebElement selectFieldToSearch;
+
+    @FindBy(css = ".btn-primary")
+    private WebElement buttonGO;
+
+    @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
+    private List<WebElement> listaTablaName;
+
+    private WebElement elementToChose;
 
     public AddToursPage clickAddButton() {
         CommonEvents.waitWebElementIsVisible(addToursButton);
@@ -23,7 +38,7 @@ public class ToursPage extends BasePage {
         return new AddToursPage();
     }
 
-    /*public ToursPage clickOnSearchButton() {
+    public ToursPage clickOnSearchButton() {
         CommonEvents.waitWebElementIsVisible(buttonSearch);
         CommonEvents.clickButton(buttonSearch);
         return this;
@@ -89,5 +104,5 @@ public class ToursPage extends BasePage {
         CommonEvents.forceWait(4000);
         webDriver.switchTo().alert().accept();
         return this;
-    }*/
+    }
 }

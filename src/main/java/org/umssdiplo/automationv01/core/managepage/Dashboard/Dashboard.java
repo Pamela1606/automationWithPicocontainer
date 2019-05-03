@@ -12,21 +12,20 @@ public class Dashboard extends BasePage {
     @FindBy(css = "#social-sidebar-menu > li:nth-child(9) > a")
     private WebElement toursMenu;
 
-    @FindBy (id = "sidebarCollapse")
-    private WebElement sidebarCollapse;
-
-
-
     @FindBy(css = "#logout strong")
     private WebElement logoutButton;
-
-    /*@FindBy(css = "#logout strong")
-    private WebElement logoutButton;*/
 
     public ToursManagement clickToursMenu() {
         CommonEvents.waitWebElementClickable(toursMenu);
         CommonEvents.clickButton(toursMenu);
         return new ToursManagement();
+    }
+
+    public Login closeSesion() {
+        CommonEvents.forceWait(3000);
+        CommonEvents.waitWebElementClickable(logoutButton);
+        CommonEvents.clickButton(logoutButton);
+        return new Login();
     }
 
 }

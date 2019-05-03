@@ -15,7 +15,18 @@ Feature: Login
   Scenario: Tours Page display
     And click on tours menu
     And go to the tours page
-    #And click on add button on Tours page
+    And click on add button on Tours page
+    And select "Enabled" Status on Add Tours page
+    And fill "Bolivia" Name field on Add Tours page
+    And fill "2" Quantity Adults field on Add Tours page
+    And fill "260" Price Adults field on Add Tours page
+    And select "3" Stars on Add Tours page
+    And fill "3" Total Days field on Add Tours page
+    And fill "2" Total Nights field on Add Tours page
+    And select "Adventure" Tour Type on Add Tours page
+    And select "Yes" Feature on Add Tours page
+    And select "La Paz" Location 1 on Add Tours page
+    And click On Submit on Add Tours page
 
 
   #Option Cars

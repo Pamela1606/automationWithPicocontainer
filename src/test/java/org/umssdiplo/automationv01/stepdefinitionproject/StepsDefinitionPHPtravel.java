@@ -39,7 +39,6 @@ public class StepsDefinitionPHPtravel {
     private AirlinesPage airlinesPage;
     private ToursManagement toursManagement;
 
-    private FlightsManager flightsManager;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -70,11 +69,93 @@ public class StepsDefinitionPHPtravel {
         toursPage = toursManagement.clickTourMenuTours();
     }
 
-    /*@And("^click on add button on Tours page$")
+    @And("^click on add button on Tours page$")
     public void clickOnAddButton() {
         addToursPage = toursPage.clickAddButton();
+    }
+
+    @And("^select \"([^\"]*)\" Status on Add Tours page$")
+    public void selectState(String arg0) throws Throwable {
+        addToursPage = addToursPage.selectStatus(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Name field on Add Tours page$")
+    public void fillNameField(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillName(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Quantity Adults field on Add Tours page$")
+    public void fillQuantityAdultsFieldOnAddToursPage(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillQuantityAdults(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Price Adults field on Add Tours page$")
+    public void fillPriceAdultsFieldOnAddToursPage(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillPriceAdults(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Stars on Add Tours page$")
+    public void selectStars(String arg0) throws Throwable {
+        addToursPage = addToursPage.selectStars(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Total Days field on Add Tours page$")
+    public void fillTotalDaysField(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillTotalDays(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Total Nights field on Add Tours page$")
+    public void fillTotalNightsField(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillTotalNights(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Tour Type on Add Tours page$")
+    public void selectTourType(String arg0) throws Throwable {
+        addToursPage = addToursPage.selectTourType(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Feature on Add Tours page$")
+    public void selectFeature(String arg0) throws Throwable {
+        addToursPage = addToursPage.selectFeature(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Location 1 on Add Tours page$")
+    public void selectLocation1OnAddToursPage(String arg0) throws Throwable {
+        addToursPage = addToursPage.selectLocation1(arg0);
+    }
+
+    @And("^click On Submit on Add Tours page$")
+    public void clickOnSubmitOnAddToursPage() {
+        toursPage = addToursPage.clickOnSubmit();
+    }
+
+
+    /*
+
+    @And("^click on SearchButton on Tours page$")
+    public void clickOnSearchButtonOnToursPage() {
+        toursPage = toursPage.clickOnSearchButton();
+    }
+
+    @And("^fill element to search \"([^\"]*)\" Search field On Tours page$")
+    public void fillElementeToSearchSearchFieldOnToursPage(String arg0) throws Throwable {
+        toursPage = toursPage.fillElementeToSearch(arg0);
+    }
+
+    @And("^select by field \"([^\"]*)\" on Tours page$")
+    public void selectByFieldOnToursPage(String arg0) throws Throwable {
+        toursPage = toursPage.selectByField(arg0);
+    }
+
+    @And("^click on GO button on Tours page$")
+    public void clickOnGOButtonOnToursPage() {
+        toursPage = toursPage.clickOnGOButton();
     }*/
 
+    /*@And("^select \"([^\"]*)\" Status on Edit Tours page$")
+    public void selectStatusOnEditToursPage(String arg0) throws Throwable {
+        editToursPage = editToursPage.selectStatus(arg0);
+    }*/
 
 
     // Option Cars

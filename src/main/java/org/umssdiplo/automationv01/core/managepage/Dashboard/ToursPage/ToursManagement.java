@@ -12,19 +12,19 @@ import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class ToursManagement extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[1]/a")
+    @FindBy(css = "#Tours > li:nth-child(1) > a")
     private WebElement tourMenuTours;
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[2]/a")
+    @FindBy(css = "#Tours > li:nth-child(2) > a")
     private WebElement tourMenuAddNew;
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[3]/a")
+    @FindBy(css = "#Tours > li:nth-child(3) > a")
     private WebElement tourMenuExtras;
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[4]/a")
+    @FindBy(css = "#Tours > li:nth-child(4) > a")
     private WebElement tourMenuReviews;
 
-    @FindBy(xpath = "//*[@id=\"Tours\"]/li[5]/a")
+    @FindBy(css = "#Tours > li:nth-child(5) > a")
     private WebElement tourMenuSettings;
 
     public ToursPage clickTourMenuTours() {
