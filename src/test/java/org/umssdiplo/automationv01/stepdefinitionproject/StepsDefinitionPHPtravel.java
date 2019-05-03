@@ -480,7 +480,7 @@ public class StepsDefinitionPHPtravel {
 
     @And("^click on Return button on Inspect Airport page$")
     public void clickOnReturnButtonOnInspectAirportPage() {
-        dashboardPage = inspectAirportPage.clickOnReturnButton();
+        airportsPage = inspectAirportPage.clickOnReturnButton();
     }
 
     @And("^click on icon delete element selected on Airport page$")

@@ -112,6 +112,7 @@ Feature: Login
     And check Longitud Field with value "-66.156799" on Inspect Airport page
     And check City Field with value "True" on Inspect Airport page
     And click on Return button on Inspect Airport page
+    And close Session on Dashboard page
 
   @ENA
   Scenario: Flights Page display and edit an Airport created

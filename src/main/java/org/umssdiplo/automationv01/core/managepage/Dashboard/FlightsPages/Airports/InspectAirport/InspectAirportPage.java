@@ -1,10 +1,9 @@
 package org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.InspectAirport;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
@@ -59,9 +58,9 @@ public class InspectAirportPage extends BasePage {
         return listaTablaName.get(9).getText();
     }
 
-    public Dashboard clickOnReturnButton() {
+    public AirportsPage clickOnReturnButton() {
+        CommonEvents.waitWebElementIsVisible(returnButton);
         CommonEvents.clickButton(returnButton);
-        CommonEvents.clickButton(returnButton);
-        return new Dashboard();
+        return new AirportsPage();
     }
 }
