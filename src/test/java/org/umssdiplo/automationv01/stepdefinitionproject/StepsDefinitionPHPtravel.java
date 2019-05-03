@@ -6,6 +6,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Extras.AddExtras.AddExtraPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Extras.ExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.AddRooms.AddRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
@@ -31,6 +33,9 @@ public class StepsDefinitionPHPtravel {
     private AddRoomPage addRoomPage;
     private EditRoomPage editRoomPage;
     private String roomTypeDeleted;
+
+    private ExtraPage extraPage;
+    private AddExtraPage addExtraPage;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -185,9 +190,35 @@ public class StepsDefinitionPHPtravel {
         Assert.assertNotSame(roomTypeActual, roomTypeDeleted);
     }
 
+    // Extras - List of  Extras
+    @And("^click to 'sub option Extras' on lateral menu into dashboard page$")
+    public void clickToSubOptionExtrasOnLateralMenuIntoDashboardPage() {
+        extraPage = dashboardPage.clickSubOptionExtraLateralMenu();
+    }
 
+    // Extras - Add Extras
+    @And("^click to 'add button' on Extras page$")
+    public void clickToAddButtonOnExtrasPage() {
+        addExtraPage = extraPage.clickAddButtonExtra();
+    }
 
+    @And("^fill 'datas on extra form' on add Extra page$")
+    public void fillDatasOnExtraFormOnAddExtraPage(DataTable dataTable) {
+        List<Map<String, String>> valuesExtras = dataTable.asMaps(String.class, String.class);
+        extraPage = addExtraPage.getFillFormExtra(valuesExtras);
+    }
 
+    @Then("^Verify that the \"([^\"]*)\" is displayed in the column name of 'List Extras' page$")
+    public void verifyThatTheIsDisplayedInTheColumnNameOfListExtrasPage(String nameExtraExpected) throws Throwable {
+        String nameExtraActual = extraPage.getNameExtra();
+        Assert.assertEquals(nameExtraActual, nameExtraExpected);
+    }
+
+    @And("^Verify that the \"([^\"]*)\" is displayed in the column price of 'List Extras' page$")
+    public void verifyThatTheIsDisplayedInTheColumnPriceOfListExtrasPage(String priceExtraExpected) throws Throwable {
+        String priceExtraActual = extraPage.getPriceExtra();
+        Assert.assertEquals(priceExtraActual, priceExtraExpected);
+    }
 
 
     // Option Flights

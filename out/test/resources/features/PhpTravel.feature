@@ -80,12 +80,20 @@ Feature: Login
     And click to 'ok button' of the 'pop-up window' on the Room page
     Then Verify that 'Room Type' was deleted of the Rooms List into dashboard page
 
-#  #Rooms - TV-012
-# Verificar que el formulario de registro de extras permita la insercion de datos para su posterior almacenamiento y se muestre en la pagina de la lista de extras
-# Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
+#  #Rooms - TV-016
+  Scenario Outline: Form of Extras registry is displayed to select the add button on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Extras' on lateral menu into dashboard page
+    And click to 'add button' on Extras page
+    And fill 'datas on extra form' on add Extra page
+      | Thumb    | Name         | Price         |
+      | Vino.jpg | <Name Extra> | <Price Extra> |
+    Then Verify that the "<Name Extra>" is displayed in the column name of 'List Extras' page
+      And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
+
+    Examples:
+      | Name Extra | Price Extra |
+      | Wine       | 50          |
 
   #Option Flights
 

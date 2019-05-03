@@ -3,6 +3,7 @@ package org.umssdiplo.automationv01.core.managepage.Dashboard;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Extras.ExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
@@ -18,6 +19,9 @@ public class Dashboard extends BasePage {
 
     @FindBy(css = "#Hotels > li:nth-child(2) > a")
     private WebElement roomSubMenu;
+
+    @FindBy(css = "#Hotels > li:nth-child(3) > a")
+    private WebElement extraSubMenu;
 
     public Dashboard clickOptionHotelLateralMenu() {
         CommonEvents.waitWebElementClickable(hotelMenu);
@@ -36,4 +40,10 @@ public class Dashboard extends BasePage {
         CommonEvents.clickButton(roomSubMenu);
         return new RoomPage();
 }
+
+    public ExtraPage clickSubOptionExtraLateralMenu() {
+        CommonEvents.waitWebElementClickable(extraSubMenu);
+        CommonEvents.clickButton(extraSubMenu);
+        return new ExtraPage();
+    }
 }

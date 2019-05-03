@@ -16,9 +16,6 @@ public class RoomPage extends BasePage {
     @FindBy(css = "button[type='submit']")
     private WebElement addRoomButton;
 
-//    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(5) a")
-//    private WebElement nameHotel;
-
     @FindBy(css = "div.ui-pnotify-container h4")
     private WebElement messagesNotification;
 
