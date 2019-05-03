@@ -5,8 +5,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.BlogManager;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Posts.PostPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Category.CategoryPostPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.BlogPages.Posts.PostPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -144,6 +144,36 @@ public class StepsDefinitionPHPtravel {
     @And("^assert element with result in title$")
     public void assertElementWithResultInTitle() {
         categoryBlogPage.assertTitle();
+    }
+
+    @And("^click in new categoty into blog page$")
+    public void clickInNewCategotyIntoBlogPage() {
+        categoryBlogPage.clickNew();
+    }
+
+    @And("^fill name with \"([^\"]*)\" as new 'category'$")
+    public void fillNameWithAsNewCategory(String arg0) throws Throwable {
+        categoryBlogPage.fillNewCategory(arg0);
+    }
+
+    @And("^save new category in blog page$")
+    public void saveNewCategoryInBlogPage() {
+        categoryBlogPage.savenewCategory();
+    }
+
+    @And("^click on 'Search' in catoroty into post page$")
+    public void clickOnSearchInCatorotyIntoPostPage() {
+        categoryBlogPage.clickSearchCategory();
+    }
+
+    @And("^click 'go button' on category page$")
+    public void clickGoButtonOnCategoryPage() {
+        categoryBlogPage.goPageSearch();
+    }
+
+    @And("^check exist element in category$")
+    public void checkExistElementInCategory() {
+        categoryBlogPage.assertExistNewelement();
     }
 
 

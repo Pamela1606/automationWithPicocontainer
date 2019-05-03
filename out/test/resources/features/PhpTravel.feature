@@ -70,13 +70,25 @@ Feature: Login
    # And check "Translate" exist in post page
    # And close Session on Dashboard page
 
+  #@blog
+  #Scenario: Check BLOG CATEGORIES in Blogs page
+  #  And click on blog menu
+  #  And go to the 'Category' in blog page
+  #  And check "BLOG CATEGORIES" in secction category into blogs
+  #  And assert element with result in title
+  #  And close Session on Dashboard page
+
   @blog
-  Scenario: Check BLOG CATEGORIES in Blogs page
+  Scenario: New element in category into Blogs page
     And click on blog menu
     And go to the 'Category' in blog page
-    And check "BLOG CATEGORIES" in secction category into blogs
-    And assert element with result in title
-  #  And close Session on Dashboard page
+    And click in new categoty into blog page
+    And fill name with "The Creative" as new 'category'
+    And save new category in blog page
+    And click on 'Search' in catoroty into post page
+    And click 'go button' on category page
+    And check exist element in category
+    And close Session on Dashboard page
 
   #Option Hotels
 
