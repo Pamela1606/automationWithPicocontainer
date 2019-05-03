@@ -4,9 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddRooms.AddRoomPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.AddRooms.AddRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditRooms.EditRoomPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.EditRooms.EditRoomPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class HotelPage extends BasePage {
@@ -29,14 +29,6 @@ public class HotelPage extends BasePage {
     @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(12) span a:nth-child(3)")
     private WebElement deleteHotelButton;
 
-    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(3) a")
-    private WebElement roomType;
-
-    @FindBy(css = "button[type='submit']")
-    private WebElement addRoomButton;
-
-    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(11) span a:nth-child(1)")
-    private WebElement editRoomButton;
 
     public String getTitleHotelPage() {
         String titleHotelPageActual = CommonEvents.getTextContent(titleHotelPage);
@@ -73,18 +65,5 @@ public class HotelPage extends BasePage {
         return this;
     }
 
-    public AddRoomPage clickAddButtonRoom() {
-        CommonEvents.clickButton(addRoomButton);
-        return new AddRoomPage();
-    }
 
-    public String getRoomType() {
-        String roomTypeActual = CommonEvents.getTextContent(roomType);
-        return roomTypeActual;
-    }
-
-    public EditRoomPage clickEditButtonRoom() {
-        CommonEvents.clickButton(editRoomButton);
-        return new EditRoomPage();
-    }
 }

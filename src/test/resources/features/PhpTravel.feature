@@ -72,12 +72,13 @@ Feature: Login
       | Описание комнаты это | توضیحات اتاق این است | Description de la chambre est-ce | Oda Açıklaması | وصف الغرفة هو هذا | Descripción de la habitación es este |
     Then Verify that the "CHANGES SAVED!" message is displayed on 'List Rooms' page
 
-#  #Rooms - TV-012
-#  Verificar que un room seleccionado sea eliminado de la lista de Rooms
-#  Scenario: Verificar que un hotel seleccionado sea eliminado de la lista de Hoteles
-#    Given 'PHP travel' page is loaded
-#    And set my credentials on 'Login' page
-#    And delete hotel on 'Hotel List' page
+  #Rooms - TV-012
+  Scenario: Delete a selected room on the list of Rooms on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'delete option' on the registry first on Rooms List into dashboard page
+    And click to 'ok button' of the 'pop-up window' on the Room page
+    Then Verify that 'Room Type' was deleted of the Rooms List into dashboard page
 
 #  #Rooms - TV-012
 # Verificar que el formulario de registro de extras permita la insercion de datos para su posterior almacenamiento y se muestre en la pagina de la lista de extras

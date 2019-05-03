@@ -43,25 +43,4 @@ public class EditHotelPage extends BasePage {
         CommonEvents.clickButton(submitButton);
         return new HotelPage();
     }
-
-
-//    public HotelPage getFillGeneralTabFormHotel(List<Map<String, String>> valuesHotels) {
-//        Map<String, String> dtForm = valuesHotels.get(0);
-//        CommonEvents.setInputField(nameHotel, dtForm.get("Hotel Name"));
-//
-//        CommonEvents.forceWait(9000);
-//        CommonEvents.setIframeContent(descripHotelFrame, dtForm.get("Hotel Description"));
-//
-//        selectLocationHotel(dtForm.get("Location"));
-//        CommonEvents.clickButton(submitButton);
-//        return new HotelPage();
-
-//    }
-
-//    private void selectLocationHotel(String locationHotelString) {
-//        CommonEvents.clickButton(locationSelect);
-//        CommonEvents.setInputField(locationHotel, locationHotelString);
-//        CommonEvents.forceWait(6000);
-//        CommonEvents.pressEnterKey(locationHotel);
-//    }
 }

@@ -1,17 +1,17 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.testng.Assert;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddHotels.AddHotelPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddRooms.AddRoomPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.AddRooms.AddRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditHotels.EditHotelPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditRooms.EditRoomPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.EditRooms.EditRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
@@ -27,8 +27,10 @@ public class StepsDefinitionPHPtravel {
     private EditHotelPage editHotelPage;
     private String nameHotelDeleted;
 
+    private RoomPage roomPage;
     private AddRoomPage addRoomPage;
     private EditRoomPage editRoomPage;
+    private String roomTypeDeleted;
 
     @Given("^'PHP travel' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
@@ -121,31 +123,31 @@ public class StepsDefinitionPHPtravel {
     // Rooms - List of Rooms
     @And("^click to 'sub option Rooms' on lateral menu into dashboard page$")
     public void clickToSubOptionRoomsOnLateralMenuIntoDashboardPage() {
-        hotelPage = dashboardPage.clickSubOptionRoomLateralMenu();
+        roomPage = dashboardPage.clickSubOptionRoomLateralMenu();
     }
 
-    // Hotels - Add Hotels
+    // Rooms - Add Rooms
     @And("^click to 'add button' on Rooms page$")
     public void clickToAddButtonOnRoomsPage() {
-        addRoomPage = hotelPage.clickAddButtonRoom();
+        addRoomPage = roomPage.clickAddButtonRoom();
     }
 
     @And("^fill 'datas on general tab form' on add Room page$")
     public void fillDatasOnGeneralTabFormOnAddRoomPage(DataTable dataTable) {
         List<Map<String, String>> valuesRooms = dataTable.asMaps(String.class, String.class);
-        hotelPage = addRoomPage.getFillGeneralTabFormRoom(valuesRooms);
+        roomPage = addRoomPage.getFillGeneralTabFormRoom(valuesRooms);
     }
 
     @Then("^Verify that the \"([^\"]*)\" is displayed in the first row on 'List Rooms' in the page$")
     public void verifyThatTheIsDisplayedInTheFirstRowOnListRoomsInThePage(String roomTypeExpected) throws Throwable {
-        String roomTypeActual = hotelPage.getRoomType();
+        String roomTypeActual = roomPage.getRoomType();
         Assert.assertEquals(roomTypeActual, roomTypeExpected);
     }
 
-    // Hotels - Edit Hotels
+    // Rooms - Edit Rooms
     @And("^click to 'edit option' on Rooms List of a Room selected$")
     public void clickToEditOptionOnRoomsListOfARoomSelected() {
-        editRoomPage = hotelPage.clickEditButtonRoom();
+        editRoomPage = roomPage.clickEditButtonRoom();
     }
 
     @And("^click to tab 'translate' on Room Edit selected$")
@@ -156,16 +158,35 @@ public class StepsDefinitionPHPtravel {
     @And("^update data form of 'translate tab' in edit Room page$")
     public void updateDataFormOfTranslateTabInEditRoomPage(DataTable dataTable) {
         List<Map<String, String>> editDataRooms = dataTable.asMaps(String.class, String.class);
-        hotelPage = editRoomPage.updateDataFormOfTranslateTab(editDataRooms);
+        roomPage = editRoomPage.updateDataFormOfTranslateTab(editDataRooms);
     }
 
     @Then("^Verify that the \"([^\"]*)\" message is displayed on 'List Rooms' page$")
     public void verifyThatTheMessageIsDisplayedOnListRoomsPage(String messageTransExpected) throws Throwable {
-        String messageTransActual = hotelPage.getMessageNotification();
+        String messageTransActual = roomPage.getMessageNotification();
         Assert.assertEquals(messageTransActual, messageTransExpected);
     }
 
-    // Hotels - Delete Hotels
+    // Rooms - Delete Rooms
+    @And("^click to 'delete option' on the registry first on Rooms List into dashboard page$")
+    public void clickToDeleteOptionOnTheRegistryFirstOnRoomsListIntoDashboardPage() {
+        roomTypeDeleted = roomPage.getRoomType();
+        roomPage = roomPage.clickDeleteOptionButtonRoom();
+    }
+
+    @And("^click to 'ok button' of the 'pop-up window' on the Room page$")
+    public void clickToOkButtonOfThePopUpWindowOnTheRoomPage() {
+        roomPage = roomPage.clickOkButtonToDelete();
+    }
+
+    @Then("^Verify that 'Room Type' was deleted of the Rooms List into dashboard page$")
+    public void verifyThatHotelNameWasDeletedOfTheRoomsListIntoDashboardPage() {
+        String roomTypeActual = roomPage.getRoomType();
+        Assert.assertNotSame(roomTypeActual, roomTypeDeleted);
+    }
+
+
+
 
 
 

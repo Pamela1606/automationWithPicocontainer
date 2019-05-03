@@ -1,9 +1,10 @@
-package org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.AddRooms;
+package org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.AddRooms;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class AddRoomPage extends BasePage {
     @FindBy(css = "button#add")
     private WebElement submitButton;
 
-    public HotelPage getFillGeneralTabFormRoom(List<Map<String, String>> valuesRooms) {
+    public RoomPage getFillGeneralTabFormRoom(List<Map<String, String>> valuesRooms) {
         Map<String, String> dtFormRoom = valuesRooms.get(0);
         selectRoomType(dtFormRoom.get("Room Type"));
 
@@ -60,7 +61,7 @@ public class AddRoomPage extends BasePage {
         CommonEvents.setInputField(bedCharges, dtFormRoom.get("Extra Bed Charges"));
 
         CommonEvents.clickButton(submitButton);
-        return new HotelPage();
+        return new RoomPage();
     }
 
     private void selectRoomType(String roomTypeString) {

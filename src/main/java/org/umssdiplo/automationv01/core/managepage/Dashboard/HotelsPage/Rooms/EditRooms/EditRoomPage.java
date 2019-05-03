@@ -1,9 +1,10 @@
-package org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.EditRooms;
+package org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.EditRooms;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class EditRoomPage extends BasePage {
         return this;
     }
 
-    public HotelPage updateDataFormOfTranslateTab(List<Map<String, String>> editDataRooms) {
+    public RoomPage updateDataFormOfTranslateTab(List<Map<String, String>> editDataRooms) {
         Map<String, String> dtForm = editDataRooms.get(0);
 
         CommonEvents.forceWait(9000);
@@ -52,27 +53,6 @@ public class EditRoomPage extends BasePage {
         CommonEvents.setIframeContent(spanishFrame, dtForm.get("Spanish"));
 
         CommonEvents.clickButton(submitButtonRoom);
-        return new HotelPage();
+        return new RoomPage();
     }
-
-
-//    public HotelPage getFillGeneralTabFormHotel(List<Map<String, String>> valuesHotels) {
-//        Map<String, String> dtForm = valuesHotels.get(0);
-//        CommonEvents.setInputField(nameHotel, dtForm.get("Hotel Name"));
-//
-//        CommonEvents.forceWait(9000);
-//        CommonEvents.setIframeContent(descripHotelFrame, dtForm.get("Hotel Description"));
-//
-//        selectLocationHotel(dtForm.get("Location"));
-//        CommonEvents.clickButton(submitButton);
-//        return new HotelPage();
-
-//    }
-
-//    private void selectLocationHotel(String locationHotelString) {
-//        CommonEvents.clickButton(locationSelect);
-//        CommonEvents.setInputField(locationHotel, locationHotelString);
-//        CommonEvents.forceWait(6000);
-//        CommonEvents.pressEnterKey(locationHotel);
-//    }
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class Dashboard extends BasePage {
@@ -30,9 +31,9 @@ public class Dashboard extends BasePage {
         return new HotelPage();
     }
 
-    public HotelPage clickSubOptionRoomLateralMenu() {
+    public RoomPage clickSubOptionRoomLateralMenu() {
         CommonEvents.waitWebElementClickable(roomSubMenu);
         CommonEvents.clickButton(roomSubMenu);
-        return new HotelPage();
-    }
+        return new RoomPage();
+}
 }
