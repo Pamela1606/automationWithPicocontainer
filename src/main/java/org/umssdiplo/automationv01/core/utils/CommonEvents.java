@@ -145,12 +145,12 @@ public class CommonEvents {
   }
 
   public static void setIframeContent(WebElement webElement, String content) {
-    ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
-            .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
+      ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
+              .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
   }
 
   public static void acceptDialog() {
-    ManageDriver.getInstance().getWebDriver().switchTo().alert().accept();
+      ManageDriver.getInstance().getWebDriver().switchTo().alert().accept();
   }
 
 }

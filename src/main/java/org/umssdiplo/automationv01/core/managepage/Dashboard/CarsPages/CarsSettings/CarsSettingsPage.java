@@ -48,6 +48,9 @@ public class CarsSettingsPage extends BasePage {
   @FindBy(css = "div#CARTYPES tbody > tr:first-child > td:last-child a[title='Edit']")
   private WebElement linkEditOfFirstRecordTypesTab;
 
+  @FindBy(css = "div#CARTYPES tbody > tr:first-child > td:last-child a[title='DELETE']")
+  private WebElement linkDeleteOfFirstRecordTypesTab;
+
   @FindBy(css = "div.ui-pnotify h4")
   private WebElement notificationMessage;
 
@@ -136,6 +139,18 @@ public class CarsSettingsPage extends BasePage {
 
   public String getNotificationMessage() {
     return CommonEvents.getTextContent(notificationMessage);
+  }
+
+  public CarsSettingsPage clickDeleteOptionOfFirstRecordTypesTab() {
+    CommonEvents.clickButton(linkDeleteOfFirstRecordTypesTab);
+
+    return this;
+  }
+
+  public CarsSettingsPage clickAcceptButtonDelete() {
+    CommonEvents.acceptDialog();
+
+    return this;
   }
 
 }

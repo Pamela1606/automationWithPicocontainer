@@ -25,6 +25,7 @@ public class StepsDefinitionPHPtravel {
     private String carNameDeleted;
 
     private CarsSettingsPage carsSettingsPage;
+    private String carTypeNameDeleted;
 
 
   @Given("^'PHP travel' page is loaded$")
@@ -171,6 +172,28 @@ public class StepsDefinitionPHPtravel {
 
         Assert.assertEquals(actualMessage, expectedMessage);
     }
+
+    @And("^click on the 'delete option' of the first record in the 'Types tab' of 'cars settings page'$")
+    public void clickOnTheDeleteOptionOfTheFirstRecordInTheTypesTabOfCarsSettingsPage() {
+        carTypeNameDeleted = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
+
+        carsSettingsPage = carsSettingsPage.clickDeleteOptionOfFirstRecordTypesTab();
+    }
+
+    @And("^click on the 'accept button' of the 'confirm dialog' on the 'cars settings page'$")
+    public void clickOnTheAcceptButtonOfTheConfirmDialogOnTheCarsSettingsPage() {
+        carsSettingsPage = carsSettingsPage.clickAcceptButtonDelete();
+    }
+
+    @Then("^verify that 'car name' of the deleted record does not display in the 'Types tab' of 'cars settings page'$")
+    public void verifyThatCarNameOfTheDeletedRecordDoesNotDisplayInTheTypesTabOfCarsSettingsPage() {
+        clickOnTheTypesTabInTheCarsSettingsPage();
+
+        String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
+
+        Assert.assertNotSame(actualCarTypeName, carTypeNameDeleted);
+    }
+
 
   // Option Blog
 }

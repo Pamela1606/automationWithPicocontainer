@@ -85,10 +85,21 @@ Feature: Login
       | Type name   | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
       | <Type name> | спортивный      | ورزش ها       | des sports     | Spor Dalları    | رياضات         | Deportivo       |
     Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars settings page'
-      And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+    And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
 
     Examples:
       | Type name |
       | Sports    |
+
+
+  # MV-009
+  Scenario: Verify that the car types delete works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
+    And click on the 'Types tab' in the 'cars settings page'
+    And click on the 'delete option' of the first record in the 'Types tab' of 'cars settings page'
+    And click on the 'accept button' of the 'confirm dialog' on the 'cars settings page'
+    Then verify that 'car name' of the deleted record does not display in the 'Types tab' of 'cars settings page'
+
 
   #Option Blog
