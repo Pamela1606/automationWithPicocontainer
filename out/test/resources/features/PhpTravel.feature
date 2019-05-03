@@ -5,13 +5,12 @@ Feature: Login
     Given 'PHP travel' page is loaded
     And set my credentials on 'Login' page
 
-
   #Option Hotels
 
   #Option Flights
 
   @CNR
-  Scenario: Flights Page display and create a new Route One Way
+  Scenario: Flights Page display and create a Route One Way
     And click on flights menu
     And go to the routes page
     And click on add button on Routes page
@@ -41,7 +40,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @ENR
-  Scenario: Flights Page display and edit an element
+  Scenario: Flights Page display and edit an Route created
     And click on flights menu
     And go to the routes page
     And click on SearchButton on Route page
@@ -61,7 +60,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @DNR
-  Scenario: Flights Page display and delete an element
+  Scenario: Flights Page display and delete an Route created
     And click on flights menu
     And go to the routes page
     And click on SearchButton on Route page
@@ -74,7 +73,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @CNA
-  Scenario: Flights Page display and create a new Airport
+  Scenario: Flights Page display and create an Airport
     And click on flights menu
     And go to the Airport page
     And click on add button on Airport page
@@ -93,7 +92,7 @@ Feature: Login
 
 
   @INA
-  Scenario: Inspect the last Airport created
+  Scenario: Flights Page display and inspect an Airport created
     And click on flights menu
     And go to the Airport page
     And click on Search button on Airport page
@@ -115,7 +114,7 @@ Feature: Login
     And click on Return button on Inspect Airport page
 
   @ENA
-  Scenario: Flights Page display and edit an Airport
+  Scenario: Flights Page display and edit an Airport created
     And click on flights menu
     And go to the Airport page
     And click on Search button on Airport page
@@ -138,7 +137,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @DNA
-  Scenario: Delete Airport created
+  Scenario: Flights Page display and delete an Airport created
     And click on flights menu
     And go to the Airport page
     And click on Search button on Airport page
@@ -151,7 +150,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @CTM
-  Scenario: Change Test mode
+  Scenario: Flights Page display and Change Test mode
     And click on flights menu
     And go to the Setting page
     And select "On" Test Mode on Setting page
@@ -159,7 +158,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @CA
-  Scenario: create a new Airline
+  Scenario: Flights Page display and create an Airline
     And click on flights menu
     And go to the Airline page
     And click on add button on Airline page
@@ -172,7 +171,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @IAL
-  Scenario: Inspect the new Airline
+  Scenario: Flights Page display and inspect an Airline created
     And click on flights menu
     And go to the Airline page
     And click on Search button on Airline page
@@ -189,7 +188,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @EAL
-  Scenario: edit the new Airline
+  Scenario: Flights Page display and edit an Airline created
     And click on flights menu
     And go to the Airline page
     And click on Search button on Airline page
@@ -206,7 +205,7 @@ Feature: Login
     And close Session on Dashboard page
 
   @DAL
-  Scenario: Delete the new Airline
+  Scenario: Flights Page display and delete an Airline created
     And click on flights menu
     And go to the Airline page
     And click on Search button on Airline page
