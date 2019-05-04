@@ -26,7 +26,8 @@ Feature: Login
     And fill "2" Total Nights field on Add Tours page
     And select "Adventure" Tour Type on Add Tours page
     And select "Yes" Feature on Add Tours page
-    And select "La Paz" Location 1 on Add Tours page
+    And select "bol" Location 1 on Add Tours page
+    #And fill "Bolivia" Address field on Add Tours page
     And click On Submit on Add Tours page
     And close Session on Dashboard page
 

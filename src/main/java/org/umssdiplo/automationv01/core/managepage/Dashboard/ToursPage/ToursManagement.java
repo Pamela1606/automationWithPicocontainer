@@ -55,12 +55,6 @@ public class ToursManagement extends BasePage {
         return new SettingsPage();
     }
 
-    public Login closeSesion() {
-        CommonEvents.forceWait(4000);
-        CommonEvents.waitWebElementClickable(logoutButton);
-        CommonEvents.clickButton(logoutButton);
-        return new Login();
-    }
 
 
 }

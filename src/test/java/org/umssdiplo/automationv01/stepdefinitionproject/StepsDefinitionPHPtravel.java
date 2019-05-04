@@ -122,14 +122,19 @@ public class StepsDefinitionPHPtravel {
         addToursPage = addToursPage.selectLocation1(arg0);
     }
 
+    @And("^fill \"([^\"]*)\" Address field on Add Tours page$")
+    public void fillAddressField(String arg0) throws Throwable {
+        addToursPage = addToursPage.fillAddress(arg0);
+    }
+
     @And("^click On Submit on Add Tours page$")
     public void clickOnSubmitOnAddToursPage() {
         toursPage = addToursPage.clickOnSubmit();
     }
 
-    @And("^close Session on Tours page$")
-    public void cerrarSesionOnToursManagementPage() {
-        login = toursManagement.closeSesion();
+    @And("^close Session on Dashboard page$")
+    public void cerrarSesionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
     }
 //Edit///
     @And("^click on SearchButton on Tours page$")
