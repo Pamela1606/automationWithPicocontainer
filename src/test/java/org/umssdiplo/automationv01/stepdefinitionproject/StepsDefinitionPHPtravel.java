@@ -11,7 +11,6 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.Ad
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.EditExtraPage.EditExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ViewPage.ViewPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Reviews.ReviewsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Settings.SettingsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.AddTours.AddToursPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.EditTours.EditToursPage;
@@ -35,7 +34,6 @@ public class StepsDefinitionPHPtravel {
     private AddExtraPage addExtraPage;
     private EditExtraPage editExtraPage;
     private ViewPage viewPage;
-    private ReviewsPage reviewsPage;
     private SettingsPage settingsPage;
     private ToursManagement toursManagement;
 
