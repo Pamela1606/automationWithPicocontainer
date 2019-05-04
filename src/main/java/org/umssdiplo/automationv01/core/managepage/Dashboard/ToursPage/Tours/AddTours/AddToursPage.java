@@ -113,8 +113,9 @@ public class AddToursPage extends BasePage {
         CommonEvents.clickButton(location);
         CommonEvents.waitWebElementIsVisible(fieldLocation);
         CommonEvents.setInputField(fieldLocation, location1);
-        CommonEvents.forceWait(5000);
+        CommonEvents.forceWait(6000);
         CommonEvents.pressEnterKey(fieldLocation);
+        //CommonEvents.pressEnterKey(fieldSelected);
         return this;
     }
 
