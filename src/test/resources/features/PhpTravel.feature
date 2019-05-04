@@ -305,7 +305,7 @@ Feature: Login
       | Type name | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
       | Sports    | спортивный      | ورزش ها       | des sports     | Spor Dalları    | رياضات         | Deportivo       |
     Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars settings page'
-      And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+    And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
     And close Session on Dashboard page
 
     Examples:
@@ -335,7 +335,7 @@ Feature: Login
       | Thumb           | Name        | Price |
       | rear-camera.jpg | Rear camera | 75    |
     Then verify that "<Extra name>" is displayed in the first record of the column 'Name' in 'extras page'
-      And verify that "<Extra Price>" is displayed in the first record of the column 'Price' in 'extras page'
+    And verify that "<Extra Price>" is displayed in the first record of the column 'Price' in 'extras page'
     And close Session on Dashboard page
 
     Examples:
