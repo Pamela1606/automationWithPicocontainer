@@ -153,4 +153,9 @@ public class CommonEvents {
       ManageDriver.getInstance().getWebDriver().switchTo().alert().accept();
   }
 
+  public static void setInputTypeToText(WebElement webElement) {
+      ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
+              .executeScript("arguments[0].type='text';", webElement);
+  }
+
 }

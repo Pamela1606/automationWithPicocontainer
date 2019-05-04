@@ -8,6 +8,8 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.AddC
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.CarsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Cars.EditCars.EditCarPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.CarsSettings.CarsSettingsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Extras.AddExtras.AddExtrasPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.CarsPages.Extras.CarsExtrasPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
@@ -19,6 +21,7 @@ public class StepsDefinitionPHPtravel {
     private Login login;
     private Dashboard dashboardPage;
 
+    // Option Cars
     private CarsPage carsPage;
     private AddCarPage addCarPage;
     private EditCarPage editCarPage;
@@ -26,6 +29,9 @@ public class StepsDefinitionPHPtravel {
 
     private CarsSettingsPage carsSettingsPage;
     private String carTypeNameDeleted;
+
+    private CarsExtrasPage carsExtrasPage;
+    private AddExtrasPage addExtrasPage;
 
 
   @Given("^'PHP travel' page is loaded$")
@@ -36,6 +42,11 @@ public class StepsDefinitionPHPtravel {
     @And("^set my credentials on 'Login' page$")
     public void setMyCredentialsOnLoginPage() throws Throwable {
         dashboardPage = login.setCredentials();
+    }
+
+    @And("^close Session on Dashboard page$")
+    public void closeSessionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
     }
 
     // Option Hotels
@@ -192,6 +203,35 @@ public class StepsDefinitionPHPtravel {
         String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
 
         Assert.assertNotSame(actualCarTypeName, carTypeNameDeleted);
+    }
+
+    @And("^click on the 'EXTRAS suboption' of the menu into 'CARS option'$")
+    public void clickOnTheEXTRASSuboptionOfTheMenuIntoCARSOption() {
+        carsExtrasPage = dashboardPage.selectSuboptionExtrasOfCarsOption();
+    }
+
+    @And("^click on the 'ADD button' in the 'extras page'$")
+    public void clickOnTheADDButtonInTheExtrasPage() {
+        addExtrasPage = carsExtrasPage.clickAddButton();
+    }
+
+    @And("^fill 'extra form' of 'add extras page' with the following data$")
+    public void fillExtraFormOfAddExtrasPageWithTheFollowingData(List<Map<String, String>> data) {
+        carsExtrasPage = addExtrasPage.fillFormWithSaveAndReturnButton(data);
+    }
+
+    @Then("^verify that \"([^\"]*)\" is displayed in the first record of the column 'Name' in 'extras page'$")
+    public void verifyThatIsDisplayedInTheFirstRecordOfTheColumnNameInExtrasPage(String expectedName) {
+        String actualName = carsExtrasPage.getNameOfFirstRecord();
+
+        Assert.assertEquals(actualName, expectedName);
+    }
+
+    @And("^verify that \"([^\"]*)\" is displayed in the first record of the column 'Price' in 'extras page'$")
+    public void verifyThatIsDisplayedInTheFirstRecordOfTheColumnPriceInExtrasPage(String expectedPrice) {
+        String actualPrice = carsExtrasPage.getPriceOfFirstRecord();
+
+        Assert.assertEquals(actualPrice, expectedPrice);
     }
 
 

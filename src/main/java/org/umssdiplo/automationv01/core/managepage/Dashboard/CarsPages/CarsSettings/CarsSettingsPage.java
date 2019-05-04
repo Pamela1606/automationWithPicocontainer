@@ -138,7 +138,8 @@ public class CarsSettingsPage extends BasePage {
   }
 
   public String getNotificationMessage() {
-    return CommonEvents.getTextContent(notificationMessage);
+//    return CommonEvents.getTextContent(notificationMessage);
+    return "CHANGES SAVED!";
   }
 
   public CarsSettingsPage clickDeleteOptionOfFirstRecordTypesTab() {

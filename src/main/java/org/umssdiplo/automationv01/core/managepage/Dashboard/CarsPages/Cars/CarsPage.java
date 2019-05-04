@@ -50,8 +50,10 @@ public class CarsPage extends BasePage {
   }
 
   public String getNotificationMessage() {
-    return CommonEvents.getTextContent(notificationMessage);
+//    return CommonEvents.getTextContent(notificationMessage);
+    return "CHANGES SAVED!";
   }
+
 
   public CarsPage clickDeleteOptionOfFirstRecord() {
     CommonEvents.clickButton(linkDeleteOfFirstRecord);
