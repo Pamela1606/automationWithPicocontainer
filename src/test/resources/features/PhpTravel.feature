@@ -118,6 +118,20 @@ Feature: Login
     And click button Save and Return on Edit Extras page
     And close Session on Dashboard page
 
+  @DNE
+  Scenario: Delete the new Extra
+    And click on tours menu
+    And go to the Extras page
+    And click on Search button on Extras page
+    And fill element to search "Cochabamba" Search field on Extras page
+    And select by field "Name" on Extras page
+    And click on GO button on Extras page
+    And choose the element to select on Extras page
+    And click on icon delete element selected on Extras page
+    And press on the Enter key to delete the chosen element on Extras page
+    And close Session on Dashboard page
+
+
 
   #Option Cars
 
