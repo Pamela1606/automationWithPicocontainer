@@ -163,4 +163,18 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriver().switchTo().defaultContent();
     }
 
+    public static void selectDropDown(WebElement selectField, By by) {
+        clickButton(selectField);
+        ManageDriver.getInstance().getWebDriver().findElement(by).click();
+    }
+
+    public static void setIframeContent(WebElement webElement, String content) {
+        ((JavascriptExecutor) ManageDriver.getInstance().getWebDriver())
+                .executeScript("arguments[0].contentWindow.document.getElementsByTagName('p')[0].innerHTML='"+ content +"';", webElement);
+    }
+
+    public static void acceptDialog() {
+        ManageDriver.getInstance().getWebDriver().switchTo().alert().accept();
+    }
+
 }

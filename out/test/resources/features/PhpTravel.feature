@@ -4,126 +4,114 @@ Feature: Login
   Background: Home page is displayed once set credential in login page
     Given 'PHP travel' page is loaded
     And set my credentials on 'Login' page
-    
-  #Option Hotels
-
-  #Option Tours
 
   #
-  # Option Cars
+  # Option Hotels
   #
-
-  # MV-001
-  Scenario: Display of car list page
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS suboption' of the menu into 'CARS option'
-    Then verify that "CARS MANAGEMENT" title is displayed into 'cars page'
+  #Hotels - TV-001
+  @hotels
+  Scenario: List of Hotels is displayed to select option Hotels on lateral menu
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    Then Verify that the "HOTELS MANAGEMENT" is displayed on 'dashboard' page
     And close Session on Dashboard page
 
-
-  # MV-004
-  Scenario Outline: Verify that the car registry works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS suboption' of the menu into 'CARS option'
-    And click on the 'ADD button' on top of the 'cars page'
-    And fill 'general tab form' of 'add car page' with the following data
-      | Car name     | Car Description          | Car Type |
-      | New Car test | Description for new car. | Van      |
-
-    Then verify that "<Car name>" is displayed in the first record of the 'car table' in 'cars page'
-    And close Session on Dashboard page
-
-    Examples:
-      | Car name     |
-      | New Car test |
-
-
-  # MV-005
-  Scenario: Verify that the car edition works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS suboption' of the menu into 'CARS option'
-    And click on the 'edit option' of the first record in the 'cars page'
-    And click on the 'Meta info tab' in the 'edit car page'
-    And fill 'Meta info form' of 'edit car page' with the following data
-      | Meta Title | Meta Keywords | Meta Description       |
-      | Meta test  | Test          | Meta test description. |
-    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars page'
-    And close Session on Dashboard page
-
-
-  # MV-003
-  Scenario: Verify that the car delete works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS suboption' of the menu into 'CARS option'
-    And click on the 'delete option' of the first record in the 'cars page'
-    And click on the 'accept button' of the 'confirm dialog' on the 'cars page'
-    Then verify that 'car name' of the deleted record does not display in the 'cars page'
-    And close Session on Dashboard page
-
-
-  # MV-007
-  Scenario Outline: Verify that the car types registry works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
-    And click on the 'Types tab' in the 'cars settings page'
-    And click on the 'ADD button' on top of 'Types list' in the 'cars settings page'
-    And fill 'add car type modal form' of 'car settings page' with the following data
-      | Type name | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
-      | Mini van  | мини фургон     | مینی ون       | Mini van       | minibüs         | فان صغيرة      | Mini furgoneta  |
-    Then verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+  #Hotels - TV-003
+  @hotels
+  Scenario Outline: Form of Hotels registry is displayed to select the add button on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    And click to 'add button' on Hotels page
+    And fill 'datas on general tab form' on add Hotel page
+      | Hotel Name | Hotel Description | Location |
+      | Test 3     | Description Test  | Iquique  |
+    Then Verify that the "<Name Hotel>" is displayed on 'List Hotels' page
     And close Session on Dashboard page
 
     Examples:
-      | Type name |
-      | Mini van  |
+      | Name Hotel |
+      | Test 3     |
 
+  #Hotels - TV-004
+  @hotels
+  Scenario: Edition of datas in the tab "Meta Info" on the form edit of Hotels on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    And click to 'edit option' on Hotels List to a Hotel selected
+    And click to tab 'Meta Info' on Hotel Edit selected
+    And update data form of 'meta info tab' in edit Hotel page
+      | Meta Title      | Meta keywords | Meta Description |
+      | Title Test Meta | keywords Test | Description Test |
+    Then Verify that the "CHANGES SAVED!" message is displayed on 'List Hotels' page
+    And close Session on Dashboard page
 
-  # MV-008
-  Scenario Outline: Verify that the car types edition works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
-    And click on the 'Types tab' in the 'cars settings page'
-    And click on the 'edit option' of the first record in the 'Types tab' of 'cars settings page'
-    And fill 'update car type modal form' of 'car settings page' with the following data
-      | Type name | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
-      | Sports    | спортивный      | ورزش ها       | des sports     | Spor Dalları    | رياضات         | Deportivo       |
-    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars settings page'
-    And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+  #Hotels - TV-005
+  @hotels
+  Scenario: Delete a selected hotel on the list of Hotels on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Hotels' on lateral menu into dashboard page
+    And click to 'delete option' on the registry first on Hotels List into dashboard page
+    And click to 'ok button' of the 'pop-up window' on the Hotel page
+    Then Verify that 'Hotel Name' was deleted of the Hotels List into dashboard page
+    And close Session on Dashboard page
+
+  #Rooms - TV-010
+  @hotels
+  Scenario Outline: Form of Rooms registry is displayed to select the add button on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'add button' on Rooms page
+    And fill 'datas on general tab form' on add Room page
+      | Room Type                        | Room Description | Price | Quantity | Minimum Stay | Max Adults | Max Children | No of Extra Beds | Extra Bed Charges |
+      | Studio Apartment With Creek View | Description Test | 2000  | 3        | 7            | 4          | 2            | 1                | 20                |
+    Then Verify that the "<Room Type>" is displayed in the first row on 'List Rooms' in the page
     And close Session on Dashboard page
 
     Examples:
-      | Type name |
-      | Sports    |
+      | Room Type                        |
+      | Studio Apartment With Creek View |
 
-
-  # MV-009
-  Scenario: Verify that the car types delete works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
-    And click on the 'Types tab' in the 'cars settings page'
-    And click on the 'delete option' of the first record in the 'Types tab' of 'cars settings page'
-    And click on the 'accept button' of the 'confirm dialog' on the 'cars settings page'
-    Then verify that 'car name' of the deleted record does not display in the 'Types tab' of 'cars settings page'
+  #Rooms - TV-011
+  @hotels
+  Scenario: Edition of datas in the tab "translate" on the form edit of Rooms on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'edit option' on Rooms List of a Room selected
+    And click to tab 'translate' on Room Edit selected
+    And update data form of 'translate tab' in edit Room page
+      | Russian              | Farsi                | French                           | Turkish        | Arabic            | Spanish                              |
+      | Описание комнаты это | توضیحات اتاق این است | Description de la chambre est-ce | Oda Açıklaması | وصف الغرفة هو هذا | Descripción de la habitación es este |
+    Then Verify that the "CHANGES SAVED!" message is displayed on 'List Rooms' page
     And close Session on Dashboard page
 
+  #Rooms - TV-012
+  @hotels
+  Scenario: Delete a selected room on the list of Rooms on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Rooms' on lateral menu into dashboard page
+    And click to 'delete option' on the registry first on Rooms List into dashboard page
+    And click to 'ok button' of the 'pop-up window' on the Room page
+    Then Verify that 'Room Type' was deleted of the Rooms List into dashboard page
+    And close Session on Dashboard page
 
-  # MV-014
-  Scenario Outline: Verify that the extras registry works correctly
-    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
-    And click on the 'EXTRAS suboption' of the menu into 'CARS option'
-    And click on the 'ADD button' in the 'extras page'
-    And fill 'extra form' of 'add extras page' with the following data
-      | Thumb           | Name        | Price |
-      | rear-camera.jpg | Rear camera | 75    |
-    Then verify that "<Extra name>" is displayed in the first record of the column 'Name' in 'extras page'
-    And verify that "<Extra Price>" is displayed in the first record of the column 'Price' in 'extras page'
+#  #Rooms - TV-016
+  @hotels
+  Scenario Outline: Form of Extras registry is displayed to select the add button on dashboard page
+    And click to 'option Hotels' on lateral menu into dashboard page
+    And click to 'sub option Extras' on lateral menu into dashboard page
+    And click to 'add button' on Extras page
+    And fill 'datas on extra form' on add Extra page
+      | Thumb    | Name | Price |
+      | Vino.jpg | Wine | 50    |
+    Then Verify that the "<Name Extra>" is displayed in the column name of 'List Extras' page
+    And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
     And close Session on Dashboard page
 
     Examples:
-      | Extra name  | Extra Price |
-      | Rear camera | 75          |
+      | Name Extra | Price Extra |
+      | Wine       | 50          |
 
-  
+
   #Option Flights
   @CNR
   Scenario: Flights Page display and create a Route One Way
@@ -205,7 +193,6 @@ Feature: Login
     And fill "True" City field on Add Airport page
     And click on save & return on Add Airport page
     And close Session on Dashboard page
-
 
   @INA
   Scenario: Flights Page display and inspect an Airport created
@@ -337,7 +324,128 @@ Feature: Login
 
   #Option Tours
 
-  #Option Cars
+  #
+  # Option Cars
+  #
+
+  # MV-001
+  @cars
+  Scenario: Display of car list page
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    Then verify that "CARS MANAGEMENT" title is displayed into 'cars page'
+    And close Session on Dashboard page
+
+
+  # MV-004
+  @cars
+  Scenario Outline: Verify that the car registry works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    And click on the 'ADD button' on top of the 'cars page'
+    And fill 'general tab form' of 'add car page' with the following data
+      | Car name     | Car Description          | Car Type |
+      | New Car test | Description for new car. | Van      |
+
+    Then verify that "<Car name>" is displayed in the first record of the 'car table' in 'cars page'
+    And close Session on Dashboard page
+
+    Examples:
+      | Car name     |
+      | New Car test |
+
+
+  # MV-005
+  @cars
+  Scenario: Verify that the car edition works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    And click on the 'edit option' of the first record in the 'cars page'
+    And click on the 'Meta info tab' in the 'edit car page'
+    And fill 'Meta info form' of 'edit car page' with the following data
+      | Meta Title | Meta Keywords | Meta Description       |
+      | Meta test  | Test          | Meta test description. |
+    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars page'
+    And close Session on Dashboard page
+
+
+  # MV-003
+  @cars
+  Scenario: Verify that the car delete works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS suboption' of the menu into 'CARS option'
+    And click on the 'delete option' of the first record in the 'cars page'
+    And click on the 'accept button' of the 'confirm dialog' on the 'cars page'
+    Then verify that 'car name' of the deleted record does not display in the 'cars page'
+    And close Session on Dashboard page
+
+
+  # MV-007
+  @cars
+  Scenario Outline: Verify that the car types registry works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
+    And click on the 'Types tab' in the 'cars settings page'
+    And click on the 'ADD button' on top of 'Types list' in the 'cars settings page'
+    And fill 'add car type modal form' of 'car settings page' with the following data
+      | Type name | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
+      | Mini van  | мини фургон     | مینی ون       | Mini van       | minibüs         | فان صغيرة      | Mini furgoneta  |
+    Then verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+    And close Session on Dashboard page
+
+    Examples:
+      | Type name |
+      | Mini van  |
+
+
+  # MV-008
+  @cars
+  Scenario Outline: Verify that the car types edition works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
+    And click on the 'Types tab' in the 'cars settings page'
+    And click on the 'edit option' of the first record in the 'Types tab' of 'cars settings page'
+    And fill 'update car type modal form' of 'car settings page' with the following data
+      | Type name | Name in Russian | Name in Farsi | Name in French | Name in Turkish | Name in Arabic | Name in Spanish |
+      | Sports    | спортивный      | ورزش ها       | des sports     | Spor Dalları    | رياضات         | Deportivo       |
+    Then verify that "CHANGES SAVED!" notification message is displayed in the 'cars settings page'
+    And verify that "<Type name>" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'
+    And close Session on Dashboard page
+
+    Examples:
+      | Type name |
+      | Sports    |
+
+
+  # MV-009
+  @cars
+  Scenario: Verify that the car types delete works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'
+    And click on the 'Types tab' in the 'cars settings page'
+    And click on the 'delete option' of the first record in the 'Types tab' of 'cars settings page'
+    And click on the 'accept button' of the 'confirm dialog' on the 'cars settings page'
+    Then verify that 'car name' of the deleted record does not display in the 'Types tab' of 'cars settings page'
+    And close Session on Dashboard page
+
+
+  # MV-014
+  @cars
+  Scenario Outline: Verify that the extras registry works correctly
+    And click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'
+    And click on the 'EXTRAS suboption' of the menu into 'CARS option'
+    And click on the 'ADD button' in the 'extras page'
+    And fill 'extra form' of 'add extras page' with the following data
+      | Thumb           | Name        | Price |
+      | rear-camera.jpg | Rear camera | 75    |
+    Then verify that "<Extra name>" is displayed in the first record of the column 'Name' in 'extras page'
+    And verify that "<Extra Price>" is displayed in the first record of the column 'Price' in 'extras page'
+    And close Session on Dashboard page
+
+    Examples:
+      | Extra name  | Extra Price |
+      | Rear camera | 75          |
+
 
   #Option Blog
 
@@ -446,4 +554,3 @@ Feature: Login
     And click in delete in category secction
     And assert value "The Creative Edit" not exist
     And close Session on Dashboard page
->>>>>>> 5dad3e571f1a510441ac31dd00940bb178c10bdf
