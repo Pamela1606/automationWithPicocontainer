@@ -58,7 +58,7 @@ public class StepsDefinitionPHPtravel {
     // Option ToursPage
     @And("^click on tours menu$")
     public void clickOnToursMenu() {
-        dashboardPage = new Dashboard();
+        //dashboardPage = new Dashboard();
        toursManagement = dashboardPage.clickToursMenu();
     }
 
@@ -127,9 +127,9 @@ public class StepsDefinitionPHPtravel {
         toursPage = addToursPage.clickOnSubmit();
     }
 
-    @And("^close Session on Dashboard page$")
-    public void cerrarSesionOnDashboardPage() {
-        login = dashboardPage.closeSesion();
+    @And("^close Session on Tours page$")
+    public void cerrarSesionOnToursManagementPage() {
+        login = toursManagement.closeSesion();
     }
 //Edit///
     @And("^click on SearchButton on Tours page$")

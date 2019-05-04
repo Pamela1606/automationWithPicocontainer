@@ -108,20 +108,20 @@ public class AddToursPage extends BasePage {
         return this;
     }
 
-    public AddToursPage selectLocation1(String location1) {
-        CommonEvents.waitWebElementIsVisible(location);
+    public AddToursPage selectLocation1(String locations) {
         CommonEvents.clickButton(location);
         CommonEvents.waitWebElementIsVisible(fieldLocation);
-        CommonEvents.setInputField(fieldLocation, location1);
-        CommonEvents.forceWait(6000);
+        CommonEvents.setInputField(fieldLocation, locations);
+        CommonEvents.forceWait(4000);
         CommonEvents.pressEnterKey(fieldLocation);
-        //CommonEvents.pressEnterKey(fieldSelected);
         return this;
     }
 
     public ToursPage clickOnSubmit() {
+        CommonEvents.forceWait(1000);
         CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
+        CommonEvents.forceWait(4000);
         return new ToursPage();
     }
 
