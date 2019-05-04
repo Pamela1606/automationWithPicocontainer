@@ -12,10 +12,9 @@ import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
                 "json:build/cucumber/cucumber.json",
                 "junit:build/test-report.xml"}
 )
-public class CucumberRunner extends AbstractTestNGCucumberTests{
-
-    @AfterTest
-    public void closeBrowser(){
-        ManageDriver.getInstance().getWebDriver().close();
-    }
+public class CucumberRunner extends AbstractTestNGCucumberTests {
+  @AfterTest
+  public void closeBrowser() {
+    ManageDriver.getInstance().getWebDriver().close();
+  }
 }
