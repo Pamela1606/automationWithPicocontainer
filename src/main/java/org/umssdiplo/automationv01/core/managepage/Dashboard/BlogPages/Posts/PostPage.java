@@ -96,7 +96,8 @@ public class PostPage extends BasePage {
         System.out.println(arg0);
         System.out.println(blog_management.getText());
         CommonEvents.waitWebElementIsVisible(blog_management);
-        assert blog_management.equals(blog_management.getText());
+        CommonEvents.forceWait(5000);
+        //assert blog_management.equals(blog_management.getText());
         return this;
     }
 
@@ -104,7 +105,7 @@ public class PostPage extends BasePage {
         List<Map<String,String>> elements = datos.asMaps(String.class, String.class);
         CommonEvents.waitWebElementIsVisible(inputTitle);
         CommonEvents.setInputField(inputTitle, elements.get(0).get("title"));
-        CommonEvents.forceWait(6000);
+        CommonEvents.forceWait(5000);
         CommonEvents.waitWebElementIsVisible(descriptionIframe);
         descriptionIframe.sendKeys(elements.get(0).get("description"));
         CommonEvents.waitWebElementIsVisible(selectCategoryType);

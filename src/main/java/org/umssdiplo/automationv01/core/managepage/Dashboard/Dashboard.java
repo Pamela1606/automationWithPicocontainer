@@ -18,6 +18,7 @@ public class Dashboard extends BasePage {
 
     public BlogManager clickBlogMenu() {
         CommonEvents.waitWebElementClickable(blogMenu);
+        CommonEvents.forceWait(5000);
         CommonEvents.clickButton(blogMenu);
         return new BlogManager();
     }

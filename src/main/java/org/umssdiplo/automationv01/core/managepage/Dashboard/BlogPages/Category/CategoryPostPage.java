@@ -15,10 +15,10 @@ public class CategoryPostPage extends BasePage {
     @FindBy(xpath = "//button[contains(text(), 'Add')]")
     private WebElement buttonNew;
 
-    @FindBy(xpath = "//div[@class='row form-group'][1]/div[@class='col-md-8']/input[@class='form-control']")
+    @FindBy(name = "name")
     private WebElement inputname;
 
-    @FindBy(xpath = "//div[@id='ADD_BLOG_CAT']/div[@class='modal-dialog']/div[@class='modal-content']/form/div[@class='modal-footer']/button[@class='btn btn-primary']")
+    @FindBy(xpath = "//div[@class=\"modal-footer\"]/button[contains(text(), 'Add')]")
     private WebElement saveButton;
 
     @FindBy(name = "phrase")
@@ -51,6 +51,8 @@ public class CategoryPostPage extends BasePage {
     }
 
     public CategoryPostPage fillNewCategory(String arg0) {
+        System.out.println(arg0);
+        CommonEvents.forceWait(5000);
         CommonEvents.waitWebElementIsVisible(inputname);
         CommonEvents.setInputField(inputname, arg0);
         return this;
