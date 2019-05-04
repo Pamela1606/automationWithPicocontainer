@@ -116,7 +116,7 @@ public class AddToursPage extends BasePage {
         CommonEvents.pressEnterKey(fieldLocation);
         return this;
     }
-
+// se h agregado un wait
     public ToursPage clickOnSubmit() {
         CommonEvents.forceWait(1000);
         CommonEvents.waitWebElementIsVisible(submitButton);
