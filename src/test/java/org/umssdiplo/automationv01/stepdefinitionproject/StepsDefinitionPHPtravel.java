@@ -176,6 +176,26 @@ public class StepsDefinitionPHPtravel {
         categoryBlogPage.assertExistNewelement();
     }
 
+    @And("^click en edit in category secction$")
+    public void clickEnEditInCategorySecction() {
+        categoryBlogPage.clickEdit();
+    }
+
+    @And("^change value into category name \"([^\"]*)\"$")
+    public void changeValueIntoCategoryName(String arg0) throws Throwable {
+        categoryBlogPage.changeNameCategory(arg0);
+    }
+
+    @And("^salve change value in category$")
+    public void salveChangeValueInCategory() {
+        categoryBlogPage.salveEdit();
+    }
+
+    @And("^assert new value \"([^\"]*)\"$")
+    public void assertNewValue(String arg0) throws Throwable {
+        categoryBlogPage.assertName(arg0);
+    }
+
 
     // Option Hotels
 

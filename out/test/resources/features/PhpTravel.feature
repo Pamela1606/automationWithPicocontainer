@@ -97,3 +97,15 @@ Feature: Login
     And click 'go button' on category page
     And check exist element in category
     And close Session on Dashboard page
+
+  @blog
+  Scenario: Edit Category into Blogs page
+    And click on blog menu
+    And go to the 'Category' in blog page
+    And click on 'Search' in catoroty into post page
+    And click 'go button' on category page
+    And click en edit in category secction
+    And change value into category name "The Creative Edit"
+    And salve change value in category
+    And assert new value "The Creative Edit"
+    And close Session on Dashboard page
