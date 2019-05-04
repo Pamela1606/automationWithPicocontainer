@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airports.AirportsPage;
 
 /**
  * Class represent the base page
@@ -23,4 +24,5 @@ public abstract class BasePage {
         webDriverWait = ManageDriver.getInstance().getWebDriverWait();
         PageFactory.initElements(webDriver, this);
     }
+
 }
