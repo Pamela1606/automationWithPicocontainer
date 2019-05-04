@@ -11,6 +11,7 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Flight
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Extras.ExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.ToursManagement;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
@@ -44,6 +45,9 @@ public class Dashboard extends BasePage {
 
     @FindBy(css = "#Hotels > li:nth-child(3) > a")
     private WebElement extraSubMenu;
+
+    @FindBy(css = "#social-sidebar-menu > li:nth-child(9) > a")
+    private WebElement toursMenu;
 
     @FindBy(css = "#logout strong")
     private WebElement logoutButton;
@@ -107,6 +111,12 @@ public class Dashboard extends BasePage {
         CommonEvents.waitWebElementClickable(extraSubMenu);
         CommonEvents.clickButton(extraSubMenu);
         return new ExtraPage();
+    }
+
+    public ToursManagement clickToursMenu() {
+        CommonEvents.waitWebElementClickable(toursMenu);
+        CommonEvents.clickButton(toursMenu);
+        return new ToursManagement();
     }
 
     public Login closeSesion() {
