@@ -45,7 +45,6 @@ public class AddToursPage extends BasePage {
     private WebElement fieldLocation;
 
     @FindBy(id = "\"select2-drop\"]/ul/li[2]/div/span")
-                //\"select2-drop\"]/ul/li[2]/div/span
     private WebElement fieldSelected;
 
     @FindBy(id = "add")

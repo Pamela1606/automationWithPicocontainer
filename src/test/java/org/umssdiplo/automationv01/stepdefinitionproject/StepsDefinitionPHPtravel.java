@@ -184,6 +184,16 @@ public class StepsDefinitionPHPtravel {
         toursPage = editToursPage.clickOnSubmit();
     }
 
+    @And("^click on icon delete element selected on Tours page$")
+    public void clickOnIconDeleteElementSelectedOnToursPage() {
+        toursPage = toursPage.clickIconElementToDelete();
+    }
+
+    @And("^press on the Enter key to delete the chosen element on Tours page$")
+    public void pressOnTheEnterKeyToDeleteTheChosenElementOnToursPage() {
+        toursPage = toursPage.pressEnterKey();
+    }
+
 
 
     // Option Cars

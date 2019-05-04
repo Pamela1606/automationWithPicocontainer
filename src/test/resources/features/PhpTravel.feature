@@ -39,9 +39,23 @@ Feature: Login
     And click on GO button on Tours page
     And choose the element to select on Tours page
     And click on icon edit element selected on Tours page
+    And select "Disabled" Status on Edit Tours page
     And edit with "Mexico" Name field on Edit Tours page
     And edit with "4" Quantity Adults field on Edit Tours page
     And click On Submit on Edit Tours page
+
+  @DNR
+  Scenario: Tours Page display and delete an element
+    And click on tours menu
+    And go to the tours page
+    And click on SearchButton on Tours page
+    And fill element to search "Bolivia" Search field On Tours page
+    And select by field "Name" on Tours page
+    And click on GO button on Tours page
+    And choose the element to select on Tours page
+    And click on icon delete element selected on Tours page
+    And press on the Enter key to delete the chosen element on Tours page
+    And close Session on Dashboard page
   #Option Cars
 
   #Option Blog
