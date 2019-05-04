@@ -390,6 +390,21 @@ public class StepsDefinitionPHPtravel {
     public void clickButtonReturnOnInspectAirlinePage() {
         extrasPage = viewPage.clickButtonReturn();
     }
+//Settings//
+    @And("^go to the Setting page$")
+    public void goToTheSettingPage() {
+    settingsPage = toursManagement.clickTourMenuSettings();
+}
+
+    @And("^select \"([^\"]*)\" Target on Setting page$")
+    public void selectTargetOnSettingPage(String arg0) throws Throwable {
+        settingsPage = settingsPage.selectTarget(arg0);
+    }
+
+    @And("^click on Submit Button on Setting page$")
+    public void clickOnSubmitButtonOnSettingPage() {
+        settingsPage = settingsPage.clickOnSubmitButton();
+    }
 
 
 

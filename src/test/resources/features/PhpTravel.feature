@@ -131,6 +131,15 @@ Feature: Login
     And press on the Enter key to delete the chosen element on Extras page
     And close Session on Dashboard page
 
+  @ST
+  Scenario: Change Target
+    And click on tours menu
+    And go to the Setting page
+    And select "Self" Target on Setting page
+    And click on Submit Button on Setting page
+    And close Session on Dashboard page
+
+
 
 
   #Option Cars
