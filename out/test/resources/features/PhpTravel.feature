@@ -13,6 +13,7 @@ Feature: Login
     And click to 'option Hotels' on lateral menu into dashboard page
     And click to 'sub option Hotels' on lateral menu into dashboard page
     Then Verify that the "HOTELS MANAGEMENT" is displayed on 'dashboard' page
+    And close Session on Dashboard page
 
   #Hotels - TV-003
   Scenario Outline: Form of Hotels registry is displayed to select the add button on dashboard page
@@ -20,9 +21,10 @@ Feature: Login
     And click to 'sub option Hotels' on lateral menu into dashboard page
     And click to 'add button' on Hotels page
     And fill 'datas on general tab form' on add Hotel page
-      | Hotel Name   | Hotel Description | Location |
-      | <Name Hotel> | Description Test  | Iquique  |
+      | Hotel Name | Hotel Description | Location |
+      | Test 3     | Description Test  | Iquique  |
     Then Verify that the "<Name Hotel>" is displayed on 'List Hotels' page
+    And close Session on Dashboard page
 
     Examples:
       | Name Hotel |
@@ -38,6 +40,7 @@ Feature: Login
       | Meta Title      | Meta keywords | Meta Description |
       | Title Test Meta | keywords Test | Description Test |
     Then Verify that the "CHANGES SAVED!" message is displayed on 'List Hotels' page
+    And close Session on Dashboard page
 
   #Hotels - TV-005
   Scenario: Delete a selected hotel on the list of Hotels on dashboard page
@@ -46,6 +49,7 @@ Feature: Login
     And click to 'delete option' on the registry first on Hotels List into dashboard page
     And click to 'ok button' of the 'pop-up window' on the Hotel page
     Then Verify that 'Hotel Name' was deleted of the Hotels List into dashboard page
+    And close Session on Dashboard page
 
   #Rooms - TV-010
   Scenario Outline: Form of Rooms registry is displayed to select the add button on dashboard page
@@ -53,9 +57,10 @@ Feature: Login
     And click to 'sub option Rooms' on lateral menu into dashboard page
     And click to 'add button' on Rooms page
     And fill 'datas on general tab form' on add Room page
-      | Room Type   | Room Description | Price | Quantity | Minimum Stay | Max Adults | Max Children | No of Extra Beds | Extra Bed Charges |
-      | <Room Type> | Description Test | 2000  | 3        | 7            | 4          | 2            | 1                | 20                |
+      | Room Type                        | Room Description | Price | Quantity | Minimum Stay | Max Adults | Max Children | No of Extra Beds | Extra Bed Charges |
+      | Studio Apartment With Creek View | Description Test | 2000  | 3        | 7            | 4          | 2            | 1                | 20                |
     Then Verify that the "<Room Type>" is displayed in the first row on 'List Rooms' in the page
+    And close Session on Dashboard page
 
     Examples:
       | Room Type                        |
@@ -71,6 +76,7 @@ Feature: Login
       | Russian              | Farsi                | French                           | Turkish        | Arabic            | Spanish                              |
       | Описание комнаты это | توضیحات اتاق این است | Description de la chambre est-ce | Oda Açıklaması | وصف الغرفة هو هذا | Descripción de la habitación es este |
     Then Verify that the "CHANGES SAVED!" message is displayed on 'List Rooms' page
+    And close Session on Dashboard page
 
   #Rooms - TV-012
   Scenario: Delete a selected room on the list of Rooms on dashboard page
@@ -79,6 +85,7 @@ Feature: Login
     And click to 'delete option' on the registry first on Rooms List into dashboard page
     And click to 'ok button' of the 'pop-up window' on the Room page
     Then Verify that 'Room Type' was deleted of the Rooms List into dashboard page
+    And close Session on Dashboard page
 
 #  #Rooms - TV-016
   Scenario Outline: Form of Extras registry is displayed to select the add button on dashboard page
@@ -86,14 +93,17 @@ Feature: Login
     And click to 'sub option Extras' on lateral menu into dashboard page
     And click to 'add button' on Extras page
     And fill 'datas on extra form' on add Extra page
-      | Thumb    | Name         | Price         |
-      | Vino.jpg | <Name Extra> | <Price Extra> |
+      | Thumb    | Name | Price |
+      | Vino.jpg | Wine | 50    |
     Then Verify that the "<Name Extra>" is displayed in the column name of 'List Extras' page
-      And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
+    And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
+    And close Session on Dashboard page
 
     Examples:
       | Name Extra | Price Extra |
       | Wine       | 50          |
+
+
 
   #Option Flights
 

@@ -6,6 +6,7 @@ import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Extras.ExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Hotels.HotelPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
+import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class Dashboard extends BasePage {
@@ -22,6 +23,9 @@ public class Dashboard extends BasePage {
 
     @FindBy(css = "#Hotels > li:nth-child(3) > a")
     private WebElement extraSubMenu;
+
+    @FindBy(css = "#logout strong")
+    private WebElement logoutButton;
 
     public Dashboard clickOptionHotelLateralMenu() {
         CommonEvents.waitWebElementClickable(hotelMenu);
@@ -45,5 +49,12 @@ public class Dashboard extends BasePage {
         CommonEvents.waitWebElementClickable(extraSubMenu);
         CommonEvents.clickButton(extraSubMenu);
         return new ExtraPage();
+    }
+
+    public Login closeSesion() {
+        CommonEvents.forceWait(3000);
+        CommonEvents.waitWebElementClickable(logoutButton);
+        CommonEvents.clickButton(logoutButton);
+        return new Login();
     }
 }

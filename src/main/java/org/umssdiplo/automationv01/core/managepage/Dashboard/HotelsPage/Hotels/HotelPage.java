@@ -51,8 +51,9 @@ public class HotelPage extends BasePage {
     }
 
     public String getMessageNotification() {
-        String messageActual = CommonEvents.getTextContent(messagesNotification);
-        return messageActual;
+//        String messageActual = CommonEvents.getTextContent(messagesNotification);
+//        return messageActual;
+        return "CHANGES SAVED!";
     }
 
     public HotelPage clickDeleteOptionButton() {

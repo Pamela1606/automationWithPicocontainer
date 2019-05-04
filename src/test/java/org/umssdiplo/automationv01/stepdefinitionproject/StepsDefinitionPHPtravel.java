@@ -47,6 +47,11 @@ public class StepsDefinitionPHPtravel {
         dashboardPage = login.setCredentials();
     }
 
+    @And("^close Session on Dashboard page$")
+    public void closeSessionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
+    }
+
 
     // Option Hotels
     // Hotels - List of Hotels

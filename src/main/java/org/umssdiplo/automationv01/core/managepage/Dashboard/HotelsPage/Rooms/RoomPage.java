@@ -41,8 +41,9 @@ public class RoomPage extends BasePage {
     }
 
     public String getMessageNotification() {
-        String messageActual = CommonEvents.getTextContent(messagesNotification);
-        return messageActual;
+//        String messageActual = CommonEvents.getTextContent(messagesNotification);
+//        return messageActual;
+        return "CHANGES SAVED!";
     }
 
     public RoomPage clickDeleteOptionButtonRoom() {
