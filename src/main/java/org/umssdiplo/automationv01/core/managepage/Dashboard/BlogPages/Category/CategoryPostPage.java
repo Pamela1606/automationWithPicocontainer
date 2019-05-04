@@ -36,6 +36,9 @@ public class CategoryPostPage extends BasePage {
     @FindBy(xpath = "//i[@class='fa fa-edit']")
     private WebElement editItembox;
 
+    @FindBy(xpath = "//i[@class='fa fa-times']")
+    private WebElement deleteItembox;
+
     @FindBy(xpath = "//div[@id='content']/div[@id='cat27']/div[@class='modal-dialog']" +
             "/div[@class='modal-content']/form/div[@class='modal-body form-horizontal']" +
             "/div[@class='row form-group'][1]/div[@class='col-md-8']/input[@class='form-control']")
@@ -125,6 +128,20 @@ public class CategoryPostPage extends BasePage {
         CommonEvents.clickButton(buttonGo);
         CommonEvents.waitWebElementIsVisible(elementCheck);
         assert CommonEvents.getTextContent(elementCheck).equals(name);
+        return this;
+    }
+
+    public CategoryPostPage deleteElement() {
+        CommonEvents.forceWait(4000);
+        CommonEvents.waitWebElementIsVisible(deleteItembox);
+        CommonEvents.clickButton(deleteItembox);
+        CommonEvents.forceWait(4000);
+        webDriver.switchTo().alert().accept();
+        return this;
+    }
+
+    public CategoryPostPage assertNotExist(String arg0) {
+        System.out.println(arg0);
         return this;
     }
 }

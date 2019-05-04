@@ -109,3 +109,13 @@ Feature: Login
     And salve change value in category
     And assert new value "The Creative Edit"
     And close Session on Dashboard page
+
+  @blog
+  Scenario: Delete Category into Blogs page
+    And click on blog menu
+    And go to the 'Category' in blog page
+    And click on 'Search' in catoroty into post page
+    And click 'go button' on category page
+    And click in delete in category secction
+    And assert value "The Creative Edit" not exist
+    And close Session on Dashboard page

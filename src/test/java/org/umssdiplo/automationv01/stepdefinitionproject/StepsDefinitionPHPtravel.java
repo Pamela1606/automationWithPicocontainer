@@ -196,6 +196,15 @@ public class StepsDefinitionPHPtravel {
         categoryBlogPage.assertName(arg0);
     }
 
+    @And("^click in delete in category secction$")
+    public void clickInDeleteInCategorySecction() {
+        categoryBlogPage.deleteElement();
+    }
+
+    @And("^assert value \"([^\"]*)\" not exist$")
+    public void assertValueNotExist(String arg0) throws Throwable {
+        categoryBlogPage.assertNotExist(arg0);
+    }
 
     // Option Hotels
 
