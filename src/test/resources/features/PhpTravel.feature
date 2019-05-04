@@ -11,7 +11,7 @@ Feature: Login
   #Option Flights
 
   #Option Tours
-  @CNR
+  @CNT
   Scenario: Tours Page display
     And click on tours menu
     And go to the tours page
@@ -29,7 +29,7 @@ Feature: Login
     And click On Submit on Add Tours page
     And close Session on Dashboard page
 
-  @ENR
+  @ENT
   Scenario: Tours Page display and edit an element
     And click on tours menu
     And go to the tours page
@@ -44,7 +44,7 @@ Feature: Login
     And edit with "4" Quantity Adults field on Edit Tours page
     And click On Submit on Edit Tours page
 
-  @DNR
+  @DNT
   Scenario: Tours Page display and delete an element
     And click on tours menu
     And go to the tours page
@@ -74,6 +74,20 @@ Feature: Login
     And click On Submit on Add New page
     And close Session on Dashboard page
 
+  @CNE
+  Scenario Outline: Form of Extras registry is displayed to select the add button on dashboard page
+    And click on tours menu
+    And go to the Extras page
+    And click to 'add button' on Extras page
+    And fill 'datas on extra form' on add Extra page
+      | Thumb    | Name         | Price         |
+      | Vino.jpg | <Name Extra> | <Price Extra> |
+    Then Verify that the "<Name Extra>" is displayed in the column name of 'List Extras' page
+    And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
+
+    Examples:
+      | Name Extra | Price Extra |
+      | Wine       | 50          |
 
   #Option Cars
 
