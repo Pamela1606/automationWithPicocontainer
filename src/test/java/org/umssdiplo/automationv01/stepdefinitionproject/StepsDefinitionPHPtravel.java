@@ -129,9 +129,11 @@ public class StepsDefinitionPHPtravel {
         toursPage = addToursPage.clickOnSubmit();
     }
 
-
-    /*
-
+    @And("^close Session on Dashboard page$")
+    public void cerrarSesionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
+    }
+//Edit///
     @And("^click on SearchButton on Tours page$")
     public void clickOnSearchButtonOnToursPage() {
         toursPage = toursPage.clickOnSearchButton();
@@ -150,12 +152,38 @@ public class StepsDefinitionPHPtravel {
     @And("^click on GO button on Tours page$")
     public void clickOnGOButtonOnToursPage() {
         toursPage = toursPage.clickOnGOButton();
-    }*/
+    }
 
-    /*@And("^select \"([^\"]*)\" Status on Edit Tours page$")
+    @And("^choose the element to select on Tours page$")
+    public void chooseTheElementToSelectOnRoutePage() {
+        toursPage = toursPage.chooseLastElementToSelect();
+    }
+
+    @And("^click on icon edit element selected on Tours page$")
+    public void clickOnIconEditElementSelectedOnRoutePage() {
+        editToursPage = toursPage.clickIconElementToEdit();
+    }
+
+    @And("^select \"([^\"]*)\" Status on Edit Tours page$")
     public void selectStatusOnEditToursPage(String arg0) throws Throwable {
         editToursPage = editToursPage.selectStatus(arg0);
-    }*/
+    }
+
+    @And("^edit with \"([^\"]*)\" Name field on Edit Tours page$")
+    public void editWithNameFieldOnEditRoutePage(String arg0) throws Throwable {
+        editToursPage = editToursPage.editName(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Quantity Adults field on Edit Tours page$")
+    public void editWithQuantityAdultsFieldOnEditRoutePage(String arg0) throws Throwable {
+        editToursPage = editToursPage.editQuantityAdults(arg0);
+    }
+
+    @And("^click On Submit on Edit Tours page$")
+    public void clickOnSubmitOnEditRoutePage() {
+        toursPage = editToursPage.clickOnSubmit();
+    }
+
 
 
     // Option Cars

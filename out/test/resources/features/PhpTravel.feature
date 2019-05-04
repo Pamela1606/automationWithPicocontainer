@@ -27,8 +27,10 @@ Feature: Login
     And select "Yes" Feature on Add Tours page
     And select "La Paz" Location 1 on Add Tours page
     And click On Submit on Add Tours page
+    And close Session on Dashboard page
 
 
+    #And click On Submit on Edit Tours page
   #Option Cars
 
   #Option Blog

@@ -17,20 +17,8 @@ public class AddToursPage extends BasePage {
     @FindBy(name = "maxadult" )
     private WebElement fieldQuantityAdults;
 
-    /*@FindBy(name = "childquantity[]")
-    private WebElement fieldQuantityChild;
-
-    @FindBy(name = "infantquantity[]")
-    private WebElement fieldQuantityInfant;*/
-
     @FindBy(name = "adultprice" )
     private WebElement fieldPriceAdults;
-
-    /*@FindBy(name = "childprice[]")
-    private WebElement fieldPriceChild;
-
-    @FindBy(name = "infantprice[]")
-    private WebElement fieldPriceInfant;*/
 
     @FindBy(name = "tourstars")
     private WebElement selectStars;
@@ -57,6 +45,7 @@ public class AddToursPage extends BasePage {
     private WebElement fieldLocation;
 
     @FindBy(id = "\"select2-drop\"]/ul/li[2]/div/span")
+                //\"select2-drop\"]/ul/li[2]/div/span
     private WebElement fieldSelected;
 
     @FindBy(id = "add")
@@ -125,10 +114,8 @@ public class AddToursPage extends BasePage {
         CommonEvents.clickButton(location);
         CommonEvents.waitWebElementIsVisible(fieldLocation);
         CommonEvents.setInputField(fieldLocation, location1);
-        CommonEvents.forceWait(4000);
+        CommonEvents.forceWait(5000);
         CommonEvents.pressEnterKey(fieldLocation);
-
-
         return this;
     }
 
