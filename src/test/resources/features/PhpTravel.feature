@@ -56,6 +56,25 @@ Feature: Login
     And click on icon delete element selected on Tours page
     And press on the Enter key to delete the chosen element on Tours page
     And close Session on Dashboard page
+
+  @CNA
+  Scenario: Tours Page display and create a new AddNew
+    And click on tours menu
+    And go to the Add New page
+    And select "Enabled" Status on Add New page
+    And fill "Bolivia" Name field on Add New page
+    And fill "2" Quantity Adults field on Add New page
+    And fill "260" Price Adults field on Add New page
+    And select "3" Stars on Add New page
+    And fill "3" Total Days field on Add New page
+    And fill "2" Total Nights field on Add New page
+    And select "Adventure" Tour Type on Add New page
+    And select "Yes" Feature on Add New page
+    And select "La Paz" Location 1 on Add New page
+    And click On Submit on Add New page
+    And close Session on Dashboard page
+
+
   #Option Cars
 
   #Option Blog

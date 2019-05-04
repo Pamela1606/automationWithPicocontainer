@@ -3,9 +3,6 @@ package org.umssdiplo.automationv01.stepdefinitionproject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.Dashboard;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AirlinesPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.FlightsManager;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Settings.SettingsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.AddNew.AddNewPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.AddExtraPage.AddExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.DeleteExtraPage.DeleteExtraPage;
@@ -13,8 +10,8 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.Ed
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ViewExtraPage.ViewExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Reviews.ReviewsPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Settings.SettingsPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.AddTours.AddToursPage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.DeleteTours.DeleteToursPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.EditTours.EditToursPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.ToursPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.ToursManagement;
@@ -27,7 +24,6 @@ public class StepsDefinitionPHPtravel {
     private ToursPage toursPage;
     private AddToursPage addToursPage;
     private EditToursPage editToursPage;
-    private DeleteToursPage deleteToursPage;
     private AddNewPage addNewPage;
     private ExtrasPage extrasPage;
     private AddExtraPage addExtraPage;
@@ -36,7 +32,6 @@ public class StepsDefinitionPHPtravel {
     private DeleteExtraPage deleteExtraPage;
     private ReviewsPage reviewsPage;
     private SettingsPage settingsPage;
-    private AirlinesPage airlinesPage;
     private ToursManagement toursManagement;
 
 
@@ -193,6 +188,69 @@ public class StepsDefinitionPHPtravel {
     public void pressOnTheEnterKeyToDeleteTheChosenElementOnToursPage() {
         toursPage = toursPage.pressEnterKey();
     }
+//Add NEw//
+    @And("^go to the Add New page$")
+    public void goToTheAddNewPage() {
+        addNewPage = toursManagement.clickTourMenuAddNew();
+    }
+
+    @And("^select \"([^\"]*)\" Status on Add New page$")
+    public void selectStateFields(String arg0) throws Throwable {
+        addNewPage = addNewPage.selectStatus(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Name field on Add New page$")
+    public void fillNamesFields(String arg0) throws Throwable {
+        addNewPage = addNewPage.fillName(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Quantity Adults field on Add New page$")
+    public void fillQuantityAdultsFieldsOnAddToursPage(String arg0) throws Throwable {
+        addNewPage = addNewPage.fillQuantityAdults(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Price Adults field on Add New page$")
+    public void fillPriceAdultsFieldsOnAddToursPage(String arg0) throws Throwable {
+        addNewPage = addNewPage.fillPriceAdults(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Stars on Add New page$")
+    public void selectStar(String arg0) throws Throwable {
+        addNewPage = addNewPage.selectStars(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Total Days field on Add New page$")
+    public void fillTotalDaysFields(String arg0) throws Throwable {
+        addNewPage = addNewPage.fillTotalDays(arg0);
+    }
+
+    @And("^fill \"([^\"]*)\" Total Nights field on Add New page$")
+    public void fillTotalNightsFields(String arg0) throws Throwable {
+        addNewPage = addNewPage.fillTotalNights(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Tour Type on Add New page$")
+    public void selectToursType(String arg0) throws Throwable {
+        addNewPage = addNewPage.selectTourType(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Feature on Add New page$")
+    public void selectFeatures(String arg0) throws Throwable {
+        addNewPage = addNewPage.selectFeature(arg0);
+    }
+
+    @And("^select \"([^\"]*)\" Location 1 on Add New page$")
+    public void selectLocation1OnAddNewPage(String arg0) throws Throwable {
+        addNewPage = addNewPage.selectLocation1(arg0);
+    }
+
+    @And("^click On Submit on Add New page$")
+    public void clickOnSubmitOnAddNewPage() {
+        toursPage = addNewPage.clickOnSubmit();
+    }
+
+
+
 
 
 
