@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AirlinesPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class EditExtraPage extends BasePage {
@@ -39,10 +40,10 @@ public class EditExtraPage extends BasePage {
     }
 
 
-    public AirlinesPage saveReturnButton(){
+    public ExtrasPage saveReturnButton(){
         CommonEvents.forceWait(2000);
         CommonEvents.waitWebElementIsVisible(saveReturnButton);
         CommonEvents.clickButton(saveReturnButton);
-        return new AirlinesPage();
+        return new ExtrasPage();
     }
 }

@@ -4,8 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
-import org.umssdiplo.automationv01.core.managepage.Dashboard.FlightsPages.Airlines.AirlinesPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.AddExtraPage.AddExtraPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.EditExtraPage.EditExtraPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ViewPage.ViewPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
@@ -88,22 +89,22 @@ public class ExtrasPage extends BasePage {
         return this;
     }
 
-    /*
-    public InspectExtrasPage clickIconElementToInspect() {
+
+    public ViewPage clickIconElementToInspect() {
         CommonEvents.forceWait(4000);
         searchLastElementToInspectOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
-        return new InspectExtrasPage();
+        return new ViewPage();
     }
 
-    public EditExtrasPage clickIconElementToEdit() {
+    public EditExtraPage clickIconElementToEdit() {
         CommonEvents.forceWait(4000);
         searchLastElementToEditOnTable();
         CommonEvents.waitWebElementIsVisible(elementToChose);
         CommonEvents.clickButton(elementToChose);
-        return new EditExtrasPage();
-    }*/
+        return new EditExtraPage();
+    }
 
     public ExtrasPage clickIconElementToDelete() {
         CommonEvents.forceWait(4000);

@@ -1,15 +1,11 @@
 package org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.AddExtraPage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
-import java.util.List;
-import java.util.Map;
 
 public class AddExtraPage extends BasePage {
 
@@ -53,8 +49,8 @@ public class AddExtraPage extends BasePage {
     }
 
     public AddExtraPage waitToUploadImage() {
-        CommonEvents.forceWait(10000);//Tiempo de espera hasta cargar una imagen
-        CommonEvents.waitWebElementIsVisible(uploadImage);//Cando se sube una imagen se vuelve visible este elemento
+        CommonEvents.forceWait(10000);
+        CommonEvents.waitWebElementIsVisible(uploadImage);
         CommonEvents.forceWait(4000);
         return this;
     }

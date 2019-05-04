@@ -75,20 +75,32 @@ Feature: Login
     And close Session on Dashboard page
 
   @CNE
-  Scenario Outline: Form of Extras registry is displayed to select the add button on dashboard page
+  Scenario: create a new Extra
     And click on tours menu
     And go to the Extras page
-    And click to 'add button' on Extras page
-    And fill 'datas on extra form' on add Extra page
-      | Thumb    | Name         | Price         |
-      | Vino.jpg | <Name Extra> | <Price Extra> |
-    Then Verify that the "<Name Extra>" is displayed in the column name of 'List Extras' page
-    And Verify that the "<Price Extra>" is displayed in the column price of 'List Extras' page
+    And click on add button on Extras page
+    And fill "Cochabamba" Name field on Add Extras page
+    And fill "Yes" Status field on Add Extras page
+    And fill "250" Price field on Add Extras page
+    And wait upload image "cochabamba.jpg" on Add Extras page
+    And click button Save and Return on Add Extras page
+    And close Session on Dashboard page
 
-    Examples:
-      | Name Extra | Price Extra |
-      | Wine       | 50          |
-
+  @VNE
+  Scenario: View the new Extra
+    And click on tours menu
+    And go to the Extras page
+    And click on Search button on Extras page
+    And fill element to search "Cochabamba" Search field on Extras page
+    And select by field "Name" on Extras page
+    And click on GO button on Extras page
+    And choose the element to select on Extras page
+    And click on icon inspect element selected on Extras page
+    And check with "Cochabamba" Name field on View page
+    And check with "BOLIVIA" Status field on View page
+    And check with "350" Price field on View page
+    And click button Return on Views page
+    And close Session on Dashboard page
   #Option Cars
 
   #Option Blog
