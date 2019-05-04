@@ -1229,7 +1229,7 @@ public class StepsDefinitionPHPtravel {
     }
 
     //Settings//
-    @And("^go to the Setting page$")
+    @And("^go to the Setting page T$")
     public void goToTheSettingPageT() {
         settingsPageT = toursManagement.clickTourMenuSettings();
     }
@@ -1239,7 +1239,7 @@ public class StepsDefinitionPHPtravel {
         settingsPageT = settingsPageT.selectTarget(arg0);
     }
 
-    @And("^click on Submit Button on Setting page$")
+    @And("^click on Submit Button on Setting page T$")
     public void clickOnSubmitButtonOnSettingPageT() {
         settingsPageT = settingsPageT.clickOnSubmitButton();
     }

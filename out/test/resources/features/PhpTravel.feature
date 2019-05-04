@@ -323,8 +323,6 @@ Feature: Login
 
 
   #Option Tours
-
-  <<<<<<< HEAD
   @CNT
   Scenario: Tours Page display
     And click on tours menu
@@ -448,16 +446,11 @@ Feature: Login
   @ST
   Scenario: Change Target
     And click on tours menu
-    And go to the Setting page
+    And go to the Setting page T
     And select "Self" Target on Setting page
-    And click on Submit Button on Setting page
+    And click on Submit Button on Setting page T
     And close Session on Dashboard page
 
-
-
-
-  #Option Cars
-  =======
   #
   # Option Cars
   #
@@ -580,7 +573,6 @@ Feature: Login
       | Extra name  | Extra Price |
       | Rear camera | 75          |
 
-  >>>>>>> 75577337ac87750167f4f93a74303147a387a4f7
 
   #Option Blog
 

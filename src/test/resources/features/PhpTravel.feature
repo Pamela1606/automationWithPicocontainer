@@ -446,9 +446,9 @@ Feature: Login
   @ST
   Scenario: Change Target
     And click on tours menu
-    And go to the Setting page
+    And go to the Setting page T
     And select "Self" Target on Setting page
-    And click on Submit Button on Setting page
+    And click on Submit Button on Setting page T
     And close Session on Dashboard page
 
   #
