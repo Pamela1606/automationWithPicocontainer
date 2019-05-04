@@ -338,9 +338,14 @@ public class StepsDefinitionPHPtravel {
         editExtraPage = editExtraPage.fillFieldName(arg0);
     }
 
-    @And("^edit select \"([^\"]*)\" Country field on Edit Extras page$")
-    public void editWithCountryFieldOnEditExtrasPage(String arg0) throws Throwable {
+    @And("^edit select \"([^\"]*)\" Status field on Edit Extras page$")
+    public void editWithStatusFieldOnEditExtrasPage(String arg0) throws Throwable {
         editExtraPage = editExtraPage.selectStatus(arg0);
+    }
+
+    @And("^edit with \"([^\"]*)\" Price field on Edit Extras page$")
+    public void editWithPriceFieldOnEditExtrasPage(String arg0) throws Throwable {
+        editExtraPage = editExtraPage.fillFieldPrice(arg0);
     }
 
     @And("^click button Save and Return on Edit Extras page$")

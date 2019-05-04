@@ -101,6 +101,24 @@ Feature: Login
     And check with "350" Price field on View page
     And click button Return on Views page
     And close Session on Dashboard page
+
+  @ENE
+  Scenario: edit the new Extra
+    And click on tours menu
+    And go to the Extras page
+    And click on Search button on Extras page
+    And fill element to search "Cochabamba" Search field on Extras page
+    And select by field "Name" on Extras page
+    And click on GO button on Extras page
+    And choose the element to select on Extras page
+    And click on icon edit element selected on Extras page
+    And edit with "Cochabamba" Name field on Edit Extras page
+    And edit select "No" Status field on Edit Extras page
+    And edit with "320" Price field on Edit Extras page
+    And click button Save and Return on Edit Extras page
+    And close Session on Dashboard page
+
+
   #Option Cars
 
   #Option Blog
