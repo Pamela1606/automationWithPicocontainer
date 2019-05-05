@@ -7,6 +7,7 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Settings.
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.AddNew.AddNewPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.ToursPage;
+import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class ToursManagement extends BasePage {
@@ -25,6 +26,9 @@ public class ToursManagement extends BasePage {
 
     @FindBy(css = "#Tours > li:nth-child(5) > a")
     private WebElement tourMenuSettings;
+
+    @FindBy(css = "#logout strong")
+    private WebElement logoutButton;
 
     public ToursPage clickTourMenuTours() {
         CommonEvents.waitWebElementClickable(tourMenuTours);
@@ -50,6 +54,7 @@ public class ToursManagement extends BasePage {
         CommonEvents.clickButton(tourMenuSettings);
         return new SettingsPage();
     }
+
 
 
 }

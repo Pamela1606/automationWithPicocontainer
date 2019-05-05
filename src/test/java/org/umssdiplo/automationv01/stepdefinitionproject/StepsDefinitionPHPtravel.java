@@ -36,6 +36,7 @@ import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.Ad
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.EditRooms.EditRoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.HotelsPage.Rooms.RoomPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.AddNew.AddNewPage;
+import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.AddExtraPage.AddExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.EditExtraPage.EditExtraPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ExtrasPage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.ViewPage.ViewPage;
@@ -76,11 +77,13 @@ public class StepsDefinitionPHPtravel {
     private EditToursPage editToursPage;
     private AddNewPage addNewPage;
     private ExtrasPage extrasPage;
+    private AddExtraPage addExtraPage;
     private org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Extras.AddExtraPage.AddExtraPage addExtraPageT;
     private EditExtraPage editExtraPage;
     private ViewPage viewPage;
     private org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Settings.SettingsPage settingsPageT;
     private ToursManagement toursManagement;
+
 
     // Option Cars
     private CarsPage carsPage;
@@ -899,8 +902,8 @@ public class StepsDefinitionPHPtravel {
     // Option ToursPage
     @And("^click on tours menu$")
     public void clickOnToursMenu() {
-        dashboardPage = new Dashboard();
-        toursManagement = dashboardPage.clickToursMenu();
+        //dashboardPage = new Dashboard();
+       toursManagement = dashboardPage.clickToursMenu();
     }
 
     @And("^go to the tours page$")
@@ -919,7 +922,7 @@ public class StepsDefinitionPHPtravel {
     }
 
     @And("^fill \"([^\"]*)\" Name field on Add Tours page$")
-    public void fillNameFieldT(String arg0) throws Throwable {
+    public void fillNameFieldTours(String arg0) throws Throwable {
         addToursPage = addToursPage.fillName(arg0);
     }
 
@@ -968,7 +971,11 @@ public class StepsDefinitionPHPtravel {
         toursPage = addToursPage.clickOnSubmit();
     }
 
-    //Edit///
+    @And("^close Session on Dashboard page$")
+    public void cerrarSesionOnDashboardPage() {
+        login = dashboardPage.closeSesion();
+    }
+//Edit///
     @And("^click on SearchButton on Tours page$")
     public void clickOnSearchButtonOnToursPage() {
         toursPage = toursPage.clickOnSearchButton();
@@ -990,12 +997,12 @@ public class StepsDefinitionPHPtravel {
     }
 
     @And("^choose the element to select on Tours page$")
-    public void chooseTheElementToSelectOnRoutePageT() {
+    public void chooseTheElementToSelectOnToursPage() {
         toursPage = toursPage.chooseLastElementToSelect();
     }
 
     @And("^click on icon edit element selected on Tours page$")
-    public void clickOnIconEditElementSelectedOnRoutePageT() {
+    public void clickOnIconEditElementSelectedOnToursPage() {
         editToursPage = toursPage.clickIconElementToEdit();
     }
 
@@ -1015,7 +1022,7 @@ public class StepsDefinitionPHPtravel {
     }
 
     @And("^click On Submit on Edit Tours page$")
-    public void clickOnSubmitOnEditRoutePageT() {
+    public void clickOnSubmitOnEditToursPage() {
         toursPage = editToursPage.clickOnSubmit();
     }
 
@@ -1028,8 +1035,7 @@ public class StepsDefinitionPHPtravel {
     public void pressOnTheEnterKeyToDeleteTheChosenElementOnToursPage() {
         toursPage = toursPage.pressEnterKey();
     }
-
-    //Add NEw//
+//Add NEw//
     @And("^go to the Add New page$")
     public void goToTheAddNewPage() {
         addNewPage = toursManagement.clickTourMenuAddNew();
@@ -1089,52 +1095,51 @@ public class StepsDefinitionPHPtravel {
     public void clickOnSubmitOnAddNewPage() {
         toursPage = addNewPage.clickOnSubmit();
     }
-
-    ///Extras///
+///Extras///
     @And("^go to the Extras page$")
     public void goToTheAirlinePage() {
-        extrasPage = toursManagement.clickTourMenuExtras();
-    }
+    extrasPage = toursManagement.clickTourMenuExtras();
+}
 
     @And("^click on add button on Extras page$")
     public void clickOnAddButtonOnExtrasPage() {
-        addExtraPageT = extrasPage.clickAddButton();
+        addExtraPage = extrasPage.clickAddButton();
     }
 
     @And("^fill \"([^\"]*)\" Name field on Add Extra page$")
     public void fillNameFieldOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.fillFieldName(arg0);
+        addExtraPage = addExtraPage.fillFieldName(arg0);
     }
 
     @And("^fill \"([^\"]*)\" Country field on Add Extras page$")
     public void fillCountryFieldOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.selectStatus(arg0);
+        addExtraPage = addExtraPage.selectStatus(arg0);
     }
 
     @And("^fill \"([^\"]*)\" Name field on Add Extras page$")
     public void fillNameFieldOnAddExtrasPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.fillFieldName(arg0);
+        addExtraPage = addExtraPage.fillFieldName(arg0);
     }
 
     @And("^fill \"([^\"]*)\" Status field on Add Extras page$")
     public void fillStatusFieldOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.selectStatus(arg0);
+        addExtraPage = addExtraPage.selectStatus(arg0);
     }
 
     @And("^fill \"([^\"]*)\" Price field on Add Extras page$")
     public void fillPriceFieldOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.fillFieldPrice(arg0);
+        addExtraPage = addExtraPage.fillFieldPrice(arg0);
     }
 
     @And("^click button Save and Return on Add Extras page$")
     public void clickButtonSaveAndReturnOnAddExtraPage() {
 
-        extrasPage = addExtraPageT.saveReturnButton();
+        extrasPage = addExtraPage.saveReturnButton();
     }
 
     @And("^wait upload image \"([^\"]*)\" on Add Extras page$")
     public void waitUploadImageOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPageT = addExtraPageT.waitToUploadImage();
+        addExtraPage = addExtraPage.waitToUploadImage();
     }
 
     @And("^click on Search button on Extras page$")
@@ -1160,7 +1165,7 @@ public class StepsDefinitionPHPtravel {
     }
 
     @And("^choose the element to select on Extras page$")
-    public void chooseTheElementToSelectOnAirlinePageT() {
+    public void chooseTheElementToSelectOnExtrasPage() {
 
         extrasPage = extrasPage.chooseLastElementToSelect();
     }
@@ -1208,397 +1213,36 @@ public class StepsDefinitionPHPtravel {
     @And("^check with \"([^\"]*)\" Name field on View page$")
     public void checkWithNameFieldOnViewPage(String expected) throws Throwable {
         String actual = viewPage.getFieldName();
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual,expected);
     }
 
     @And("^check with \"([^\"]*)\" Status field on View page$")
-    public void checkWithCountryFieldOnInspectAirlinePageT(String expected) throws Throwable {
+    public void checkWithCountryFieldOnViewPage(String expected) throws Throwable {
         String actual = viewPage.getSelectStatus();
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual,expected);
     }
 
     @And("^check with \"([^\"]*)\" Price field on View page$")
     public void checkWithPriceFieldOnViewPage(String expected) throws Throwable {
         String actual = viewPage.getFieldPrice();
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual,expected);
     }
 
     @And("^click button Return on Views page$")
-    public void clickButtonReturnOnInspectAirlinePageT() {
+    public void clickButtonReturnOnViewPage() {
         extrasPage = viewPage.clickButtonReturn();
     }
+//Settings//
 
-    //Settings//
-    @And("^go to the Setting page T$")
-    public void goToTheSettingPageT() {
-        settingsPageT = toursManagement.clickTourMenuSettings();
-    }
 
-    @And("^select \"([^\"]*)\" Target on Setting page$")
-    public void selectTargetOnSettingPage(String arg0) throws Throwable {
-        settingsPageT = settingsPageT.selectTarget(arg0);
-    }
 
-    @And("^click on Submit Button on Setting page T$")
-    public void clickOnSubmitButtonOnSettingPageT() {
-        settingsPageT = settingsPageT.clickOnSubmitButton();
-    }
 
 
-    /*
-     * Option Cars
-     */
-    @And("^click on the 'CARS option' of the 'lateral menu' in the 'Dashboard page'$")
-    public void clickOnTheCARSOptionOfTheLeftMenuInTheDashboardPage() {
-        dashboardPage = dashboardPage.selectCarsOption();
-    }
 
-    @And("^click on the 'CARS suboption' of the menu into 'CARS option'$")
-    public void clickOnTheCARSSuboptionOfTheMenuIntoCARSOption() {
-        carsPage = dashboardPage.selectSuboptionCarsOfCarsOption();
-    }
 
-    @Then("^verify that \"([^\"]*)\" title is displayed into 'cars page'$")
-    public void verifyThatTitleIsDisplayedIntoCarListPage(String expectedTitle) {
-        String actualTitle = carsPage.getTitleDisplayed();
+    // Option Cars
 
-        Assert.assertEquals(actualTitle, expectedTitle);
-    }
 
-    @And("^click on the 'ADD button' on top of the 'cars page'$")
-    public void clickOnTheADDButtonOnTopOfTheCarListPage() {
-        addCarPage = carsPage.clickAddButton();
-    }
 
-    @And("^fill 'general tab form' of 'add car page' with the following data$")
-    public void fillGeneralTabFormOfAddCarPageWithTheFollowingData(List<Map<String, String>> data) {
-        carsPage = addCarPage.fillGeneralTabForm(data);
-    }
-
-    @Then("^verify that \"([^\"]*)\" is displayed in the first record of the 'car table' in 'cars page'$")
-    public void verifyThatIsDisplayedInTheFirstRecordOfTheCarTableInCarsPage(String expectedCarName) {
-        String actualCarName = carsPage.getNameOfFirstRecord();
-
-        Assert.assertEquals(actualCarName, expectedCarName);
-    }
-
-    @And("^click on the 'edit option' of the first record in the 'cars page'$")
-    public void clickOnTheEditOptionOfTheFirstRecordInTheCarsPage() {
-        editCarPage = carsPage.clickEditButtonOfFirstRecord();
-    }
-
-    @And("^click on the 'Meta info tab' in the 'edit car page'$")
-    public void clickOnTheMetaInfoTabInTheEditCarPage() {
-        editCarPage = editCarPage.clickOnTheMetaInfoTab();
-    }
-
-    @And("^fill 'Meta info form' of 'edit car page' with the following data$")
-    public void fillMetaInfoFormOfEditCarPageWithTheFollowingData(List<Map<String, String>> data) {
-        carsPage = editCarPage.fillMetaInfoForm(data);
-    }
-
-    @Then("^verify that \"([^\"]*)\" notification message is displayed in the 'cars page'$")
-    public void verifyThatMessageIsDisplayedInTheCarsPage(String expectedMessage) {
-        String actualMessage = carsPage.getNotificationMessage();
-
-        Assert.assertEquals(actualMessage, expectedMessage);
-    }
-
-    @And("^click on the 'delete option' of the first record in the 'cars page'$")
-    public void clickOnTheDeleteOptionOfTheFirstRecordInTheCarsPage() {
-        carNameDeleted = carsPage.getNameOfFirstRecord();
-
-        carsPage = carsPage.clickDeleteOptionOfFirstRecord();
-    }
-
-    @And("^click on the 'accept button' of the 'confirm dialog' on the 'cars page'$")
-    public void clickOnTheAcceptButtonOfTheConfirmDialogOnTheCarsPage() {
-        carsPage = carsPage.clickAcceptButtonDelete();
-    }
-
-    @Then("^verify that 'car name' of the deleted record does not display in the 'cars page'$")
-    public void verifyThatCarNameOfTheDeletedRecordDoesNotDisplayInTheCarsPage() {
-        String actualCarName = carsPage.getNameOfFirstRecord();
-
-        Assert.assertNotSame(actualCarName, carNameDeleted);
-    }
-
-    @And("^click on the 'CARS SETTINGS suboption' of the menu into 'CARS option'$")
-    public void clickOnTheCARSSETTINGSSuboptionOfTheMenuIntoCARSOption() {
-        carsSettingsPage = dashboardPage.selectSuboptionCarsSettingsOfCarsOption();
-    }
-
-    @And("^click on the 'Types tab' in the 'cars settings page'$")
-    public void clickOnTheTypesTabInTheCarsSettingsPage() {
-        carsSettingsPage = carsSettingsPage.clickOnTheTypesTab();
-    }
-
-    @And("^click on the 'ADD button' on top of 'Types list' in the 'cars settings page'$")
-    public void clickOnTheADDButtonOnTopOfTypesListInTheCarsSettingsPage() {
-        carsSettingsPage = carsSettingsPage.clickAddButtonOfTypesTab();
-    }
-
-    @And("^fill 'add car type modal form' of 'car settings page' with the following data$")
-    public void fillAddCarTypeModalFormOfCarSettingsPageWithTheFollowingData(List<Map<String, String>> data) {
-        carsSettingsPage = carsSettingsPage.fillAddCarTypeModalForm(data);
-    }
-
-    @Then("^verify that \"([^\"]*)\" is displayed in the first record of the 'car type table' of 'Types tab' option in 'cars settings page'$")
-    public void verifyThatIsDisplayedInTheFirstRecordOfTheCarTypeTableOfTypesTabOptionInCarsSettingsPage(String expectedCarTypeName) {
-        clickOnTheTypesTabInTheCarsSettingsPage();
-
-        String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
-
-        Assert.assertNotSame(actualCarTypeName, expectedCarTypeName);
-    }
-
-    @And("^click on the 'edit option' of the first record in the 'Types tab' of 'cars settings page'$")
-    public void clickOnTheEditOptionOfTheFirstRecordInTheTypesTabOfCarsSettingsPage() {
-        carsSettingsPage = carsSettingsPage.clickEditButtonOfFirstRecordTypesTab();
-    }
-
-    @And("^fill 'update car type modal form' of 'car settings page' with the following data$")
-    public void fillUpdateCarTypeModalFormOfCarSettingsPageWithTheFollowingData(List<Map<String, String>> data) {
-        carsSettingsPage = carsSettingsPage.fillUpdateCarTypeModalForm(data);
-    }
-
-    @Then("^verify that \"([^\"]*)\" notification message is displayed in the 'cars settings page'$")
-    public void verifyThatNotificationMessageIsDisplayedInTheCarsSettingsPage(String expectedMessage) throws Throwable {
-        String actualMessage = carsSettingsPage.getNotificationMessage();
-
-        Assert.assertEquals(actualMessage, expectedMessage);
-    }
-
-    @And("^click on the 'delete option' of the first record in the 'Types tab' of 'cars settings page'$")
-    public void clickOnTheDeleteOptionOfTheFirstRecordInTheTypesTabOfCarsSettingsPage() {
-        carTypeNameDeleted = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
-
-        carsSettingsPage = carsSettingsPage.clickDeleteOptionOfFirstRecordTypesTab();
-    }
-
-    @And("^click on the 'accept button' of the 'confirm dialog' on the 'cars settings page'$")
-    public void clickOnTheAcceptButtonOfTheConfirmDialogOnTheCarsSettingsPage() {
-        carsSettingsPage = carsSettingsPage.clickAcceptButtonDelete();
-    }
-
-    @Then("^verify that 'car name' of the deleted record does not display in the 'Types tab' of 'cars settings page'$")
-    public void verifyThatCarNameOfTheDeletedRecordDoesNotDisplayInTheTypesTabOfCarsSettingsPage() {
-        clickOnTheTypesTabInTheCarsSettingsPage();
-
-        String actualCarTypeName = carsSettingsPage.getNameOfFirstRecordOfTabTypes();
-
-        Assert.assertNotSame(actualCarTypeName, carTypeNameDeleted);
-    }
-
-    @And("^click on the 'EXTRAS suboption' of the menu into 'CARS option'$")
-    public void clickOnTheEXTRASSuboptionOfTheMenuIntoCARSOption() {
-        carsExtrasPage = dashboardPage.selectSuboptionExtrasOfCarsOption();
-    }
-
-    @And("^click on the 'ADD button' in the 'extras page'$")
-    public void clickOnTheADDButtonInTheExtrasPage() {
-        addExtrasPage = carsExtrasPage.clickAddButton();
-    }
-
-    @And("^fill 'extra form' of 'add extras page' with the following data$")
-    public void fillExtraFormOfAddExtrasPageWithTheFollowingData(List<Map<String, String>> data) {
-        carsExtrasPage = addExtrasPage.fillFormWithSaveAndReturnButton(data);
-    }
-
-    @Then("^verify that \"([^\"]*)\" is displayed in the first record of the column 'Name' in 'extras page'$")
-    public void verifyThatIsDisplayedInTheFirstRecordOfTheColumnNameInExtrasPage(String expectedName) {
-        String actualName = carsExtrasPage.getNameOfFirstRecord();
-
-        Assert.assertEquals(actualName, expectedName);
-    }
-
-    @And("^verify that \"([^\"]*)\" is displayed in the first record of the column 'Price' in 'extras page'$")
-    public void verifyThatIsDisplayedInTheFirstRecordOfTheColumnPriceInExtrasPage(String expectedPrice) {
-        String actualPrice = carsExtrasPage.getPriceOfFirstRecord();
-
-        Assert.assertEquals(actualPrice, expectedPrice);
-    }
-
-
-    // Blogs
-    @And("^click on blog menu$")
-    public void clickOnBlogMenu() {
-        blogManager = dashboardPage.clickBlogMenu();
-    }
-
-    @And("^go to the 'Post' in blog page$")
-    public void goToToTheBlogPage() {
-        postPage = blogManager.clickPostMenu();
-    }
-
-    @And("^click on 'Search' in post page$")
-    public void clickOnSearchInPostPage() {
-        postPage.clickSearch();
-    }
-
-    @And("^search \"([^\"]*)\" on post page$")
-    public void searchOnPostPage(String name) throws Throwable {
-        postPage.searchElement(name);
-    }
-
-    @And("^click 'go button' on Post page$")
-    public void clickGoButtonOnPostPage() {
-        postPage.clickButton();
-    }
-
-    @And("^client en 'delete post' in post page$")
-    public void clientEnDeletePostInPostPage() {
-        postPage.clickDeletePostPage();
-    }
-
-    @And("^press on the Enter key to delete in post page$")
-    public void pressOnTheEnterKeyToDeleteInPostPage() {
-        postPage.pressEnterDelete();
-    }
-
-    @And("^close Session on Dashboard page$")
-    public void cerrarSesionOnDashboardPage() {
-        login = dashboardPage.closeSesion();
-    }
-
-    @And("^click in new in blog page$")
-    public void clickInNewInBlogPage() {
-        postPage.clickNew();
-    }
-
-    @And("^check List in blog nemu$")
-    public void assertListInBlogSecction() {
-        blogManager.setValuesModelexpexted();
-    }
-
-    @Then("^assert list in blog secction:$")
-    public void assertListInBlogSecction(DataTable datos) throws Throwable {
-        blogManager.checkAssert(datos);
-    }
-
-    @And("^check \"([^\"]*)\" in secction Post into blogs$")
-    public void checkInSecctionPostIntoBlogs(String arg0) throws Throwable {
-        postPage.checkBlogmanagerTitle(arg0);
-    }
-
-    @Then("^fill in data for new post:$")
-    public void fillInDataForNewPost(DataTable datos) throws Throwable {
-        postPage.setfillDatainPost(datos);
-    }
-
-    @And("^press on the Enter key to create in post page$")
-    public void pressOnTheEnterKeyToCreateInPostPage() {
-        postPage.pressEnterNew();
-    }
-
-    @And("^click en edit in post page$")
-    public void clickEnEditInPostPage() {
-        postPage.editElement();
-    }
-
-    @And("^change value into post \"([^\"]*)\"$")
-    public void changeValueIntoPost(String arg0) throws Throwable {
-        postPage.setElementIntoPost(arg0);
-    }
-
-    @And("^press on the Enter key to Update in post page$")
-    public void pressOnTheEnterKeyToUpdateInPostPage() {
-        postPage.clickUpdatePost();
-    }
-
-    @And("^select the first element and save value$")
-    public void selectTheFirstElementAndSaveValue() {
-        postPage.selectFirtelement();
-    }
-
-    @And("^first value salved search on post page$")
-    public void firstValueSalvedSearchOnPostPage() {
-        postPage.searchSalveElement();
-    }
-
-    @And("^assert not exist element firts salve$")
-    public void assertNotExistElementFirtsSalve() {
-        postPage.assertFirtElement();
-    }
-
-    @And("^check \"([^\"]*)\" exist in post page$")
-    public void checkExistInPostPage(String arg0) throws Throwable {
-        postPage.checkTranlate(arg0);
-    }
-
-    @And("^go to the 'Category' in blog page$")
-    public void goToTheCategoryInBlogPage() {
-        categoryBlogPage = blogManager.clickCategoryMenu();
-    }
-
-    @And("^check \"([^\"]*)\" in secction category into blogs$")
-    public void checkInSecctionCategoryIntoBlogs(String arg0) throws Throwable {
-        categoryBlogPage.checkTitleExiste(arg0);
-    }
-
-    @And("^assert element with result in title$")
-    public void assertElementWithResultInTitle() {
-        categoryBlogPage.assertTitle();
-    }
-
-    @And("^click in new categoty into blog page$")
-    public void clickInNewCategotyIntoBlogPage() {
-        categoryBlogPage.clickNew();
-    }
-
-    @And("^fill name with \"([^\"]*)\" as new 'category'$")
-    public void fillNameWithAsNewCategory(String arg0) throws Throwable {
-        categoryBlogPage.fillNewCategory(arg0);
-    }
-
-    @And("^save new category in blog page$")
-    public void saveNewCategoryInBlogPage() {
-        categoryBlogPage.savenewCategory();
-    }
-
-    @And("^click on 'Search' in catoroty into post page$")
-    public void clickOnSearchInCatorotyIntoPostPage() {
-        categoryBlogPage.clickSearchCategory();
-    }
-
-    @And("^click 'go button' on category page$")
-    public void clickGoButtonOnCategoryPage() {
-        categoryBlogPage.goPageSearch();
-    }
-
-    @And("^check exist element in category$")
-    public void checkExistElementInCategory() {
-        categoryBlogPage.assertExistNewelement();
-    }
-
-    @And("^click en edit in category secction$")
-    public void clickEnEditInCategorySecction() {
-        categoryBlogPage.clickEdit();
-    }
-
-    @And("^change value into category name \"([^\"]*)\"$")
-    public void changeValueIntoCategoryName(String arg0) throws Throwable {
-        categoryBlogPage.changeNameCategory(arg0);
-    }
-
-    @And("^salve change value in category$")
-    public void salveChangeValueInCategory() {
-        categoryBlogPage.salveEdit();
-    }
-
-    @And("^assert new value \"([^\"]*)\"$")
-    public void assertNewValue(String arg0) throws Throwable {
-        categoryBlogPage.assertName(arg0);
-    }
-
-    @And("^click in delete in category secction$")
-    public void clickInDeleteInCategorySecction() {
-        categoryBlogPage.deleteElement();
-    }
-
-    @And("^assert value \"([^\"]*)\" not exist$")
-    public void assertValueNotExist(String arg0) throws Throwable {
-        categoryBlogPage.assertNotExist(arg0);
-    }
-
+    // Option Blog
 }
