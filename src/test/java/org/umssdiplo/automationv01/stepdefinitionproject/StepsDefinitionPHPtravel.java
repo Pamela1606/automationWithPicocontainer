@@ -75,6 +75,7 @@ public class StepsDefinitionPHPtravel {
     private ToursPage toursPage;
     private AddToursPage addToursPage;
     private EditToursPage editToursPage;
+    private String nameToursDeleted;
     private AddNewPage addNewPage;
     private ExtrasPage extrasPage;
     private AddExtraPage addExtraPage;
@@ -976,66 +977,47 @@ public class StepsDefinitionPHPtravel {
         login = dashboardPage.closeSesion();
     }
 //Edit///
-    @And("^click on SearchButton on Tours page$")
-    public void clickOnSearchButtonOnToursPage() {
-        toursPage = toursPage.clickOnSearchButton();
+    @And("^click on Edit on Tours page to a Tours selected$")
+    public void clickToEditOnToursPageListToAToursEditSelected() {
+    editToursPage = toursPage.clickEditButton();
+}
+
+    @And("^click to tab 'General' on Tours Edit selected$")
+    public void clickToTabGeneralOnToursEditSelected() {
+
+        editToursPage = editToursPage.clickEditGeneral();
     }
 
-    @And("^fill element to search \"([^\"]*)\" Search field On Tours page$")
-    public void fillElementeToSearchSearchFieldOnToursPage(String arg0) throws Throwable {
-        toursPage = toursPage.fillElementeToSearch(arg0);
+    @And("^update data form of 'general tab' in edit Tours page$")
+    public void updateDataFormOfGeneralTabInEditToursPage(DataTable dataTable) {
+        List<Map<String, String>> editDataTours = dataTable.asMaps(String.class, String.class);
+        toursPage = editToursPage.updateDataFormOfGeneralTab(editDataTours);
     }
 
-    @And("^select by field \"([^\"]*)\" on Tours page$")
-    public void selectByFieldOnToursPage(String arg0) throws Throwable {
-        toursPage = toursPage.selectByField(arg0);
+    @Then("^Verify that the \"([^\"]*)\" message is displayed on Tours page$")
+    public void verifyTheMessageIsDisplayedOnListToursPage(String messageExpected) throws Throwable {
+        String messageActual = toursPage.getMessageNotification();
+        Assert.assertEquals(messageActual, messageExpected);
+    }
+//Delete//
+    @And("^click to 'delete option' on the registry first on Tours on dashboard page$")
+    public void clickToDeleteOptionOnTheRegistryFirstOnToursOnDashboardPage() {
+    nameToursDeleted = toursPage.getNameTours();
+    toursPage = toursPage.clickDeleteButton();
+}
+
+    @And("^click to 'ok button' of the 'pop-up window' on the Tours page$")
+    public void clickToOkButtonOfThePopUpWindowOnTheToursPage() {
+
+        toursPage = toursPage.clickOkToDelete();
     }
 
-    @And("^click on GO button on Tours page$")
-    public void clickOnGOButtonOnToursPage() {
-        toursPage = toursPage.clickOnGOButton();
+    @Then("^Verify that 'Tours Name' was deleted of the Tours  into dashboard page$")
+    public void verifyThatToursNameWasDeletedOfTheToursIntoDashboardPage() {
+        String nameToursActual = toursPage.getNameTours();
+        Assert.assertNotSame(nameToursActual, nameToursDeleted);
     }
-
-    @And("^choose the element to select on Tours page$")
-    public void chooseTheElementToSelectOnToursPage() {
-        toursPage = toursPage.chooseLastElementToSelect();
-    }
-
-    @And("^click on icon edit element selected on Tours page$")
-    public void clickOnIconEditElementSelectedOnToursPage() {
-        editToursPage = toursPage.clickIconElementToEdit();
-    }
-
-    @And("^select \"([^\"]*)\" Status on Edit Tours page$")
-    public void selectStatusOnEditToursPage(String arg0) throws Throwable {
-        editToursPage = editToursPage.selectStatus(arg0);
-    }
-
-    @And("^edit with \"([^\"]*)\" Name field on Edit Tours page$")
-    public void editWithNameFieldOnEditRoutePage(String arg0) throws Throwable {
-        editToursPage = editToursPage.editName(arg0);
-    }
-
-    @And("^edit with \"([^\"]*)\" Quantity Adults field on Edit Tours page$")
-    public void editWithQuantityAdultsFieldOnEditRoutePage(String arg0) throws Throwable {
-        editToursPage = editToursPage.editQuantityAdults(arg0);
-    }
-
-    @And("^click On Submit on Edit Tours page$")
-    public void clickOnSubmitOnEditToursPage() {
-        toursPage = editToursPage.clickOnSubmit();
-    }
-
-    @And("^click on icon delete element selected on Tours page$")
-    public void clickOnIconDeleteElementSelectedOnToursPage() {
-        toursPage = toursPage.clickIconElementToDelete();
-    }
-
-    @And("^press on the Enter key to delete the chosen element on Tours page$")
-    public void pressOnTheEnterKeyToDeleteTheChosenElementOnToursPage() {
-        toursPage = toursPage.pressEnterKey();
-    }
-//Add NEw//
+//Add New//
     @And("^go to the Add New page$")
     public void goToTheAddNewPage() {
         addNewPage = toursManagement.clickTourMenuAddNew();
@@ -1135,11 +1117,6 @@ public class StepsDefinitionPHPtravel {
     public void clickButtonSaveAndReturnOnAddExtraPage() {
 
         extrasPage = addExtraPage.saveReturnButton();
-    }
-
-    @And("^wait upload image \"([^\"]*)\" on Add Extras page$")
-    public void waitUploadImageOnAddExtraPage(String arg0) throws Throwable {
-        addExtraPage = addExtraPage.waitToUploadImage();
     }
 
     @And("^click on Search button on Extras page$")

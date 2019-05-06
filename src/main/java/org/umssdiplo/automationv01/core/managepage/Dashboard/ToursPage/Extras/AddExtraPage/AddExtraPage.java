@@ -18,9 +18,6 @@ public class AddExtraPage extends BasePage {
     @FindBy(name = "cHRfZXh0cmFzLmV4dHJhc19iYXNpY19wcmljZQ--")
     private WebElement fieldPrice;
 
-    @FindBy(css=".img-thumbnail")
-    private WebElement uploadImage;
-
     @FindBy(css = ".btn-primary")
     private WebElement saveReturnButton;
 
@@ -48,10 +45,5 @@ public class AddExtraPage extends BasePage {
         return new ExtrasPage();
     }
 
-    public AddExtraPage waitToUploadImage() {
-        CommonEvents.forceWait(10000);
-        CommonEvents.waitWebElementIsVisible(uploadImage);
-        CommonEvents.forceWait(4000);
-        return this;
-    }
+
 }

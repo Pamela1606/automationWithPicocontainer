@@ -6,7 +6,13 @@ import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.Dashboard.ToursPage.Tours.ToursPage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
+import java.util.List;
+import java.util.Map;
+
 public class EditToursPage extends BasePage {
+
+    @FindBy(css = "a[href='#GENERAL'")
+    private WebElement generalTab;
 
     @FindBy(name = "tourstatus")
     private WebElement selectStatus;
@@ -17,30 +23,21 @@ public class EditToursPage extends BasePage {
     @FindBy(name = "maxadult" )
     private WebElement fieldQuantityAdults;
 
-    @FindBy(id = "manage")
+    @FindBy(css = "button#update")
     private WebElement submitButton;
 
+    public EditToursPage clickEditGeneral() {
+        CommonEvents.clickButton(generalTab);
+        return this;
+    }
 
-    public EditToursPage selectStatus(String status) {
+    public ToursPage updateDataFormOfGeneralTab(List<Map<String, String>> editDataHotels) {
+        Map<String, String> dtForm = editDataHotels.get(0);
         CommonEvents.waitWebElementIsVisible(selectStatus);
-        CommonEvents.chooseDropDownByTextVisible(selectStatus, status);
-        return this;
-    }
+        CommonEvents.chooseDropDownByTextVisible(selectStatus, dtForm.get("Status"));
+        CommonEvents.setInputField(fieldName, dtForm.get("Tour Name"));
+        CommonEvents.setInputField(fieldQuantityAdults, dtForm.get("Quantity"));
 
-    public EditToursPage editName(String name) {
-        CommonEvents.waitWebElementIsVisible(fieldName);
-        CommonEvents.setInputField(fieldName, name);
-        return this;
-    }
-
-    public EditToursPage editQuantityAdults(String quantityAdults) {
-        CommonEvents.waitWebElementIsVisible(fieldQuantityAdults);
-        CommonEvents.setInputField(fieldQuantityAdults, quantityAdults);
-        return this;
-    }
-
-    public ToursPage clickOnSubmit() {
-        CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
         return new ToursPage();
     }
