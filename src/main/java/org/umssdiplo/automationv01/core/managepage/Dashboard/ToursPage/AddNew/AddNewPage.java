@@ -41,11 +41,14 @@ public class AddNewPage extends BasePage {
     @FindBy(id = "s2id_locationlist1")
     private WebElement location;
 
-    @FindBy(id = "locationlist1")
+    @FindBy(css = "#select2-drop > div:nth-child(1) > input:nth-child(1)")
     private WebElement fieldLocation;
 
     @FindBy(id = "\"select2-drop\"]/ul/li[2]/div/span")
     private WebElement fieldSelected;
+
+    @FindBy (id = "mapaddress")
+    private WebElement fieldAddress;
 
     @FindBy(id = "add")
     private WebElement submitButton;
@@ -108,23 +111,22 @@ public class AddNewPage extends BasePage {
         return this;
     }
 
-    public AddNewPage selectLocation1(String location1) {
-        CommonEvents.waitWebElementIsVisible(location);
+    public AddNewPage selectLocation1(String locations) {
         CommonEvents.clickButton(location);
         CommonEvents.waitWebElementIsVisible(fieldLocation);
-        CommonEvents.setInputField(fieldLocation, location1);
-        CommonEvents.forceWait(5000);
+        CommonEvents.setInputField(fieldLocation, locations);
+        CommonEvents.forceWait(10000);
         CommonEvents.pressEnterKey(fieldLocation);
         return this;
     }
 
+    // se  agregado un wait
     public ToursPage clickOnSubmit() {
+        CommonEvents.forceWait(4000);
         CommonEvents.waitWebElementIsVisible(submitButton);
         CommonEvents.clickButton(submitButton);
+        //CommonEvents.forceWait(4000);
         return new ToursPage();
     }
-
-
-
 
 }

@@ -70,15 +70,15 @@ public class ExtrasPage extends BasePage {
 
 
     private void searchLastElementToInspectOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[8]/span/a[1]/i") );
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[9]/span/a[1]/i") );
     }
 
     private void searchLastElementToEditOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[8]/span/a[2]/i") );
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[9]/span/a[2]/i") );
     }
 
     private void searchLastElementToDeleteOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[8]/span/a[3]/i") );
+        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[9]/span/a[3]/i") );
     }
 
     public ExtrasPage chooseLastElementToSelect() {

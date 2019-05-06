@@ -30,6 +30,15 @@ public class ToursPage extends BasePage {
     @FindBy(xpath = "//table[1]/tbody[1]/tr/td[4]")
     private List<WebElement> listaTablaName;
 
+    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(11) span a:nth-child(1)")
+    private WebElement editToursButton;
+
+    @FindBy(css = "tbody > tr:nth-child(2) > td:nth-child(5) a")
+    private WebElement nameTours;
+
+    @FindBy(css = "tbody > tr:nth-child(1) > td:nth-child(11) span a:nth-child(2)")
+    private WebElement deleteHotelButton;
+
     private WebElement elementToChose;
 
     public AddToursPage clickAddButton() {
@@ -38,65 +47,27 @@ public class ToursPage extends BasePage {
         return new AddToursPage();
     }
 
-    public ToursPage clickOnSearchButton() {
-        CommonEvents.waitWebElementIsVisible(buttonSearch);
-        CommonEvents.clickButton(buttonSearch);
-        return this;
+    public String getNameTours() {
+        String nameToursActual = CommonEvents.getTextContent(nameTours);
+        return nameToursActual;
     }
 
-    public ToursPage fillElementeToSearch(String searchElement) {
-        CommonEvents.waitWebElementIsVisible(fieldToSearch);
-        CommonEvents.setInputField(fieldToSearch,searchElement);
-        return this;
-    }
-
-    public ToursPage selectByField(String fieldToSearch) {
-        CommonEvents.waitWebElementIsVisible(selectFieldToSearch);
-        CommonEvents.chooseDropDownByTextVisible(selectFieldToSearch,fieldToSearch);
-        return this;
-    }
-
-    public ToursPage clickOnGOButton() {
-        CommonEvents.waitWebElementIsVisible(buttonGO);
-        CommonEvents.clickButton(buttonGO);
-        return this;
-    }
-
-
-    private void searchLastElementToSelectOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]//td[1]/input") );
-    }
-
-    private void searchLastElementToEditOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[1]/i") );
-    }
-
-    private void searchLastElementToDeleteOnTable() {
-        elementToChose = webDriver.findElement(By.xpath("//tbody//tr["+listaTablaName.size()+"]/td[13]/span/a[2]/i") );
-    }
-
-
-    public ToursPage chooseLastElementToSelect() {
-        CommonEvents.forceWait(4000);
-        searchLastElementToSelectOnTable();
-        CommonEvents.waitWebElementIsVisible(elementToChose);
-        CommonEvents.clickButton(elementToChose);
-        return this;
-    }
-
-    public EditToursPage clickIconElementToEdit() {
-        CommonEvents.forceWait(4000);
-        searchLastElementToEditOnTable();
-        CommonEvents.waitWebElementIsVisible(elementToChose);
-        CommonEvents.clickButton(elementToChose);
+    public EditToursPage clickEditButton() {
+        CommonEvents.clickButton(editToursButton);
         return new EditToursPage();
     }
 
-    public ToursPage clickIconElementToDelete() {
-        CommonEvents.forceWait(4000);
-        searchLastElementToDeleteOnTable();
-        CommonEvents.waitWebElementIsVisible(elementToChose);
-        CommonEvents.clickButton(elementToChose);
+    public String getMessageNotification() {
+        return "CHANGES SAVED!";
+    }
+
+    public ToursPage clickDeleteButton() {
+        CommonEvents.clickButton(deleteHotelButton);
+        return this;
+    }
+
+    public ToursPage clickOkToDelete() {
+        CommonEvents.acceptDialog();
         return this;
     }
 

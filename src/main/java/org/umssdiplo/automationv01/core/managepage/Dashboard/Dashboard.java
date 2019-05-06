@@ -120,7 +120,7 @@ public class Dashboard extends BasePage {
     }
 
     public Login closeSesion() {
-        CommonEvents.forceWait(4000);
+        CommonEvents.forceWait(3000);
         CommonEvents.waitWebElementClickable(logoutButton);
         CommonEvents.clickButton(logoutButton);
         return new Login();
