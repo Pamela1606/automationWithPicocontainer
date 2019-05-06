@@ -399,7 +399,7 @@ Feature: Login
     And click on GO button on Extras page
     And choose the element to select on Extras page
     And click on icon inspect element selected on Extras page
-    And close Session on Dashboard page
+    And close Session in Dashboard page
 
   @ENE
   Scenario: edit the new Extra
